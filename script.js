@@ -1,0 +1,1141 @@
+var B={d:["Desert","Desierto"],c:["Culture","Cultura"],x:["Day trip","Excursión"],n:["Nature","Naturaleza"],i:["Imperial cities","Ciudades imperiales"]};
+var CAM="M10 40C10 30 18 24 28 25C32 10 46 10 49 24C60 24 68 28 72 30L78 18C80 12 84 10 88 12L96 14C98 15 98 19 95 20L88 22L84 34C82 40 76 42 72 42L70 70H64L62 46H40L38 70H32L30 46H20L18 70H12L12 46C10 44 10 42 10 40Z";
+function cam(x,y,z){return '<g transform="translate('+x+' '+y+') scale('+z+')"><ellipse cx="45" cy="71" rx="42" ry="3" fill="#000" opacity=".25"/><path d="'+CAM+'"/></g>'}
+var PH={camelride:1,pool:1,babbj:1,hassandusk:1,qarawiyyin:1,jemaanight:1,kasbah:1,camelgrp:1,jeep:1,quad:1,buggy:1,horse:1,sandboard:1,lake:1,gnawa:1,cooking:1,meknes:1,ait:1,taourirt:1,draa:1,taroudant:1,jemaa:1,majorelle:1,tannery:1,volubilis:1,rabat:1,hassan:1,tangier:1,essaouira:1,macaque:1,ouzoud:1,ourika:1,ifrane:1};
+function sc(k){if(PH[k])return '<div class="scn ph p-'+k+'"></div>';if(k=="camel")return '<div class="scn ph pcam"></div>';if(k=="night")return '<div class="scn ph pcamp"></div>';if(k=="todra")return '<div class="scn ph ptod"></div>';if(k=="dades")return '<div class="scn ph pdad"></div>';
+  var L=function(d,x){return '<g class="l" data-d="'+d+'">'+x+'</g>'},K='<g fill="#1d0f08" opacity=".9">',
+  sun=L(4,'<circle cx="300" cy="62" r="46" fill="#fff" opacity=".1"/><circle cx="300" cy="62" r="34" fill="#fff" opacity=".16"/><circle cx="300" cy="62" r="24" fill="#fff" opacity=".85"/>'),
+  far=L(8,'<path d="M-50 150L30 105L70 130L130 85L190 135L240 110L300 140L360 100L450 150V260H-50Z" fill="#000" opacity=".1"/>'),
+  d1=L(14,'<path d="M-50 160Q40 120 130 150T300 140T450 150V260H-50Z" fill="#000" opacity=".16"/>'),
+  r2='M-50 178Q60 140 170 172T350 160T450 170',
+  d2=function(x){return L(22,'<path d="'+r2+'V260H-50Z" fill="#000" opacity=".26"/><path d="'+r2+'" fill="none" stroke="#fff" stroke-width="1.5" opacity=".35"/>'+(x||""))},
+  r3='M-50 198Q80 170 220 196T450 186',
+  d3=L(34,'<path d="'+r3+'V260H-50Z" fill="#000" opacity=".45"/><path d="'+r3+'" fill="none" stroke="#fff" stroke-width="1.5" opacity=".25"/>'),
+  palm='<path d="M120 178Q124 130 118 100h5q5 30 1 78z"/><path d="M121 100q-30-5-40 15 25-12 40-8zM121 100q30-5 40 15-25-12-40-8zM121 100q-15-25-35-20 28 0 35 18zM121 100q15-25 35-20-28 0-35 18z"/>',g;
+  if(k=="camel")g=sun+far+d1+d2(K+cam(40,120,.55)+cam(105,129,.5)+cam(170,140,.45)+'</g>')+d3;
+  else if(k=="car")g=sun+far+d1+d2(K+'<g transform="translate(190 124)"><path d="M5 46h14l6-14h26l8 14h20v14H5z"/><path d="M22 28h30" stroke="#1d0f08" stroke-width="2"/><circle cx="24" cy="60" r="9"/><circle cx="66" cy="60" r="9"/></g></g><g fill="#fff" opacity=".22"><circle cx="180" cy="184" r="8"/><circle cx="164" cy="180" r="11"/><circle cx="144" cy="175" r="14"/></g>')+d3;
+  else if(k=="night")g=L(3,'<circle cx="300" cy="50" r="18" fill="#fff" opacity=".9"/><g fill="#fff"><circle cx="40" cy="30" r="2"/><circle cx="90" cy="70" r="1.5"/><circle cx="140" cy="25" r="2"/><circle cx="200" cy="60" r="1.5"/><circle cx="250" cy="20" r="2"/><circle cx="360" cy="90" r="1.5"/><circle cx="60" cy="110" r="1.5"/><circle cx="330" cy="20" r="1.5"/></g>')+d1+d2('<circle cx="190" cy="150" r="26" fill="#ffb347" opacity=".3"/><path d="M164 176l26-36 26 36z" fill="#1d0f08" opacity=".92"/>')+d3;
+  else if(k=="city")g=sun+far+L(20,K+'<rect x="260" y="70" width="14" height="110"/><rect x="256" y="64" width="22" height="8"/><path d="M262 64l5-16 5 16z"/><rect x="100" y="130" width="50" height="50"/><path d="M100 130a25 25 0 0150 0z"/><rect x="160" y="145" width="60" height="35"/><rect x="225" y="135" width="30" height="45"/><rect x="285" y="150" width="70" height="30"/></g><g fill="#ffd36b" opacity=".8"><rect x="118" y="150" width="6" height="12"/><rect x="130" y="150" width="6" height="12"/><rect x="175" y="156" width="6" height="10"/><rect x="236" y="148" width="6" height="10"/><rect x="305" y="160" width="6" height="10"/></g>')+d3;
+  else if(k=="sea")g=sun+far+L(16,'<path d="M150 135l30-50v50z" fill="#fff" opacity=".9"/><path d="M148 140h40l-8 12h-24z" fill="#1d0f08" opacity=".8"/><path d="M-50 150Q0 130 50 150T150 150T250 150T350 150T450 150V260H-50Z" fill="#fff" opacity=".2"/>')+L(26,'<path d="M-50 172Q0 152 50 172T150 172T250 172T350 172T450 172V260H-50Z" fill="#000" opacity=".25"/>')+d3;
+  else if(k=="oasis")g=sun+far+d1+d2(K+palm+'</g><g fill="#1d0f08" opacity=".7" transform="translate(190 22) scale(.8)">'+palm+'</g>')+d3;
+  else g=sun+far+d1+d2()+d3;
+  return '<svg class="scn" viewBox="0 0 400 200" preserveAspectRatio="xMidYMax slice" aria-hidden="true">'+g+'</svg>';
+}
+function par(){var h=innerHeight;document.querySelectorAll(".scn").forEach(function(s){var r=s.getBoundingClientRect();if(r.bottom<0||r.top>h)return;var p=(r.top+r.height/2-h/2)/h;s.querySelectorAll(".l").forEach(function(g){var d=+g.getAttribute("data-d");g.style.transform="translate("+(-p*d*.5)+"px,"+(p*d*.6)+"px)"})})}
+addEventListener("scroll",par,{passive:true});
+function ak(k){return {camel:"camelgrp",overnight:"camelride",sunrise:"camel",sunset:"camel","4x4":"jeep",quad:"quad",buggy:"buggy",horse:"horse",stars:"night",sandboard:"sandboard",lake:"lake",culture:"gnawa",cooking:"cooking"}[k]||"dunes"}
+var TPO={"0-0":"kasbah","0-1":"jemaanight","1-0":"qarawiyyin","2-0":"hassandusk","1-1":"babbj","0-6":"pool"};
+function tk(c,t){var ci=C.indexOf(c),ti=c[5].indexOf(t);if(TPO[ci+"-"+ti])return TPO[ci+"-"+ti];return t[3]=="d"?["camel","todra","dades","night"][(ci+ti)%4]:{marrakech:"jemaa",fes:"tannery",casablanca:"hassan",tangier:"tangier"}[c[0]]}
+var TCOL={"0-2":["camelgrp","ait","ifrane"],"0-3":["camel","ait","dades"],"0-4":["night","todra","draa"],"0-5":["camel","draa","gnawa"],"0-7":["jemaa","tannery","rabat"],"1-2":["night","ifrane","ait"],"1-3":["camelgrp","macaque","taourirt"],"1-4":["tannery","camel","hassandusk"],"2-1":["hassan","volubilis","dades"],"2-2":["rabat","todra","jemaa"],"2-3":["night","sandboard","essaouira"],"3-0":["tangier","volubilis","hassan"],"3-1":["camel","tangier","ait"],"3-2":["dades","tangier","tannery"],"3-3":["todra","tangier","majorelle"],"3-4":["night","tangier","jemaa"]};
+var CAPN={camel:"Merzouga",night:"Desert camp",todra:"Todra Gorge",dades:"Dades Valley",ait:"Aït Benhaddou",taourirt:"Ouarzazate",draa:"Draa Valley",taroudant:"Taroudant",jemaa:"Marrakech",majorelle:"Majorelle Garden",tannery:"Fes",volubilis:"Volubilis",rabat:"Rabat",hassan:"Casablanca",tangier:"Tangier",essaouira:"Essaouira",macaque:"Middle Atlas",ifrane:"Ifrane",camelgrp:"Erg Chebbi",gnawa:"Gnawa music",sandboard:"Sandboarding",kasbah:"Kasbah Mosque",jemaanight:"Jemaa el-Fnaa",qarawiyyin:"Al-Qarawiyyin",hassandusk:"Hassan II Mosque",babbj:"Bab Bou Jeloud",pool:"Desert hotel"};
+function phc(k){return sc(k).replace(/^.*class="scn ph ([^"]+)".*$/,"$1")}
+function hk(c,t){var q=TCOL[C.indexOf(c)+"-"+c[5].indexOf(t)];return q?q[0]:tk(c,t)}
+function tsc(c,t){var q=TCOL[C.indexOf(c)+"-"+c[5].indexOf(t)];
+  if(!q){var k=tk(c,t);return sc(k)+(CAPN[k]?'<span class="tcap">'+CAPN[k]+'</span>':'')}
+  return '<div class="scn clg">'+q.map(function(x,i){return '<div class="ph '+phc(x)+'"><span class="tcap'+(i?' s':'')+'">'+CAPN[x]+'</span></div>'}).join("")+'</div>'}
+var C=[
+["marrakech","Marrakech","Marrakech","#2563a8,#e8a13a","🕌",[
+[3,"3 Days from Marrakech to Fes Morocco Desert Tour","3 días de Marrakech a Fez: tour por el desierto de Marruecos","d"],
+[3,"3 Days Tour from Marrakech to Merzouga Desert","Tour de 3 días de Marrakech al desierto de Merzouga","d"],
+[4,"4 Days from Marrakech to Fes via Desert","4 días de Marrakech a Fez por el desierto","d"],
+[4,"4 Days Tour from Marrakech to Merzouga Desert","Tour de 4 días de Marrakech al desierto de Merzouga","d"],
+[5,"5 Days Morocco Desert Tour from Marrakech","Tour de 5 días por el desierto de Marruecos desde Marrakech","d"],
+[7,"7 Days from Marrakech Morocco Sahara Desert Tour","7 días desde Marrakech: tour por el Sahara de Marruecos","d"],
+[8,"8 Days Essential Morocco Tour from Marrakech","Tour esencial de Marruecos de 8 días desde Marrakech","i"],
+[10,"10 Days Morocco Grand Tour from Marrakech","Gran tour de Marruecos de 10 días desde Marrakech","i"]]],
+["fes","Fes","Fez","#7a2e1a,#e8a13a","🏺",[
+[3,"3 Days Desert Tour Fes to Marrakech","Tour de 3 días por el desierto de Fez a Marrakech","d"],
+[3,"3 Days Morocco Sahara Desert Tour from Fes","Tour de 3 días por el Sahara de Marruecos desde Fez","d"],
+[4,"4 Days Morocco Desert Tour from Fes to Marrakech","Tour de 4 días por el desierto de Fez a Marrakech","d"],
+[5,"5 Days from Fes to Marrakech Morocco Desert Tour","5 días de Fez a Marrakech: tour por el desierto de Marruecos","d"],
+[7,"7 Days Tour in Morocco from Fes","Tour de 7 días por Marruecos desde Fez","i"]]],
+["casablanca","Casablanca","Casablanca","#1f6f6b,#9bd0c8","🕌",[
+[7,"7 Days in Morocco from Casablanca Desert Tours","7 días en Marruecos desde Casablanca: tours por el desierto","d"],
+[9,"9 Days Private Morocco Tour from Casablanca","Tour privado de 9 días por Marruecos desde Casablanca","i"],
+[10,"10 Days Morocco Tour from Casablanca","Tour de 10 días por Marruecos desde Casablanca","i"],
+[12,"12 Days Morocco Desert Tour from Casablanca","Tour de 12 días por el desierto de Marruecos desde Casablanca","d"]]],
+["tangier","Tangier","Tánger","#1b3f7a,#6fb1e0","🌊",[
+[6,"6 Days in Morocco Tour from Tangier","Tour de 6 días por Marruecos desde Tánger","i"],
+[7,"7 Days Morocco Desert Tour from Tangier","Tour de 7 días por el desierto de Marruecos desde Tánger","d"],
+[9,"9 Days Morocco Desert Tour from Tangier","Tour de 9 días por el desierto de Marruecos desde Tánger","d"],
+[10,"10 Days Holiday in Morocco from Tangier","10 días de vacaciones en Marruecos desde Tánger","i"],
+[12,"12 Days Absolute Morocco Tour from Tangier","Tour absoluto de Marruecos de 12 días desde Tánger","i"]]]
+];
+function dn(d){return{en:d>1?d+" Days • "+(d-1)+" Nights":"1 Day",es:d>1?d+" días • "+(d-1)+" noches":"1 día"}}
+var th="",tc="",nm="",CH=[];
+C.forEach(function(c,ci){
+  tc+='<a href="#t-'+c[0]+'" data-es="'+c[2]+'">'+c[1]+'</a>';
+  th+='<div class="cg" id="t-'+c[0]+'"><h3 class="cgt"><span data-es="'+c[2]+'">'+c[1]+'</span></h3><div class="tgrid">';
+  nm+='<details><summary data-es="Tours desde '+c[2]+'">Tours from '+c[1]+'</summary><div class="fly">';
+  c[5].forEach(function(t,ti){
+    var x=dn(t[0]),h="#tour-"+ci+"-"+ti;
+    var cd='<article class="tcard"><div class="tpic" style="background:linear-gradient(160deg,'+c[3]+')">'+tsc(c,t)+'<span class="tb" data-es="'+B[t[3]][1]+'">'+B[t[3]][0]+'</span></div><div class="tbody"><div class="tk" data-es="Desde '+c[2]+'">From '+c[1]+'</div><h4 data-es="'+t[2]+'">'+t[1]+'</h4><div class="tm" data-es="'+x.es+' • 2–12 personas">'+x.en+' • 2–12 people</div><div class="tf"><span>🗣 EN · ES · FR</span><a href="'+h+'" data-es="Ver detalles →">View details →</a></div></div></article>';
+    if(ti<4)th+=cd;CH[ci]=(CH[ci]||"")+cd;
+    nm+='<a href="'+h+'" data-es="'+t[2]+'">'+t[1]+'</a>';
+  });
+  th+='</div><div style="text-align:center;margin-top:20px"><a class="allbtn" href="#city-'+ci+'" data-es="Todos los tours desde '+c[2]+' →">All tours from '+c[1]+' →</a></div></div>';nm+='</div></details>';
+});
+document.getElementById("tgroups").innerHTML=th;
+document.getElementById("fscene").innerHTML=sc("dunes");
+document.querySelectorAll(".acard .pic").forEach(function(e,i){e.innerHTML=sc(["camelgrp","jeep","night"][i])});
+document.getElementById("chips").innerHTML=tc;
+document.getElementById("tmenu").innerHTML=nm;
+document.querySelectorAll(".pill").forEach(function(a){var g=a.getAttribute("href");try{if(!document.querySelector(g))a.setAttribute("href","#tours")}catch(e){}});
+function showCity(ci){var c=C[+ci];if(!c)return false;
+  var h=document.getElementById("cph");h.style.background="linear-gradient(160deg,"+c[3]+")";
+  h.innerHTML='<a href="#tours" data-es="← Volver a los tours">← Back to tours</a>'+sc("camel")+'<h1 data-es="Tours desde '+c[2]+'">Tours from '+c[1]+'</h1><p data-es="'+c[5].length+' tours privados">'+c[5].length+' private tours</p>';
+  document.getElementById("cgrid").innerHTML=CH[+ci];applyLang(document.getElementById("city-page"));return true}
+var TD={};
+function bi(x,f){var p=x.split("|");return' data-es="'+p[1].replace(/"/g,"&quot;")+'"'+(f?' data-fr="'+f.replace(/"/g,"&quot;")+'"':'')+'>'+p[0]}
+function tdBody(d){
+  var u=function(a,c){return '<ul class="ex '+c+'">'+a.map(function(x){return '<li'+bi(x)+'</li>'}).join("")+'</ul>'};
+  var ix=[],P=[],cu=0;d.days.forEach(function(y,i){var st=d.ends?d.ends[i]:BE[y[2]],f=-1,p0=cu;if(st&&d.m)for(var q=cu;q<d.m.length;q++)if(d.m[q]==st){f=q;break}if(f>=0)cu=f;ix.push(f<0?-1:cu);P.push(p0)});
+  var days=d.days.map(function(y,i){var fb=FRB[y[2]];return '<details'+(i?'':' open')+'><summary'+bi(y[0],fb&&"Jour "+y[3]+" : "+fb[0])+'</summary>'+y[1].map(function(x,j){return '<p'+(x[0]=="•"?' class="bl"':'')+bi(x,fb&&fb[1][j])+'</p>'}).join("")+(ix[i]>=0?'<div class="dmap">'+mini(d.m,P[i],ix[i])+'</div>':'')+'</details>'}).join("");
+  return '<h2 data-es="Resumen">Overview</h2><p'+bi(d.o,(FRT[d.k]||{}).o)+'</p><h2 data-es="Lo más destacado">Tour Highlights</h2>'+u(d.h,"i")+'<h2 data-es="Incluye">Includes</h2>'+u(d.inc,"i")+'<h2 data-es="No incluye">Excludes</h2>'+u(d.exc,"x")+'<h2 data-es="Itinerario">Itinerary</h2>'+days+'<h2 data-es="Galería">Gallery</h2>'+galH(d.g,d.m)+'<h2 data-es="¿Por qué elegir este tour?">Why choose this tour?</h2><p'+bi(d.why,(FRT[d.k]||{}).w)+'</p><h2 data-es="Mapa del tour">Map of the tour</h2>'+mapH(d.m);
+}
+TD["3-0"]={
+o:"Embark on a spectacular journey with our 6 Days in Morocco Tour from Tangier, an ideal itinerary for those seeking to explore the beauty of Morocco’s imperial cities, the breathtaking Rif Mountains, and the unique culture of the country. This tour provides the perfect blend of historical discoveries, cultural immersion, and scenic adventures.|Emprende un viaje espectacular con nuestro tour de 6 días por Marruecos desde Tánger, un itinerario ideal para descubrir las ciudades imperiales, las impresionantes montañas del Rif y la cultura única del país. Este tour combina a la perfección descubrimientos históricos, inmersión cultural y aventuras paisajísticas.",
+h:["Discover the rich history of Morocco’s imperial cities: Fes, Meknes, and Rabat.|Descubre la historia de las ciudades imperiales de Marruecos: Fez, Mequinez y Rabat.","Stroll through the enchanting streets of Chefchaouen, the “Blue Pearl.”|Pasea por las calles de Chefchaouen, la “Perla Azul”.","Explore the ancient Roman ruins of Volubilis.|Explora las antiguas ruinas romanas de Volúbilis.","Witness the architectural splendor of the Hassan II Mosque in Casablanca.|Admira el esplendor arquitectónico de la Mezquita Hassan II en Casablanca.","Experience the diverse landscapes of the Rif Mountains and Moroccan countryside.|Vive los paisajes diversos de las montañas del Rif y el campo marroquí."],
+inc:["Private transportation in an air-conditioned vehicle.|Transporte privado en vehículo con aire acondicionado.","Professional, English-speaking guide and driver.|Guía y conductor profesionales de habla inglesa.","Accommodation in handpicked riads and hotels.|Alojamiento en riads y hoteles seleccionados.","Daily breakfast and select dinners.|Desayuno diario y algunas cenas.","Guided tours in Fes and other cities.|Visitas guiadas en Fez y otras ciudades.","Entrance fees to historical sites.|Entradas a los sitios históricos."],
+exc:["Lunches and drinks|Almuerzos y bebidas","Entrance fees to sites|Entradas a los sitios","Tips for guides and drivers|Propinas para guías y conductores"],
+days:[
+["Day 1: Arrival in Tangier and Transfer to Chefchaouen|Día 1: Llegada a Tánger y traslado a Chefchaouen",[
+"Begin your adventure in Tangier, the gateway to Africa. Your guide will meet you at the port, airport, or hotel for a tour of this historic city. Highlights include:|Comienza tu aventura en Tánger, la puerta de África. Tu guía te recibirá en el puerto, el aeropuerto o el hotel para visitar esta ciudad histórica. Lo más destacado:",
+"• The Kasbah: Discover the charming fortress overlooking the sea.|• La Kasbah: descubre la encantadora fortaleza sobre el mar.",
+"• The Grand Socco: Experience the lively ambiance of Tangier’s central square.|• El Gran Zoco: vive el ambiente de la plaza central de Tánger.",
+"• Cape Spartel: Enjoy stunning views where the Mediterranean meets the Atlantic Ocean.|• Cabo Espartel: disfruta de vistas increíbles donde el Mediterráneo se une al Atlántico.",
+"Chefchaouen – The Blue Pearl: In the afternoon, transfer to Chefchaouen, a serene mountain town famous for its picturesque blue-washed medina. Stroll through its peaceful alleys, and savor dinner at a traditional riad, where you’ll stay overnight.|Chefchaouen, la Perla Azul: por la tarde, traslado a Chefchaouen, tranquila ciudad de montaña famosa por su medina pintada de azul. Pasea por sus callejuelas y cena en un riad tradicional, donde pasarás la noche."]],
+["Day 2: Explore Chefchaouen and Transfer to Fes|Día 2: Chefchaouen y traslado a Fez",[
+"Morning in Chefchaouen: Start the day with a leisurely breakfast and continue exploring the enchanting streets of Chefchaouen. Highlights include:|Mañana en Chefchaouen: empieza con un desayuno tranquilo y sigue explorando sus encantadoras calles. Lo más destacado:",
+"• The Kasbah Museum: Learn about the history of the Rif region.|• Museo de la Kasbah: conoce la historia de la región del Rif.",
+"• Ras El Ma Spring: Enjoy the soothing sound of running water with panoramic views of the mountains.|• Manantial de Ras El Ma: disfruta del sonido del agua con vistas panorámicas de las montañas.",
+"Travel to Fes: After lunch, drive through the lush countryside to Fes, Morocco’s cultural and spiritual capital. Settle into your riad for dinner and an overnight stay.|Viaje a Fez: tras el almuerzo, conduce por el verde campo hasta Fez, capital cultural y espiritual de Marruecos. Instálate en tu riad para cenar y pasar la noche."]],
+["Day 3: Full-Day Guided Tour of Fes|Día 3: Visita guiada de día completo por Fez",[
+"Discovering Fes – The Imperial City: Spend the entire day exploring Fes el-Bali, the largest and oldest medina in the world and a UNESCO World Heritage Site. Highlights include:|Descubriendo Fez, la ciudad imperial: pasa el día explorando Fez el-Bali, la medina más grande y antigua del mundo, Patrimonio de la Humanidad de la UNESCO. Lo más destacado:",
+"• Al-Qarawiyyin University: The world’s oldest continually operating university.|• Universidad Al-Qarawiyyin: la universidad más antigua del mundo en funcionamiento continuo.",
+"• Chouara Tannery: Watch traditional leather dyeing techniques.|• Curtidurías Chouara: observa las técnicas tradicionales de teñido del cuero.",
+"• Bou Inania Madrasa: Admire the intricate architecture of this religious school.|• Madrasa Bou Inania: admira la intrincada arquitectura de esta escuela religiosa.",
+"• Dar Batha Museum: A treasure trove of Moroccan art and artifacts.|• Museo Dar Batha: un tesoro de arte y objetos marroquíes.",
+"Wrap up the day with a visit to the Royal Palace gates and a panoramic view of the city from the Merenid Tombs. Return to your riad for the night.|Termina el día con una visita a las puertas del Palacio Real y una vista panorámica de la ciudad desde las Tumbas Meriníes. Regreso al riad para pasar la noche."]],
+["Day 4: Fes to Meknes, Volubilis and Rabat|Día 4: De Fez a Mequinez, Volúbilis y Rabat",[
+"Imperial Meknes: Depart Fes in the morning for Meknes, another imperial city. Visit:|Mequinez imperial: sal de Fez por la mañana hacia Mequinez, otra ciudad imperial. Visita:",
+"• Bab Mansour Gate: A magnificent example of Moroccan craftsmanship.|• Puerta Bab Mansour: magnífico ejemplo de artesanía marroquí.",
+"• Royal Granaries and Stables: Learn about the city’s historical importance.|• Graneros y Caballerizas Reales: conoce la importancia histórica de la ciudad.",
+"Volubilis – Ancient Roman Ruins: Continue to Volubilis, Morocco’s best-preserved Roman archaeological site. Walk through ancient ruins and admire its stunning mosaics.|Volúbilis, ruinas romanas: continúa a Volúbilis, el yacimiento romano mejor conservado de Marruecos. Camina entre las ruinas y admira sus mosaicos.",
+"Rabat – The Capital City: Arrive in Rabat, Morocco’s modern capital, in the evening. Explore landmarks like:|Rabat, la capital: llega por la tarde a Rabat, la capital moderna de Marruecos. Visita lugares como:",
+"• Hassan Tower and the Mausoleum of Mohammed V.|• La Torre Hassan y el Mausoleo de Mohamed V.",
+"• Kasbah of the Udayas, with views of the Bou Regreg River.|• La Kasbah de los Udaya, con vistas al río Bu Regreg.",
+"Enjoy dinner and an overnight stay in Rabat.|Cena y noche en Rabat."]],
+["Day 5: Rabat to Casablanca and Transfer to Tangier|Día 5: De Rabat a Casablanca y traslado a Tánger",[
+"Casablanca – The Economic Hub: Head to Casablanca, Morocco’s largest city, for a short visit. Tour the iconic Hassan II Mosque, one of the largest mosques in the world, and admire its intricate architecture.|Casablanca, el centro económico: dirígete a Casablanca, la ciudad más grande de Marruecos, para una visita corta. Recorre la emblemática Mezquita Hassan II, una de las más grandes del mundo, y admira su intrincada arquitectura.",
+"Return to Tangier: After your time in Casablanca, journey back to Tangier. Spend your final evening enjoying the coastal ambiance of this vibrant city. Overnight in Tangier.|Regreso a Tánger: tras Casablanca, vuelve a Tánger. Disfruta de tu última tarde en el ambiente costero de esta vibrante ciudad. Noche en Tánger."]],
+["Day 6: Departure from Tangier|Día 6: Salida desde Tánger",[
+"Farewell to Morocco: On your final day, enjoy breakfast at your hotel before transferring to the airport, ferry port, or your preferred departure location. Depart with unforgettable memories of your Moroccan journey.|Despedida de Marruecos: en tu último día, desayuna en el hotel y traslado al aeropuerto, puerto de ferry o lugar de salida que prefieras. Te llevas recuerdos inolvidables de tu viaje por Marruecos."]]],
+why:"Our 6 Days in Morocco Tour from Tangier is designed to provide a rich, immersive experience while ensuring your comfort and convenience. Whether you’re drawn to Morocco’s history, culture, or scenic beauty, this tour offers the perfect balance of adventure and relaxation.|Nuestro tour de 6 días por Marruecos desde Tánger está pensado para ofrecer una experiencia rica e inmersiva, con comodidad y tranquilidad. Si te atrae la historia, la cultura o los paisajes de Marruecos, este tour ofrece el equilibrio perfecto entre aventura y relax."
+};
+TD["3-0"].g=0;TD["3-0"].m=["tangier","chefchaouen","fes","meknes","rabat","casablanca","tangier"];
+var MC={tangier:[185,23,"Tangier","r"],chefchaouen:[212,55,"Chefchaouen","r"],fes:[225,115,"Fes","r"],meknes:[198,122,"Meknes","l"],rabat:[133,116,"Rabat","l"],casablanca:[96,139,"Casablanca","l"],marrakech:[75,242,"Marrakech","l"],ouarzazate:[131,280,"Ouarzazate","r"],aitbenhaddou:[119,273,"",""],midelt:[238,187,"",""],todra:[199,248,"",""],dades:[176,256,"Dades","l"],merzouga:[274,270,"Merzouga","l"]};
+var GC={camel:"Merzouga · Erg Chebbi",night:"Desert camp",todra:"Todra Gorge",dades:"Dades Valley",ait:"Aït Benhaddou",taourirt:"Taourirt Kasbah, Ouarzazate",draa:"Draa Valley",taroudant:"Taroudant",jemaa:"Jemaa el-Fnaa, Marrakech",majorelle:"Majorelle Garden",kasbah:"Kasbah Mosque, Marrakech",tannery:"Chouara Tannery, Fes",qarawiyyin:"Al-Qarawiyyin, Fes",babbj:"Bab Bou Jeloud, Fes",volubilis:"Volubilis",meknes:"Bab Mansour, Meknes",rabat:"Mausoleum of Mohammed V, Rabat",hassan:"Hassan II Mosque, Casablanca",hassandusk:"Hassan II Mosque at sunset",tangier:"Tangier",essaouira:"Essaouira",macaque:"Barbary macaque",ifrane:"Ifrane",ouzoud:"Ouzoud Falls",ourika:"Ourika Valley"};
+var SPH={merzouga:["camel","night"],todra:["todra"],dades:["dades"],aitbenhaddou:["ait"],ouarzazate:["taourirt"],agdz:["draa"],zagora:["draa"],taroudant:["taroudant"],marrakech:["jemaa","majorelle","kasbah"],fes:["tannery","qarawiyyin","babbj"],casablanca:["hassan","hassandusk"],rabat:["rabat"],tangier:["tangier"],essaouira:["essaouira"],ifrane:["ifrane","macaque"],meknes:["meknes","volubilis"],ouzoud:["ouzoud"],ourika:["ourika"]};
+function galH(g,r){var k=[],c=["#8fb8de,#e8a13a","#7a2e1a,#e8a13a","#2563a8,#9bd0c8","#0b1d3d,#3a2a5a"];
+  (r||[]).forEach(function(q){(SPH[q]||[]).forEach(function(x){if(k.indexOf(x)<0)k.push(x)})});k=k.slice(0,10);
+  if(k.length<2)k=g?["camel","todra","dades","night"]:["city","sea","oasis","dunes"];
+  return '<div class="gal">'+k.map(function(x,i){return '<div class="gt" style="background:linear-gradient(160deg,'+c[i%4]+')">'+sc(x)+(GC[x]?'<span class="cap">'+GC[x]+'</span>':'')+'</div>'}).join("")+'</div>'}
+function mapS(r){var d="M"+r.map(function(k){return MC[k][0]+" "+MC[k][1]}).join("L"),seen={},names=[];
+  var dots=r.map(function(k,i){if(i&&k==r[0])return"";var q=MC[k],c=i==0?"#10b981":i==r.length-1?"#dc2626":"#fff";return '<circle cx="'+q[0]+'" cy="'+q[1]+'" r="'+(q[2]?5:3)+'" fill="'+c+'" stroke="#c1502e" stroke-width="2"/>'}).join("");
+  var lab=r.map(function(k){var q=MC[k];if(seen[k]||!q[2])return"";seen[k]=1;names.push(q[2]);var l=q[3]=="l";return '<text x="'+(q[0]+(l?-9:9))+'" y="'+(q[1]+4)+'" text-anchor="'+(l?"end":"start")+'">'+q[2]+'</text>'}).join("");
+  return '<div class="mp"><svg viewBox="0 0 300 320"><rect width="300" height="320" fill="#cfe3f1"/><path d="M185 18L215 28L250 40L290 62L300 66V320H0V265L15 240L40 205L75 170L100 138L125 112L140 80L160 40Z" fill="#f3e3c3"/><path class="rt" pathLength="1" d="'+d+'" fill="none" stroke="#e8702f" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>'+'<circle class="pl" cx="'+MC[r[0]][0]+'" cy="'+MC[r[0]][1]+'" r="5" fill="#10b981"/>'+dots+lab+'<circle r="4.5" fill="#2563eb" stroke="#fff" stroke-width="2"><animateMotion dur="9s" repeatCount="indefinite" path="'+d+'"/></circle></svg><p class="mpn">'+names.join(" → ")+' · <span data-es="ruta aproximada">approximate route</span></p></div>'}
+var BK={
+t7:["Arrival in Tangier and Transfer to Chefchaouen|Llegada a Tánger y traslado a Chefchaouen",["Welcome to Tangier: your guide greets you for a brief tour of the Kasbah, Cape Spartel, where the Atlantic meets the Mediterranean, and the Hercules Caves.|Bienvenido a Tánger: tu guía te recibe para una breve visita a la Kasbah, el Cabo Espartel, donde el Atlántico se une al Mediterráneo, y las Cuevas de Hércules.","In the afternoon, drive through the lush Rif Mountains to Chefchaouen, famous for its blue-washed streets. Relax in this serene town and overnight in a traditional riad.|Por la tarde, conduce por las verdes montañas del Rif hasta Chefchaouen, famosa por sus calles azules. Relájate en esta tranquila ciudad y duerme en un riad tradicional."]],
+t1:["Arrival in Tangier|Llegada a Tánger",["Welcome to Tangier: meet your guide and explore the Kasbah Museum, Cape Spartel, where the two seas meet, and the Hercules Caves. Dinner and overnight in a traditional riad.|Bienvenido a Tánger: conoce a tu guía y visita el Museo de la Kasbah, el Cabo Espartel, donde se unen los dos mares, y las Cuevas de Hércules. Cena y noche en un riad tradicional."]],
+ch:["Tangier to Chefchaouen|De Tánger a Chefchaouen",["Drive through the Rif Mountains to Chefchaouen, the “Blue Pearl”. Wander its blue-painted streets and medina, visit Plaza Uta el-Hammam and the historic Kasbah, and enjoy the views. Overnight in a charming riad.|Viaje por las montañas del Rif hasta Chefchaouen, la “Perla Azul”. Pasea por sus calles azules y su medina, visita la plaza Uta el-Hammam y la histórica Kasbah y disfruta de las vistas. Noche en un riad con encanto."]],
+ch7:["Explore Chefchaouen and Transfer to Fes|Chefchaouen y traslado a Fez",["Enjoy a leisurely breakfast and explore the Kasbah Museum and the Ras El Ma Spring, with spectacular mountain views.|Desayuno tranquilo y visita al Museo de la Kasbah y al manantial de Ras El Ma, con vistas espectaculares a las montañas.","After lunch, take a scenic drive to Fes, Morocco’s cultural and spiritual capital. Check into your riad and enjoy dinner in the heart of the historic city.|Tras el almuerzo, viaje panorámico a Fez, capital cultural y espiritual de Marruecos. Instálate en tu riad y cena en el corazón de la ciudad histórica."]],
+f9:["Chefchaouen to Fes|De Chefchaouen a Fez",["Leave Chefchaouen after breakfast and travel south to Fes, Morocco’s spiritual and cultural capital, through charming towns and scenic landscapes. Check into your riad and enjoy dinner.|Sal de Chefchaouen tras el desayuno y viaja al sur hasta Fez, capital espiritual y cultural de Marruecos, por pueblos encantadores y paisajes. Instálate en tu riad y disfruta de la cena."]],
+f10:["Chefchaouen to Fes via Volubilis|De Chefchaouen a Fez por Volúbilis",["On the way to Fes, stop at Volubilis, a UNESCO site with the best-preserved Roman ruins in North Africa: ancient mosaics and grand arches.|De camino a Fez, parada en Volúbilis, sitio UNESCO con las ruinas romanas mejor conservadas del norte de África: mosaicos y grandes arcos.","Continue to Fes, check into your riad in the medina and enjoy a Moroccan dinner.|Continúa a Fez, instálate en tu riad de la medina y disfruta de una cena marroquí."]],
+f12:["Chefchaouen to Fes via Volubilis and Meknes|De Chefchaouen a Fez por Volúbilis y Mequinez",["On the way to Fes, visit Volubilis, Morocco’s best-preserved Roman ruins with intricate mosaics, and Meknes, an imperial city with the Bab Mansour Gate and the Sahrij Swani Basin.|De camino a Fez, visita Volúbilis, las ruinas romanas mejor conservadas de Marruecos con mosaicos, y Mequinez, ciudad imperial con la puerta Bab Mansour y la cuenca Sahrij Swani.","Arrive in Fes for dinner and overnight in a traditional riad.|Llegada a Fez, cena y noche en un riad tradicional."]],
+ft:["Guided Tour of Fes|Visita guiada de Fez",["Explore Fes el Bali, the UNESCO-listed medina: Al-Qarawiyyin University (the world’s oldest functioning university), the Chouara Tannery, the Bou Inania Madrasa and the Royal Palace gates.|Explora Fez el Bali, la medina Patrimonio UNESCO: la Universidad Al-Qarawiyyin (la más antigua del mundo en funcionamiento), las curtidurías Chouara, la madrasa Bou Inania y las puertas del Palacio Real.","Dinner and overnight at your riad.|Cena y noche en tu riad."]],
+mz:["Fes to Merzouga via Ifrane and Midelt|De Fez a Merzouga por Ifrane y Midelt",["Travel through the Middle Atlas Mountains: Ifrane, the “Switzerland of Morocco”, and the cedar forests of Azrou, home to Barbary monkeys. Continue through Midelt, known for its apple orchards, and Erfoud, famous for its fossils.|Viaje por el Atlas Medio: Ifrane, la “Suiza de Marruecos”, y los bosques de cedros de Azrou, hogar de monos de Berbería. Sigue por Midelt, conocida por sus manzanos, y Erfoud, famosa por sus fósiles.","In Merzouga, trade your vehicle for a camel and trek across the golden dunes of Erg Chebbi to your luxury desert camp. Traditional dinner under the stars with Berber music.|En Merzouga, cambia el vehículo por un camello y recorre las dunas doradas del Erg Chebbi hasta tu campamento de lujo. Cena tradicional bajo las estrellas con música bereber."]],
+dd:["Merzouga to Dades Valley via Todra Gorge|De Merzouga al valle del Dadès por la garganta del Todra",["Wake early for the Sahara sunrise, then ride your camel back to Merzouga after breakfast.|Despierta temprano para el amanecer en el Sahara y vuelve en camello a Merzouga tras el desayuno.","Stop at the Todra Gorge, with its towering canyon walls, then follow the Road of a Thousand Kasbahs to the Dades Valley, with Berber villages and rock formations. Dinner and overnight in a hotel in the valley.|Parada en la garganta del Todra, con sus enormes paredes, y sigue por la Ruta de las Mil Kasbahs hasta el valle del Dadès, con pueblos bereberes y formaciones rocosas. Cena y noche en un hotel del valle."]],
+sa:["Merzouga and the Sahara Desert|Merzouga y el desierto del Sahara",["Spend the day in the Sahara: watch the sunrise over the dunes, visit a local nomad family and explore Khamlia Village, famous for its Gnawa music. Another magical night in the desert among the Erg Chebbi dunes.|Pasa el día en el Sahara: amanecer sobre las dunas, visita a una familia nómada local y al pueblo de Khamlia, famoso por su música gnawa. Otra noche mágica en el desierto entre las dunas del Erg Chebbi."]],
+ou:["Dades Valley to Ouarzazate via Ait Benhaddou|Del valle del Dadès a Uarzazate por Ait Benhaddou",["Travel to Ouarzazate, the “Hollywood of Morocco”, and visit the Taourirt Kasbah (or the Atlas Film Studios, where many blockbusters were filmed).|Viaje a Uarzazate, la “Hollywood de Marruecos”, y visita la Kasbah de Taourirt (o los Estudios Atlas, donde se rodaron muchas películas).","Explore Ait Benhaddou, a UNESCO World Heritage fortified village and film location. Dinner and overnight in Ouarzazate.|Explora Ait Benhaddou, pueblo fortificado Patrimonio UNESCO y escenario de películas. Cena y noche en Uarzazate."]],
+mk7:["Dades Valley to Marrakech via Ouarzazate and Ait Benhaddou|Del valle del Dadès a Marrakech por Uarzazate y Ait Benhaddou",["Visit Ouarzazate and its Taourirt Kasbah, then Ait Benhaddou, the UNESCO fortified village used in many films and series.|Visita Uarzazate y su Kasbah de Taourirt, y luego Ait Benhaddou, el pueblo fortificado UNESCO usado en muchas películas y series.","Cross the High Atlas via the Tizi n’Tichka Pass and arrive in Marrakech in the evening for dinner and overnight.|Cruza el Alto Atlas por el puerto de Tizi n’Tichka y llega a Marrakech por la tarde para cenar y pasar la noche."]],
+om:["Ouarzazate to Marrakech via the High Atlas|De Uarzazate a Marrakech por el Alto Atlas",["Drive over the Tizi n’Tichka Pass in the High Atlas, stopping at Berber villages and viewpoints. Arrive in Marrakech, the “Red City”, settle into your riad and explore Jemaa el-Fnaa square in the evening.|Conduce por el puerto de Tizi n’Tichka en el Alto Atlas, con paradas en pueblos bereberes y miradores. Llega a Marrakech, la “Ciudad Roja”, instálate en tu riad y explora la plaza Jemaa el-Fnaa por la tarde."]],
+mt:["Guided Tour of Marrakech|Visita guiada de Marrakech",["Discover Marrakech: the Koutoubia Mosque, the Bahia Palace, the Majorelle Garden, and the souks and Jemaa el-Fnaa square, full of spices, textiles, artisans and street performers.|Descubre Marrakech: la mezquita Koutoubia, el Palacio Bahía, el Jardín Majorelle y los zocos y la plaza Jemaa el-Fnaa, llenos de especias, tejidos, artesanos y artistas callejeros.","Farewell dinner in the evening.|Cena de despedida por la noche."]],
+cb:["Marrakech to Casablanca|De Marrakech a Casablanca",["Travel to Casablanca, Morocco’s largest city, to see the Hassan II Mosque, one of the largest in the world, and the Corniche promenade along the Atlantic. Overnight in Casablanca.|Viaje a Casablanca, la ciudad más grande de Marruecos, para ver la Mezquita Hassan II, una de las más grandes del mundo, y el paseo de la Corniche junto al Atlántico. Noche en Casablanca."]],
+dp:["Departure|Salida",["After breakfast, transfer to the airport in Marrakech or return to Tangier, depending on your travel plans.|Tras el desayuno, traslado al aeropuerto de Marrakech o regreso a Tánger, según tus planes de viaje."]],
+dc:["Departure from Casablanca|Salida desde Casablanca",["After breakfast, transfer to the airport for your departure, with unforgettable memories of Morocco.|Tras el desayuno, traslado al aeropuerto para tu salida, con recuerdos inolvidables de Marruecos."]]};
+BK.mz7=["Fes to the Sahara Desert via Midelt and Erfoud|De Fez al desierto del Sahara por Midelt y Erfoud",BK.mz[1]];
+BK.mt7=["Guided Tour of Marrakech and Departure|Visita guiada de Marrakech y salida",[BK.mt[1][0],"Afterwards, transfer to the airport or your next destination.|Después, traslado al aeropuerto o a tu siguiente destino."]];
+function D(n,k){var b=BK[k],t=b[0].split("|");return["Day "+n+": "+t[0]+"|Día "+n+": "+t[1],b[1],k,n]}
+function DS(l){return l.map(function(k,i){return D(i+1,k)})}
+var HI=["Experience the magical Sahara Desert with a camel trek and luxury camp stay.|Vive la magia del desierto del Sahara con un paseo en camello y una noche en un campamento de lujo.","Explore Morocco’s imperial cities and the blue streets of Chefchaouen.|Explora las ciudades imperiales de Marruecos y las calles azules de Chefchaouen.","Marvel at the kasbahs of Ait Benhaddou and the landscapes of Todra Gorge and the Dades Valley.|Admira las kasbahs de Ait Benhaddou y los paisajes de la garganta del Todra y el valle del Dadès.","Discover the cultural gems of Tangier, Fes and Marrakech.|Descubre las joyas culturales de Tánger, Fez y Marrakech."];
+var IN=["Private transportation in a comfortable, air-conditioned vehicle.|Transporte privado en vehículo cómodo con aire acondicionado.","Professional English-speaking guide and driver.|Guía y conductor profesionales de habla inglesa.","Accommodation in riads, hotels and a luxury desert camp.|Alojamiento en riads, hoteles y un campamento de lujo en el desierto.","Daily breakfast and select dinners.|Desayuno diario y algunas cenas.","Guided city tours in Fes and Marrakech.|Visitas guiadas por Fez y Marrakech.","Camel trekking experience in the Sahara.|Paseo en camello por el Sahara."];
+var RT=["tangier","chefchaouen","fes","midelt","merzouga","todra","dades","ouarzazate","aitbenhaddou","marrakech"];
+function mk(o,l,w,r,h){return{o:o,h:h||HI,inc:IN,exc:TD["3-0"].exc,days:DS(l),why:w,g:1,m:r}}
+TD["3-1"]=mk("Embark on an unforgettable journey with this 7 Days Morocco Desert Tour from Tangier, a unique blend of cultural exploration, stunning landscapes and desert adventure: from Tangier through the blue streets of Chefchaouen, the wonders of Fes, the Sahara Desert and southern Morocco to Marrakech.|Emprende un viaje inolvidable con este tour de 7 días por el desierto de Marruecos desde Tánger, una mezcla única de cultura, paisajes y aventura en el desierto: de Tánger a las calles azules de Chefchaouen, Fez, el Sahara y el sur de Marruecos hasta Marrakech.",["t7","ch7","ft","mz7","dd","mk7","mt7"],"This 7 Days Morocco Desert Tour from Tangier is a perfect blend of adventure, culture and relaxation, with a comprehensive experience of Morocco’s landscapes, history and traditions, for history buffs and nature lovers alike.|Este tour de 7 días por el desierto desde Tánger es una mezcla perfecta de aventura, cultura y relax, con una experiencia completa de los paisajes, la historia y las tradiciones de Marruecos, para amantes de la historia y de la naturaleza.",RT);
+TD["3-2"]=mk("Discover the heart of Morocco with this 9 Days Morocco Desert Tour from Tangier: cultural exploration, breathtaking landscapes and unique experiences through Tangier, Chefchaouen, Fes, Marrakech and the majestic Sahara Desert.|Descubre el corazón de Marruecos con este tour de 9 días por el desierto desde Tánger: cultura, paisajes impresionantes y experiencias únicas por Tánger, Chefchaouen, Fez, Marrakech y el majestuoso Sahara.",["t1","ch","f9","ft","mz","dd","ou","om","mt7"],"This 9 Days Morocco Desert Tour from Tangier is perfect for immersing yourself in Morocco’s landscapes, history and culture, from bustling cities and the Sahara to ancient kasbahs.|Este tour de 9 días por el desierto desde Tánger es perfecto para sumergirte en los paisajes, la historia y la cultura de Marruecos, de ciudades bulliciosas y el Sahara a antiguas kasbahs.",RT);
+TD["3-3"]=mk("Embark on an unforgettable 10-day holiday in Morocco from Tangier, from the Rif Mountains to the golden dunes of the Sahara, historic cities and vibrant markets: a perfect blend of adventure, relaxation and cultural immersion.|Emprende unas vacaciones inolvidables de 10 días en Marruecos desde Tánger, de las montañas del Rif a las dunas doradas del Sahara, ciudades históricas y mercados vibrantes: una mezcla perfecta de aventura, relax e inmersión cultural.",["t1","ch","f10","ft","mz","dd","ou","om","mt","dp"],"This 10 Days Holiday in Morocco from Tangier is ideal for a comprehensive Moroccan experience: cultural exploration, breathtaking scenery and unique desert adventures.|Estas vacaciones de 10 días en Marruecos desde Tánger son ideales para una experiencia completa: cultura, paisajes impresionantes y aventuras únicas en el desierto.",RT);
+TD["3-4"]=mk("Embark on an unforgettable 12-day absolute tour from Tangier: the blue streets of Chefchaouen, the golden dunes of the Sahara and the bustling medinas of Fes and Marrakech, a comprehensive exploration of Morocco’s most iconic destinations.|Emprende un tour absoluto de 12 días desde Tánger: las calles azules de Chefchaouen, las dunas doradas del Sahara y las medinas de Fez y Marrakech, una exploración completa de los destinos más emblemáticos de Marruecos.",["t1","ch","f12","ft","mz","sa","dd","ou","om","mt","cb","dc"],"This 12 Days Absolute Morocco Tour from Tangier is perfect for an immersive adventure, from the blue streets of Chefchaouen to the Sahara dunes and the souks of Marrakech.|Este tour absoluto de 12 días desde Tánger es perfecto para una aventura inmersiva, de las calles azules de Chefchaouen a las dunas del Sahara y los zocos de Marrakech.",RT.concat(["casablanca"]),HI.slice(0,3).concat(["Explore Tangier, Chefchaouen, Fes, Marrakech and Casablanca, plus Volubilis and Ait Benhaddou.|Explora Tánger, Chefchaouen, Fez, Marrakech y Casablanca, además de Volúbilis y Ait Benhaddou."]));
+var GQ={tangier:"Tangier",chefchaouen:"Chefchaouen",fes:"Fes",meknes:"Meknes",rabat:"Rabat",casablanca:"Casablanca",marrakech:"Marrakech",ouarzazate:"Ouarzazate",aitbenhaddou:"Ait Benhaddou",midelt:"Midelt",todra:"Todra Gorge",dades:"Dades Valley",merzouga:"Merzouga"};
+function mapH(r){var q=r.map(function(k){return encodeURIComponent(GQ[k]+", Morocco")});
+  var emb="https://maps.google.com/maps?saddr="+q[0]+"&daddr="+q.slice(1).join("+to:")+"&output=embed",full="https://www.google.com/maps/dir/"+q.join("/");
+  return '<div class="mpw"><div class="mtabs"><button class="on" onclick="mt(this,0)" data-es="Google Maps">Google Maps</button><button onclick="mt(this,1)" data-es="Ruta animada">Animated route</button></div><div class="mpg"><iframe src="'+emb+'" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade" title="Map"></iframe><a class="book" target="_blank" rel="noopener" href="'+full+'" data-es="Abrir en Google Maps →">Open in Google Maps →</a></div><div class="mps" hidden>'+mapS(r)+'</div></div>'}
+function mt(b,i){var w=b.closest(".mpw");w.querySelectorAll("button").forEach(function(x,j){x.classList.toggle("on",j==i)});w.querySelector(".mpg").hidden=!!i;w.querySelector(".mps").hidden=!i}
+function facts(d){var f=[[d,"Days","Días"],[d-1,"Nights","Noches"],["100%","Private","Privado"],["EN·ES·FR","Guides","Guías"]];
+  return '<div class="facts">'+f.map(function(a){return '<div class="fc3"><b>'+a[0]+'</b><span data-es="'+a[2]+'">'+a[1]+'</span></div>'}).join("")+'</div>'}
+var IO;
+function fx(root){
+  if(!("IntersectionObserver" in window))return;
+  IO=IO||new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){var t=e.target;t.classList.add("in");IO.unobserve(t);setTimeout(function(){t.style.transitionDelay=""},900)}})},{threshold:.1});
+  root.querySelectorAll(".abox>h2,.abox>p,.abox li,.abox details,.gt,.mpw,.abt>div,.arel").forEach(function(e,i){e.classList.add("rv3");if(e.matches("li,.gt"))e.style.transitionDelay=(i%4)*70+"ms";IO.observe(e)});
+  root.querySelectorAll(".fc3,.abox ul.ex li,.gt,.abt>div").forEach(function(e){e.classList.add("tl");
+    e.addEventListener("pointermove",function(ev){var r=e.getBoundingClientRect(),x=(ev.clientX-r.left)/r.width-.5,y=(ev.clientY-r.top)/r.height-.5;e.style.transform="perspective(600px) rotateY("+x*14+"deg) rotateX("+-y*14+"deg) translateZ(6px)"});
+    e.addEventListener("pointerleave",function(){e.style.transform=""})});
+}
+var TA="https://www.tripadvisor.com/Attraction_Review-g293734-d34736830-Reviews-Moroccan_Gateways-Marrakech_Marrakech_Safi.html";
+document.querySelectorAll("[data-ta]").forEach(function(a){a.href=TA});
+var RV=[{"n": "Monica D", "c": "Manresa, Spain", "t": "Magic in the desert 🐪🐪", "d": "Sep 2026 • Friends", "x": "This recent trip to Morocco has been an absolutely magical experience. A group of 16 women, we have had the pleasure of touring incredible places like Ouarzazate, the Dades Valley, the impressive Todra Gorges, and the magic of the Merzouga Desert.\nThis has been my third trip organized with Moha, and once again he has shown why I continue to trust him: as usual, he has been an excellent, punctual, and attentive guide, taking care of every last detail so that all of us could enjoy a unique and worry-free experience. A true pleasure to travel with you again and share this adventure with these 15 fantastic women!\nA very special mention also goes to our driver, Mohamed, an excellent professional who offered us maximum safety, comfort, and peace of mind on the road throughout the entire journey.\nThank you for making this trip an indelible memory. See you soon!"}, {"n": "Anna R", "c": "", "t": "IN LOVE WITH THE SAHARA", "d": "Sep 2026 • Friends", "x": "It has been one of the best experiences of my life, because of the group of wonderful women who went and because of how well we were treated by Moha and his entire team, the drivers, the camel guides, the waiters, at the riads, at the glamping..... A brutal experience and highly recommended to do with Morocco Spirit, we will definitely repeat. Thanks for everything guys. You are the best. The Sahara and its people are a 10.🙏🫂"}];
+document.getElementById("rvs").innerHTML=RV.map(function(r){return '<div class="rvc"><div class="st">●●●●●</div><h4>'+r.t+'</h4><small>'+r.d+'</small><div class="rtx">'+r.x.split("\n").map(function(l){return '<p>'+l+'</p>'}).join("")+'</div><button class="rmore" type="button" onclick="var c=this.parentNode;c.classList.toggle(\'open\');this.textContent=c.classList.contains(\'open\')?\'Show less\':\'Read more\'">Read more</button><b>'+r.n+'</b><span>'+r.c+'</span><a class="rta" data-ta target="_blank" rel="noopener">Read on Tripadvisor →</a></div>'}).join("");
+document.querySelectorAll("[data-ta]").forEach(function(a){a.href=TA});
+if("IntersectionObserver" in window){IO=IO||new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("in");IO.unobserve(e.target)}})},{threshold:.1});document.querySelectorAll(".rvc,.tabadge").forEach(function(e){e.classList.add("rv3");IO.observe(e)})}
+BK.cA1=["Arrival in Casablanca and Transfer to Rabat|Llegada a Casablanca y traslado a Rabat",["Your adventure begins in Casablanca, Morocco’s economic hub. Visit the majestic Hassan II Mosque, perched on the Atlantic coast.|Tu aventura empieza en Casablanca, el centro económico de Marruecos. Visita la majestuosa Mezquita Hassan II, sobre la costa atlántica.","Then drive to Rabat, the capital, check into your hotel or riad and stroll along the Corniche or the charming medina.|Después, viaje a Rabat, la capital; instálate en tu hotel o riad y pasea por la Corniche o la encantadora medina."]];
+BK.cA=["Arrival in Casablanca|Llegada a Casablanca",["Meet your driver/guide and begin your adventure with a visit to the Hassan II Mosque, one of the largest in the world, famed for its architecture and oceanfront setting. Explore the city’s vibrant streets, then settle into your hotel.|Conoce a tu conductor/guía y empieza tu aventura con una visita a la Mezquita Hassan II, una de las más grandes del mundo, famosa por su arquitectura y su ubicación frente al océano. Recorre las calles de la ciudad y descansa en tu hotel."]];
+BK.cR7=["Rabat to Chefchaouen|De Rabat a Chefchaouen",["Explore Rabat: the Kasbah of the Udayas, with views of the Atlantic, the Hassan Tower, an unfinished minaret, and the Royal Palace.|Explora Rabat: la Kasbah de los Udaya, con vistas al Atlántico, la Torre Hassan, un minarete inacabado, y el Palacio Real.","Travel north to Chefchaouen, nestled in the Rif Mountains, and wander its blue-washed alleys and cozy cafes.|Viaja al norte hasta Chefchaouen, en las montañas del Rif, y pasea por sus callejuelas azules y sus acogedores cafés."]];
+BK.cR9=["Casablanca to Rabat to Chefchaouen|De Casablanca a Rabat y Chefchaouen",["After breakfast, drive to Rabat, the capital: the Kasbah of the Udayas, the Hassan Tower and the Mausoleum of Mohammed V.|Tras el desayuno, viaje a Rabat, la capital: la Kasbah de los Udaya, la Torre Hassan y el Mausoleo de Mohamed V.","Continue to Chefchaouen, in the Rif Mountains: blue-painted streets, souks and charming squares. Overnight in this picturesque town.|Continúa a Chefchaouen, en las montañas del Rif: calles azules, zocos y plazas con encanto. Noche en esta pintoresca ciudad."]];
+BK.cCh3=["Chefchaouen to Fes|De Chefchaouen a Fez",["Start with a relaxed walk around Chefchaouen, its artisan shops and mountain views.|Empieza con un paseo tranquilo por Chefchaouen, sus tiendas artesanas y sus vistas a las montañas.","In the afternoon, head to Fes, the spiritual and cultural heart of Morocco, with a photo stop at the Roman ruins of Volubilis (UNESCO). Check into your riad in the medina and enjoy a traditional dinner.|Por la tarde, sal hacia Fez, corazón espiritual y cultural de Marruecos, con parada fotográfica en las ruinas romanas de Volúbilis (UNESCO). Instálate en tu riad de la medina y cena platos tradicionales."]];
+BK.cF9=["Chefchaouen to Fes via Volubilis and Meknes|De Chefchaouen a Fez por Volúbilis y Mequinez",["Visit Volubilis, a UNESCO site with Roman ruins, mosaics and towering columns, then Meknes, an imperial city: the Bab Mansour Gate, the Heri es-Souani granaries and the Moulay Ismail Mausoleum.|Visita Volúbilis, sitio UNESCO con ruinas romanas, mosaicos y columnas, y luego Mequinez, ciudad imperial: la puerta Bab Mansour, los graneros de Heri es-Souani y el Mausoleo de Mulay Ismail.","Arrive in Fes in the evening and check into your traditional riad.|Llegada a Fez por la tarde e instalación en tu riad tradicional."]];
+BK.cFt=["Full-Day Exploration of Fes|Día completo en Fez",["Explore Fes el-Bali, the UNESCO-listed medina and one of the world’s largest pedestrian areas: Al-Qarawiyyin University, the Chouara Tannery and the Bou Inania Madrasa.|Explora Fez el-Bali, la medina Patrimonio UNESCO y una de las mayores zonas peatonales del mundo: la Universidad Al-Qarawiyyin, las curtidurías Chouara y la madrasa Bou Inania.","Enjoy traditional cuisine and discover the souks and the craftsmanship of the artisans.|Disfruta de la cocina tradicional y descubre los zocos y la artesanía de sus artesanos."]];
+BK.cM7=["Fes to Merzouga Desert via Middle Atlas|De Fez al desierto de Merzouga por el Atlas Medio",["Cross the Middle Atlas: Ifrane, the “Switzerland of Morocco”, and the Azrou cedar forests, home to Barbary macaques. Drive through the Ziz Valley, with its palm groves, to Merzouga.|Cruza el Atlas Medio: Ifrane, la “Suiza de Marruecos”, y los bosques de cedros de Azrou, hogar de macacos de Berbería. Conduce por el valle del Ziz, con sus palmerales, hasta Merzouga.","Trek by camel across the Erg Chebbi dunes to a luxury desert camp. Traditional dinner under the stars with Berber music by the campfire.|Paseo en camello por las dunas del Erg Chebbi hasta un campamento de lujo. Cena tradicional bajo las estrellas con música bereber junto al fuego."]];
+BK.cM9=["Fes to Merzouga via the Middle Atlas|De Fez a Merzouga por el Atlas Medio",["Drive through the Middle Atlas: Ifrane, the “Switzerland of Morocco”, and the Azrou cedar forests, home to Barbary macaques. Arrive in Merzouga, where the golden Erg Chebbi dunes begin.|Conduce por el Atlas Medio: Ifrane, la “Suiza de Marruecos”, y los bosques de cedros de Azrou, hogar de macacos de Berbería. Llegada a Merzouga, donde empiezan las doradas dunas del Erg Chebbi.","Trek by camel to your luxury desert camp. Berber dinner under the stars with live music around a campfire.|Paseo en camello hasta tu campamento de lujo. Cena bereber bajo las estrellas con música en directo junto al fuego."]];
+BK.cS6=["Merzouga to Marrakech via Todra Gorge and Ait Benhaddou|De Merzouga a Marrakech por la garganta del Todra y Ait Benhaddou",["Wake early for the Sahara sunrise, have breakfast at the camp, return to Merzouga and head west. Stop at the Todra Gorge, with its towering rock walls.|Despierta temprano para el amanecer en el Sahara, desayuna en el campamento, vuelve a Merzouga y pon rumbo al oeste. Parada en la garganta del Todra, con sus enormes paredes de roca.","Visit Ait Benhaddou, the UNESCO mud-brick ksar and famous film location, then cross the High Atlas via the Tizi n’Tichka Pass and arrive in Marrakech in the evening.|Visita Ait Benhaddou, el ksar de adobe Patrimonio UNESCO y famoso escenario de rodajes, y cruza el Alto Atlas por el puerto de Tizi n’Tichka hasta llegar a Marrakech por la tarde."]];
+BK.cD6=["Merzouga to Todra Gorge and Dades Valley|De Merzouga a la garganta del Todra y el valle del Dadès",["Enjoy the sunrise over the dunes, then return to Merzouga by camel or 4×4 after breakfast.|Disfruta del amanecer sobre las dunas y vuelve a Merzouga en camello o 4×4 tras el desayuno.","Visit the Todra Gorge, with its sheer cliffs, then continue to the Dades Valley, known for its rock formations and lush oases. Overnight in a charming kasbah or local hotel.|Visita la garganta del Todra, con sus acantilados, y continúa al valle del Dadès, conocido por sus formaciones rocosas y sus oasis. Noche en una kasbah o un hotel local con encanto."]];
+BK.cSa=["Sunrise in the Desert and Merzouga Exploration|Amanecer en el desierto y exploración de Merzouga",["Watch the sunrise over the golden dunes, then explore: Khamlia Village, famous for Gnawa music, nomadic Berber communities and a 4×4 excursion across the desert. Second night at your camp.|Contempla el amanecer sobre las dunas y explora: el pueblo de Khamlia, famoso por la música gnawa, las comunidades bereberes nómadas y una excursión en 4×4 por el desierto. Segunda noche en tu campamento."]];
+BK.cK7=["Dades Valley to Ait Benhaddou to Marrakech|Del valle del Dadès a Ait Benhaddou y Marrakech",["Visit Ait Benhaddou, a UNESCO ksar whose architecture has appeared in many films and series.|Visita Ait Benhaddou, ksar Patrimonio UNESCO cuya arquitectura ha aparecido en muchas películas y series.","Cross the High Atlas via the Tizi n’Tichka Pass and arrive in Marrakech, where you settle into your riad for an evening in its lively streets.|Cruza el Alto Atlas por el puerto de Tizi n’Tichka y llega a Marrakech, donde te instalas en tu riad para pasear por sus animadas calles."]];
+BK.cO=["Dades Valley to Ouarzazate via the Rose Valley|Del valle del Dadès a Uarzazate por el Valle de las Rosas",["Drive through the Valley of Roses, famous for its Rose Festival and rose water, to Ouarzazate, the “Hollywood of Africa”. Visit the Atlas Film Studios and the Taourirt Kasbah. Overnight in Ouarzazate.|Conduce por el Valle de las Rosas, famoso por su Festival de las Rosas y su agua de rosas, hasta Uarzazate, la “Hollywood de África”. Visita los Estudios Atlas y la Kasbah de Taourirt. Noche en Uarzazate."]];
+BK.cO8=["Ouarzazate to Ait Benhaddou and Marrakech|De Uarzazate a Ait Benhaddou y Marrakech",["Discover Ait Benhaddou, a UNESCO ksar that has appeared in films like Gladiator and Game of Thrones.|Descubre Ait Benhaddou, ksar Patrimonio UNESCO que aparece en películas como Gladiator y Juego de Tronos.","Cross the Tizi n’Tichka Pass in the High Atlas down to Marrakech and check into your riad.|Cruza el puerto de Tizi n’Tichka en el Alto Atlas hasta Marrakech e instálate en tu riad."]];
+BK.cMt=["Full-Day Exploration of Marrakech|Día completo en Marrakech",["Discover the Red City: Jemaa el-Fnaa, the Koutoubia Mosque, the Bahia Palace and the Majorelle Garden, created by Jacques Majorelle, plus the souks.|Descubre la Ciudad Roja: Jemaa el-Fnaa, la mezquita Koutoubia, el Palacio Bahía y el Jardín Majorelle, creado por Jacques Majorelle, además de los zocos.","Evening at leisure: a traditional hammam, souvenir shopping or a Moroccan dinner.|Tarde libre: hammam tradicional, compras en los zocos o una cena marroquí."]];
+BK.cMt7=[BK.cMt[0],[BK.cMt[1][0],"After a memorable day, your 7-day adventure ends; transfer to the airport for your onward journey.|Tras un día memorable, termina tu aventura de 7 días; traslado al aeropuerto para continuar tu viaje."]];
+BK.cEs=["Day Trip to Essaouira|Excursión a Essaouira",["Take a day trip to Essaouira, a seaside town with a whitewashed medina and a lively fishing port. Walk the ramparts, sample fresh seafood and return to Marrakech.|Excursión a Essaouira, ciudad costera con medina encalada y un animado puerto pesquero. Pasea por las murallas, prueba marisco fresco y regresa a Marrakech."]];
+BK.cDp9=["Departure from Marrakech|Salida desde Marrakech",["After breakfast, enjoy free time before your transfer to Marrakech or Casablanca airport.|Tras el desayuno, tiempo libre antes del traslado al aeropuerto de Marrakech o Casablanca."]];
+BK.cDp10=["Departure from Marrakech or Casablanca|Salida desde Marrakech o Casablanca",["Transfer to Marrakech or Casablanca airport, ending your Moroccan adventure.|Traslado al aeropuerto de Marrakech o Casablanca para terminar tu aventura por Marruecos."]];
+BK.cR10=["Casablanca to Rabat and Chefchaouen|De Casablanca a Rabat y Chefchaouen",BK.cR9[1]];
+BK.cF10=["Chefchaouen to Volubilis, Meknes and Fes|De Chefchaouen a Volúbilis, Mequinez y Fez",BK.cF9[1]];
+BK.cO9=["Ouarzazate to Marrakech via Ait Benhaddou|De Uarzazate a Marrakech por Ait Benhaddou",BK.cO8[1]];
+var H7=["Visit Morocco’s imperial cities: Casablanca, Rabat, Fes and Marrakech.|Visita las ciudades imperiales de Marruecos: Casablanca, Rabat, Fez y Marrakech.","Discover the blue-painted streets of Chefchaouen.|Descubre las calles azules de Chefchaouen.","Marvel at the Roman ruins of Volubilis.|Admira las ruinas romanas de Volúbilis.","Experience a magical night in the Sahara Desert with a camel trek.|Vive una noche mágica en el Sahara con un paseo en camello.","Explore the dramatic Todra Gorge and historic Ait Benhaddou.|Explora la espectacular garganta del Todra y la histórica Ait Benhaddou.","Traverse the stunning landscapes of the High Atlas Mountains.|Atraviesa los paisajes del Alto Atlas."],
+H10=["Visit iconic cities: Casablanca, Rabat, Chefchaouen, Fes and Marrakech.|Visita ciudades emblemáticas: Casablanca, Rabat, Chefchaouen, Fez y Marrakech.","Explore ancient landmarks like Volubilis, Meknes and Ait Benhaddou.|Explora lugares históricos como Volúbilis, Mequinez y Ait Benhaddou.","Experience the Sahara Desert with a camel trek and luxury camp.|Vive el Sahara con un paseo en camello y un campamento de lujo.","Traverse the dramatic Todra Gorge, Dades Valley and High Atlas Mountains.|Atraviesa la garganta del Todra, el valle del Dadès y el Alto Atlas.","Enjoy the rich culture and vibrant medinas of Morocco.|Disfruta de la cultura y las vibrantes medinas de Marruecos."],
+H12=["Explore iconic imperial cities: Casablanca, Rabat, Fes and Marrakech.|Explora ciudades imperiales emblemáticas: Casablanca, Rabat, Fez y Marrakech.","Immerse yourself in the Sahara Desert with a camel trek and luxury camp stay.|Sumérgete en el Sahara con un paseo en camello y una noche en un campamento de lujo.","Wander the blue streets of Chefchaouen, the “Blue Pearl”.|Pasea por las calles azules de Chefchaouen, la “Perla Azul”.","Discover historic treasures like Volubilis, Meknes and Ait Benhaddou.|Descubre tesoros históricos como Volúbilis, Mequinez y Ait Benhaddou.","Enjoy the Atlas Mountains, Todra Gorge and Dades Valley.|Disfruta del Atlas, la garganta del Todra y el valle del Dadès."];
+var IC=["Comfortable private transportation with an experienced driver/guide.|Transporte privado cómodo con conductor/guía con experiencia.","Accommodation in handpicked riads, hotels and a luxury desert camp.|Alojamiento en riads, hoteles y un campamento de lujo en el desierto seleccionados.","Daily breakfasts and dinners.|Desayunos y cenas diarios.","Camel trek in the Sahara Desert.|Paseo en camello por el Sahara."],
+IG=["Guided tours in Fes and Marrakech.|Visitas guiadas por Fez y Marrakech."],
+RC=["casablanca","rabat","chefchaouen","meknes","fes","midelt","merzouga","todra","dades","ouarzazate","aitbenhaddou","marrakech"];
+function mk2(o,l,w,r,h,inc){var t=mk(o,l,w,r,h);t.inc=inc;return t}
+TD["2-0"]=mk2("Embark on a thrilling 7-day tour from Casablanca through Morocco’s most iconic cities, breathtaking landscapes and the magical Sahara Desert, a comprehensive journey blending cultural exploration with desert adventure, perfect as an introduction to Morocco.|Emprende un emocionante tour de 7 días desde Casablanca por las ciudades más emblemáticas de Marruecos, paisajes impresionantes y el mágico Sahara: un viaje completo que une cultura y aventura en el desierto, perfecto como introducción a Marruecos.",["cA1","cR7","cCh3","cFt","cM7","cS6","cMt7"],"This 7-day tour from Casablanca mixes Morocco’s culture, natural beauty and historic landmarks. Perfect for first-time visitors, it balances adventure and relaxation.|Este tour de 7 días desde Casablanca combina la cultura, la belleza natural y los monumentos históricos de Marruecos. Perfecto para quienes visitan por primera vez, equilibra aventura y relax.",["casablanca","rabat","chefchaouen","fes","midelt","merzouga","todra","aitbenhaddou","marrakech"],H7,IC);
+TD["2-1"]=mk2("Experience the magic of Morocco on a 9-day private tour from Casablanca through imperial cities, the enchanting Sahara and breathtaking landscapes: a personalized journey blending history, adventure and relaxation.|Vive la magia de Marruecos en un tour privado de 9 días desde Casablanca por ciudades imperiales, el encantador Sahara y paisajes impresionantes: un viaje personalizado que combina historia, aventura y relax.",["cA","cR9","cF9","cFt","cM9","cD6","cK7","cMt","cDp9"],"This 9-day private tour is for travelers seeking adventure, culture and relaxation, with private transportation and tailored experiences for a seamless journey.|Este tour privado de 9 días es para viajeros que buscan aventura, cultura y relax, con transporte privado y experiencias a medida para un viaje sin preocupaciones.",["casablanca","rabat","chefchaouen","meknes","fes","midelt","merzouga","todra","dades","aitbenhaddou","marrakech"],H7,IC);
+TD["2-2"]=mk2("Discover the magic of Morocco on a 10-day tour from Casablanca through imperial cities, the vast Sahara Desert and the majestic Atlas Mountains: a mix of culture, history and adventure.|Descubre la magia de Marruecos en un tour de 10 días desde Casablanca por ciudades imperiales, el vasto Sahara y las majestuosas montañas del Atlas: una mezcla de cultura, historia y aventura.",["cA","cR10","cF10","cFt","cM9","cD6","cO","cO8","cMt","cDp10"],"This 10-day tour offers an in-depth exploration of Morocco’s cultural treasures, natural wonders and historic landmarks, designed for comfort and adventure at your own pace.|Este tour de 10 días ofrece una exploración a fondo de los tesoros culturales, las maravillas naturales y los monumentos históricos de Marruecos, pensado para combinar comodidad y aventura a tu ritmo.",RC,H10,IC.concat(IG));
+TD["2-3"]=mk2("Explore the beauty and heritage of Morocco on a 12-day Morocco Desert Tour from Casablanca through historic cities, dramatic landscapes and the golden sands of the Sahara, perfect for an immersive cultural and natural experience.|Explora la belleza y el patrimonio de Marruecos en un tour de 12 días por el desierto desde Casablanca, por ciudades históricas, paisajes espectaculares y las arenas doradas del Sahara, ideal para una experiencia cultural y natural inmersiva.",["cA","cR10","cF10","cFt","cM9","cSa","cD6","cO","cO9","cMt","cEs","cDp10"],"Our 12-day Morocco Desert Tour offers a balanced mix of adventure, culture and relaxation, with handpicked accommodation and expertly guided experiences.|Nuestro tour de 12 días por el desierto de Marruecos ofrece una mezcla equilibrada de aventura, cultura y relax, con alojamientos seleccionados y experiencias guiadas por expertos.",RC,H12,IC.concat(IG,["4×4 desert excursion in Merzouga.|Excursión en 4×4 por el desierto de Merzouga."]));
+var fab=document.getElementById("fab"),tp=document.getElementById("ftip");
+document.getElementById("fmore").onclick=function(){fab.classList.toggle("open");tp.classList.remove("show")};
+fab.querySelectorAll(".fm").forEach(function(a){a.addEventListener("click",function(){fab.classList.remove("open")})});
+document.getElementById("ftx").onclick=function(){tp.classList.remove("show")};
+setTimeout(function(){if(!fab.classList.contains("open"))tp.classList.add("show")},4000);setTimeout(function(){tp.classList.remove("show")},16000);
+document.getElementById("bks").innerHTML=sc("dunes");
+document.getElementById("caravan").innerHTML=[[74,0],[62,-2.4],[54,-4.8]].map(function(a){return '<svg viewBox="0 0 100 75" style="width:'+a[0]+'px;animation-delay:'+a[1]+'s"><g class="bob" fill="#1d0f08" opacity=".92"><path d="'+CAM+'"/></g></svg>'}).join("");
+var sh="";for(var q=0;q<22;q++)sh+='<i style="left:'+Math.random()*100+'%;top:'+Math.random()*45+'%;animation-delay:-'+Math.random()*4+'s"></i>';document.getElementById("stars").innerHTML=sh;
+if(typeof IO!="undefined"&&IO){var ic=document.querySelector(".infc");ic.classList.add("rv3");IO.observe(ic)}
+var BSP=[[0,1,"camel"],[1,1,"todra"],[2,0,"night"],[3,1,"dades"]];
+document.getElementById("bsg").innerHTML=BSP.map(function(a){var c=C[a[0]],t=c[5][a[1]];
+  return '<a class="bs" href="#tour-'+a[0]+'-'+a[1]+'"><div class="bsp" style="background:linear-gradient(160deg,'+c[3]+')">'+sc(a[2])+'<span class="bsr" data-es="MÁS VENDIDO">BEST SELLER</span><span class="bsd" data-es="'+t[0]+' DÍAS">'+t[0]+' DAYS</span></div><div class="bst"><small data-es="Desde '+c[2]+'">From '+c[1]+'</small><h3 data-es="'+t[2]+'">'+t[1]+'</h3></div></a>'}).join("");
+if(typeof IO!="undefined"&&IO){document.querySelectorAll(".bs").forEach(function(e,i){e.classList.add("rv3","tl");e.style.transitionDelay=(i%2)*90+"ms";IO.observe(e);
+  e.addEventListener("pointermove",function(ev){var r=e.getBoundingClientRect(),x=(ev.clientX-r.left)/r.width-.5,y=(ev.clientY-r.top)/r.height-.5;e.style.transform="perspective(600px) rotateY("+x*12+"deg) rotateX("+-y*12+"deg) translateZ(6px)"});
+  e.addEventListener("pointerleave",function(){e.style.transform=""})})}
+var WD="M18 0C22 30 70 22 78 62C84 92 52 90 58 70C63 54 92 64 84 98C78 124 30 120 24 150C18 178 62 172 70 200C76 224 44 226 46 208C48 192 80 200 76 228C72 256 28 250 22 282C16 312 66 306 74 338C80 362 46 366 48 348C50 332 84 340 78 368C72 396 30 392 24 424C18 452 60 450 66 480L66 500";
+function drawLine(){var w=document.getElementById("whyw");if(!w)return;var W=w.offsetWidth,H=w.offsetHeight,k=W+"x"+H;
+  if(W&&w.dataset.k!=k){w.dataset.k=k;var i=0,d=WD.replace(/-?\d+(\.\d+)?/g,function(n){return((i++%2)?n*H/500:n*W/100).toFixed(1)});w.querySelector(".wline").setAttribute("viewBox","0 0 "+W+" "+H);document.getElementById("wline").setAttribute("d",d)}
+  var r=w.getBoundingClientRect(),p=Math.max(0,Math.min(1,(innerHeight*.8-r.top)/(r.height||1)));document.getElementById("wline").style.strokeDashoffset=1-p}
+addEventListener("scroll",drawLine,{passive:true});addEventListener("resize",drawLine);addEventListener("hashchange",drawLine);drawLine();
+if(typeof IO!="undefined"&&IO){document.querySelectorAll(".wyh,.wi,.wwa p,.wst div").forEach(function(e,i){e.classList.add("rv3");e.style.transitionDelay=(i%3)*80+"ms";IO.observe(e)})}
+var MC2={tangier:[235,35,"Tangier","r"],chefchaouen:[262,68,"Chefchaouen","r"],fes:[275,130,"Fes","r"],meknes:[248,138,"Meknes","l"],rabat:[183,131,"Rabat","l"],casablanca:[146,156,"Casablanca","l"],marrakech:[125,262,"Marrakech","l"],ouarzazate:[180,301,"Ouarzazate","r"],aitbenhaddou:[169,294,"Aït Benhaddou","l"],midelt:[288,205,"Midelt","r"],todra:[249,268,"Todra","r"],dades:[226,277,"Dades","l"],merzouga:[325,291,"Merzouga","l"]},
+MN={midelt:1,todra:1,dades:1,aitbenhaddou:1},
+CTX=[["Agadir",45,330,"r"],["Béni Mellal",207,222,"r"],["Errachidia",304,246,"r"],["Safi",62,225,"r"],["Kenitra",196,118,"l"]];
+function kmEst(r){var t=0;for(var i=1;i<r.length;i++){var a=MC2[r[i-1]],b=MC2[r[i]],dl=(b[1]-a[1])/55*111,dn=(b[0]-a[0])/50*111*.83;t+=Math.sqrt(dl*dl+dn*dn)}return Math.round(t*1.3/10)*10}
+function mapH(r){
+  var LAND="M234 34L260 30L262 44L300 52L328 63L378 68L400 70V400H5L16 385L37 368L44 330L36 269L62 225L100 173L142 154L182 130L191 118L217 66Z";
+  var d="M"+r.map(function(k){return MC2[k][0]+" "+MC2[k][1]}).join("L"),seen={},first=r[0],last=r[r.length-1];
+  var q=r.map(function(k){return encodeURIComponent(GQ[k]+", Morocco")}),full="https://www.google.com/maps/dir/"+q.join("/");
+  var dots=r.map(function(k,i){if(i&&k==first)return"";var c=MC2[k],st=i==0,en=i==r.length-1;
+    if(en)return '<g transform="translate('+c[0]+' '+c[1]+')"><path d="M0 0C-6-9-9-13-9-17a9 9 0 1 1 18 0c0 4-3 8-9 17z" fill="#e53935" stroke="#fff" stroke-width="1.500"/><circle cy="-17" r="3.500" fill="#fff"/></g>';
+    return '<circle cx="'+c[0]+'" cy="'+c[1]+'" r="'+(st?6:MN[k]?3:4.500)+'" fill="#fff" stroke="'+(st?"#555":"#1f2a44")+'" stroke-width="'+(st?3:1.500)+'"/>'}).join("");
+  var lab=r.map(function(k){var c=MC2[k];if(seen[k])return"";seen[k]=1;var l=c[3]=="l";return '<text class="'+(MN[k]?"s":"")+'" x="'+(c[0]+(l?-9:9))+'" y="'+(c[1]+4)+'" text-anchor="'+(l?"end":"start")+'">'+c[2]+'</text>'}).join("");
+  var cx=CTX.map(function(c){var l=c[3]=="l";return '<circle cx="'+c[1]+'" cy="'+c[2]+'" r="2" fill="#fff" opacity=".8"/><text class="s" x="'+(c[1]+(l?-6:6))+'" y="'+(c[2]+3)+'" text-anchor="'+(l?"end":"start")+'">'+c[0]+'</text>'}).join("");
+  var km=kmEst(r),h=Math.round(km/55);
+  var svg='<svg viewBox="0 0 400 400"><defs><clipPath id="m_c"><path d="'+LAND+'"/></clipPath><filter id="m_d" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency=".014 .028" numOctaves="4" seed="4"/><feColorMatrix values="0 0 0 0 .22 0 0 0 0 .14 0 0 0 0 .07 1.6 0 0 0 -.45"/></filter><filter id="m_g" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency=".02 .035" numOctaves="3" seed="11"/><feColorMatrix values="0 0 0 0 .23 0 0 0 0 .32 0 0 0 0 .14 1.8 0 0 0 -.6"/></filter><linearGradient id="m_gg" x1="0" y1="0" x2="0" y2="1"><stop offset=".15" stop-color="#fff"/><stop offset=".6" stop-color="#000"/></linearGradient><mask id="m_m"><rect width="400" height="400" fill="url(#m_gg)"/></mask></defs>'
+  +'<rect width="400" height="400" fill="#123f66"/><path d="M190 0L215 12L240 22L250 20L275 10L300 0Z" fill="#a9824f"/><path d="'+LAND+'" fill="#a9824f"/>'
+  +'<g clip-path="url(#m_c)"><rect width="400" height="400" filter="url(#m_d)"/><g mask="url(#m_m)"><rect width="400" height="400" filter="url(#m_g)"/></g></g>'
+  +'<path d="'+LAND+'" fill="none" stroke="#e8dcb4" stroke-opacity=".5"/><path d="M400 235L358 262L350 300L197 400" fill="none" stroke="#fff" stroke-opacity=".55" stroke-dasharray="4 3"/>'
+  +'<text class="b" x="190" y="215" text-anchor="middle">MOROCCO</text><text class="o" x="12" y="150">Atlantic Ocean</text><text class="o" x="300" y="14">Mediterranean</text><text class="b2" x="330" y="360" text-anchor="middle">ALGERIA</text>'
+  +cx+'<path d="'+d+'" fill="none" stroke="#0a2a9c" stroke-width="7" stroke-linejoin="round" stroke-linecap="round" pathLength="1" class="rt"/><path d="'+d+'" fill="none" stroke="#3b6bff" stroke-width="4" stroke-linejoin="round" stroke-linecap="round" pathLength="1" class="rt"/>'
+  +dots+lab+'<circle r="4.500" fill="#fff" stroke="#1d4ed8" stroke-width="2.500"><animateMotion dur="10s" repeatCount="indefinite" path="'+d+'"/></circle></svg>';
+  return '<div class="mpw"><div class="gm">'+svg+'<div class="gmc"><div class="gr"><i class="o"></i>'+MC2[first][2]+'</div><div class="gl"></div><div class="gr"><i class="p"></i>'+MC2[last][2]+(last==first?' <small data-es="(ida y vuelta)">(round trip)</small>':'')+'</div><a class="gmo" target="_blank" rel="noopener" href="'+full+'" data-es="Más opciones">More options</a></div><div class="gmd"><svg viewBox="0 0 24 24" width="22" height="22" fill="#333"><path d="M5 11l1.500-4.500A2 2 0 0 1 8.400 5h7.200a2 2 0 0 1 1.900 1.500L19 11a2 2 0 0 1 2 2v4h-2v1.500h-3V17H8v1.500H5V17H3v-4a2 2 0 0 1 2-2zm2.200-.5h9.600l-1-3H8.200zM6.500 15a1.200 1.200 0 1 0 0-2.400 1.200 1.200 0 0 0 0 2.400zm11 0a1.200 1.200 0 1 0 0-2.400 1.200 1.200 0 0 0 0 2.400z"/></svg><span>≈ '+h+' h · ≈ '+km.toLocaleString("en-US")+' km</span></div></div><a class="book" target="_blank" rel="noopener" href="'+full+'" data-es="Abrir en Google Maps →">Open in Google Maps →</a></div>'}
+var FR=[];`Stunning landscapes: the High Atlas~|Paysages impressionnants : le Haut Atlas, le désert du Sahara et les gorges du Todra.
+Cultural landmarks: Ait Benhaddou, Ouarzazate~|Sites culturels : Aït Benhaddou, Ouarzazate et la vallée du Dadès.
+Unique experiences: camel trekking~|Expériences uniques : balade à dos de chameau, nuit dans un camp de luxe dans le désert et lever du soleil sur les dunes.
+Authentic Morocco: Berber villages~|Maroc authentique : villages berbères, kasbahs et hospitalité locale.
+Ziz Valley, the Azrou cedar forests~|Vallée du Ziz, forêts de cèdres d’Azrou avec macaques de Barbarie et Ifrane sur la route de Fès.
+Cultural immersion: ancient kasbahs~|Immersion culturelle : anciennes kasbahs, villages berbères et médinas de Marrakech et d’Essaouira.
+Natural wonders: the High Atlas~|Merveilles naturelles : le Haut Atlas, le désert du Sahara et la côte atlantique.
+Authentic adventures: camel trekking, oases~|Aventures authentiques : balade à dos de chameau, oasis et une nuit dans un camp de luxe dans le désert.
+Gastronomic delights~|Délices gastronomiques : tajines et fruits de mer frais.
+Cultural immersion: the medinas and landmarks~|Immersion culturelle : les médinas et les sites emblématiques de Marrakech, Fès et Rabat.
+Desert adventure: camel trekking and a night~|Aventure dans le désert : balade à dos de chameau et nuit dans un camp de luxe dans le Sahara.
+Breathtaking landscapes: the Atlas~|Paysages à couper le souffle : l’Atlas, des vallées verdoyantes et d’anciennes kasbahs.
+Authentic experiences: meet locals~|Expériences authentiques : rencontres avec les habitants, cuisine marocaine et achats d’artisanat.
+Marrakech to Dades Valley via Ait Benhaddou and Ouarzazate|De Marrakech à la vallée du Dadès par Aït Benhaddou et Ouarzazate
+Dades Valley to Merzouga via Todra Gorge|De la vallée du Dadès à Merzouga par les gorges du Todra
+Merzouga to Fes via Ziz Valley and Cedar Forests|De Merzouga à Fès par la vallée du Ziz et les forêts de cèdres
+Merzouga to Marrakech via Ouarzazate|De Merzouga à Marrakech par Ouarzazate
+Merzouga to Midelt via Ziz Valley|De Merzouga à Midelt par la vallée du Ziz
+Midelt to Fes|De Midelt à Fès
+Merzouga to Agdz via Alnif|De Merzouga à Agdz par Alnif
+Agdz to Marrakech via Ouarzazate|D’Agdz à Marrakech par Ouarzazate
+Agdz to Ouarzazate via the Draa Valley|D’Agdz à Ouarzazate par la vallée du Drâa
+Ouarzazate to Marrakech|D’Ouarzazate à Marrakech
+Marrakech Arrival and Exploration|Arrivée à Marrakech et découverte
+Marrakech to Dades Valley via Ait Benhaddou|De Marrakech à la vallée du Dadès par Aït Benhaddou
+Merzouga Desert Exploration|Découverte du désert de Merzouga
+Merzouga to Zagora via Alnif|De Merzouga à Zagora par Alnif
+Zagora to Ouarzazate via the Draa Valley|De Zagora à Ouarzazate par la vallée du Drâa
+Arrival in Marrakech|Arrivée à Marrakech
+Marrakech to Ouarzazate via Ait Benhaddou|De Marrakech à Ouarzazate par Aït Benhaddou
+Ouarzazate to Dades Valley|D’Ouarzazate à la vallée du Dadès
+Zagora to Taroudant via the Draa Valley|De Zagora à Taroudant par la vallée du Drâa
+Taroudant to Essaouira|De Taroudant à Essaouira
+Essaouira to Marrakech|D’Essaouira à Marrakech
+Explore Marrakech|Découverte de Marrakech
+Marrakech to Ait Benhaddou via the Atlas Mountains|De Marrakech à Aït Benhaddou par l’Atlas
+Dades Valley to Merzouga Desert|De la vallée du Dadès au désert de Merzouga
+Merzouga to Agdz via Alnif and the Draa Valley|De Merzouga à Agdz par Alnif et la vallée du Drâa
+Merzouga to Midelt|De Merzouga à Midelt
+Explore Fes|Découverte de Fès
+Fes to Rabat via Meknes|De Fès à Rabat par Meknès
+Rabat to Marrakech|De Rabat à Marrakech
+Sunrise over the Erg Chebbi dunes, breakfast~|Lever du soleil sur les dunes de l’Erg Chebbi, petit-déjeuner au camp et retour à Merzouga à dos de chameau ou en 4×4.
+Leave Marrakech early and cross the High Atlas~|Quittez Marrakech tôt et traversez le Haut Atlas par le col du Tizi n’Tichka, le plus haut col routier du Maroc, avec vues sur les vallées, les champs en terrasses et les villages berbères.
+Visit Ait Benhaddou, the UNESCO fortified village~|Visitez Aït Benhaddou, le village fortifié classé à l’UNESCO vu dans des films comme Gladiator et Game of Thrones, puis Ouarzazate, « l’Hollywood du Maroc », et la kasbah de Taourirt.
+Continue through the Valley of Roses to the Dades Valley~|Poursuivez par la vallée des Roses jusqu’à la vallée du Dadès, avec ses formations rocheuses et ses kasbahs. Dîner et nuit dans un riad ou un hôtel.
+Visit the Todra Gorge, a canyon with cliffs up to 300~|Visitez les gorges du Todra, un canyon aux falaises hautes de 300 mètres, et promenez-vous le long de la rivière.
+Drive through Berber villages and palm groves, with stops~|Traversez des villages berbères et des palmeraies, avec des arrêts à Tinejdad et Erfoud, connue pour ses ateliers de fossiles, jusqu’à Merzouga, la porte des dunes de l’Erg Chebbi.
+In the late afternoon, trek by camel across the dunes at sunset~|En fin d’après-midi, balade à dos de chameau dans les dunes au coucher du soleil jusqu’à un camp de luxe dans le désert : dîner traditionnel, musique berbère en direct et ciel étoilé. Nuit sous la tente.
+Drive through the Ziz Valley and its palm groves, have lunch~|Traversez la vallée du Ziz et ses palmeraies, déjeunez à Midelt, la « capitale de la pomme du Maroc », et franchissez le Moyen Atlas par les forêts de cèdres d’Azrou, où vivent les macaques de Barbarie.
+Arrive in Fes in the evening, where the tour ends.|Arrivée à Fès en soirée, où le circuit se termine.
+Retrace your route through southern Morocco~|Reprenez votre route à travers le sud du Maroc, avec des arrêts photo sur le désert, les oasis et les montagnes, et arrivez à Marrakech en fin d’après-midi ou début de soirée.
+Drive through the Ziz Valley, a ribbon of palm groves~|Traversez la vallée du Ziz, un ruban de palmeraies et de villages, puis franchissez le Moyen Atlas jusqu’à Midelt, connue pour ses vergers de pommiers. Dîner et nuit en maison d’hôtes.
+Visit Azrou, with its cedar forests~|Visitez Azrou, avec ses forêts de cèdres et ses macaques de Barbarie sympathiques, et Ifrane, la « Suisse du Maroc », à l’architecture européenne. Arrivée à Fès en fin d’après-midi, où le circuit se termine.
+Cross the Saghro Mountains and Alnif, known for its fossils, to Agdz~|Traversez le Saghro et Alnif, connue pour ses fossiles, jusqu’à Agdz, au début de la vallée du Drâa, avec ses palmeraies et ses kasbahs. Dîner et nuit en maison d’hôtes.
+Drive through the Draa Valley, with date palms~|Traversez la vallée du Drâa, avec ses palmiers dattiers, ses villages en pisé et la kasbah de Tamnougalt.
+Return through Ouarzazate (lunch)~|Retour par Ouarzazate (déjeuner) et le Haut Atlas jusqu’à Marrakech, avec arrivée en fin d’après-midi.
+Drive through the Draa Valley and stop at the Kasbah Tamnougalt~|Traversez la vallée du Drâa et arrêtez-vous à la kasbah de Tamnougalt. À Ouarzazate, visitez ce que vous avez manqué, comme le musée du Cinéma, et déjeunez dans un café local.
+Retrace your route across the High Atlas, with a last photo stop~|Reprenez votre route à travers le Haut Atlas, avec un dernier arrêt photo au col du Tizi n’Tichka, et arrivez à Marrakech en fin d’après-midi.
+Welcome to Marrakech, the~|Bienvenue à Marrakech, la « Ville rouge ». L’après-midi, explorez la médina (UNESCO) : souks pleins de textiles, d’épices et d’artisanat, et la place Jemaa el-Fna avec ses artistes et ses stands de nourriture. Nuit dans un riad traditionnel.
+Cross the High Atlas via the Tizi n’Tichka Pass, visit Ait Benhaddou~|Traversez le Haut Atlas par le col du Tizi n’Tichka, visitez Aït Benhaddou, le ksar classé à l’UNESCO et lieu de tournage, passez par Ouarzazate et arrivez dans la vallée du Dadès pour dîner et dormir dans un riad au milieu de formations rocheuses rouges.
+Watch the sunrise over the dunes, then visit a nomadic Berber village~|Admirez le lever du soleil sur les dunes, puis visitez un village berbère nomade et Khamlia, célèbre pour sa musique gnawa. Retour au camp pour le dîner et l’observation des étoiles.
+Cross the Saghro Mountains and Alnif, known for its fossils, to Zagora~|Traversez le Saghro et Alnif, connue pour ses fossiles, jusqu’à Zagora, la « porte du désert » sur l’ancienne route de Tombouctou, et voyez le célèbre panneau de Tombouctou. Nuit en maison d’hôtes.
+Drive through the Draa Valley, one of Morocco’s largest palm groves~|Traversez la vallée du Drâa, l’une des plus grandes palmeraies du Maroc, avec ses villages berbères et ses kasbahs, jusqu’à Ouarzazate, où vous pouvez revoir la kasbah de Taourirt ou les studios Atlas. Dîner et nuit dans un riad.
+Retrace your route across the High Atlas with photo stops~|Reprenez votre route à travers le Haut Atlas avec des arrêts photo et profitez d’un dîner d’adieu dans un restaurant traditionnel de Marrakech.
+Meet your guide and transfer to your hotel or riad. In the evening~|Rencontrez votre guide et transfert à votre hôtel ou riad. Le soir, explorez Jemaa el-Fna, animée par des conteurs, des musiciens et des vendeurs de nourriture, l’introduction parfaite au Maroc. Nuit dans un riad traditionnel.
+Cross the High Atlas via the Tizi n’Tichka Pass and visit Ait Benhaddou~|Traversez le Haut Atlas par le col du Tizi n’Tichka et visitez Aït Benhaddou, un ksar classé à l’UNESCO en architecture de terre et lieu de tournage. Nuit dans un riad à Ouarzazate, « l’Hollywood de l’Afrique ».
+Visit the Taourirt Kasbah, then drive through the Valley of Roses~|Visitez la kasbah de Taourirt, puis traversez la vallée des Roses, célèbre pour ses roseraies et son eau de rose, jusqu’à la vallée du Dadès, aux formations rocheuses saisissantes. Nuit dans un riad avec vue sur la vallée.
+Drive through the Draa Valley, Morocco’s largest palm grove~|Traversez la vallée du Drâa, la plus grande palmeraie du Maroc, jusqu’à Taroudant, la « grand-mère de Marrakech », avec ses anciens remparts et ses souks d’artisanat. Nuit dans un riad.
+Drive to the coastal town of Essaouira:~|Route vers la ville côtière d’Essaouira : la médina (UNESCO) aux bâtiments blanchis à la chaux et aux portes bleues, le port de pêche, des fruits de mer frais et le coucher du soleil sur l’Atlantique. Nuit dans un riad en bord de mer.
+Return to Marrakech through argan tree groves~|Retour à Marrakech à travers des bosquets d’arganiers, avec un arrêt dans une coopérative de femmes pour découvrir la fabrication de l’huile d’argan. Dîner d’adieu dans un restaurant traditionnel.
+Guided tour: the Bahia Palace, the Saadian Tombs~|Visite guidée : le palais de la Bahia, les tombeaux saadiens, la mosquée Koutoubia et le jardin Majorelle, plus du temps dans les souks pour l’artisanat, les textiles et les épices.
+Cross the Tizi n’Tichka Pass, visit Ait Benhaddou and continue~|Franchissez le col du Tizi n’Tichka, visitez Aït Benhaddou et poursuivez jusqu’à Ouarzazate, la « porte du désert », pour la nuit dans un riad traditionnel.
+Visit the Taourirt Kasbah, drive through the Skoura Oasis~|Visitez la kasbah de Taourirt, traversez l’oasis de Skoura et la vallée des Roses, où vous pouvez voir la production d’eau de rose, et arrivez aux gorges du Dadès.
+Cross the Middle Atlas via cedar forests and Ifrane~|Traversez le Moyen Atlas par les forêts de cèdres et Ifrane, la « Suisse du Maroc », et arrivez à Fès, capitale culturelle et spirituelle du Maroc.
+Stop in Meknes, with the Bab Mansour Gate~|Arrêt à Meknès, avec la porte Bab Mansour et le mausolée Moulay Ismaïl, puis route vers Rabat : la tour Hassan, le palais royal et la kasbah des Oudaïa. Nuit dans un riad de charme dans la médina.
+Return to Marrakech with free time for last-minute shopping~|Retour à Marrakech avec du temps libre pour les derniers achats dans les souks, et un dîner d’adieu traditionnel.
+Explore Fes el-Bali, the UNESCO-listed medina and one~|Explorez Fès el-Bali, la médina classée à l’UNESCO et l’une des plus grandes zones piétonnes du monde : l’université Al-Quaraouiyine, les tanneries Chouara et la médersa Bou Inania.
+Enjoy traditional cuisine and discover the souks~|Savourez la cuisine traditionnelle et découvrez les souks et le savoir-faire des artisans.
+Stunning landscapes: the High Atlas, the Sahara Desert and the Todra Gorge.|Paysages à couper le souffle : le Haut Atlas, le désert du Sahara et les gorges du Todra.
+Cultural landmarks: Ait Benhaddou, Ouarzazate and the Dades Valley.|Sites culturels : Aït Benhaddou, Ouarzazate et la vallée du Dadès.
+Unique experiences: camel trekking, a night in a luxury desert camp and sunrise over the dunes.|Expériences uniques : balade à dos de chameau, une nuit dans un camp de luxe et le lever du soleil sur les dunes.
+Authentic Morocco: Berber villages, kasbahs and local hospitality.|Maroc authentique : villages berbères, kasbahs et hospitalité locale.
+Ziz Valley, the Azrou cedar forests with Barbary macaques~|Vallée du Ziz, forêts de cèdres d’Azrou avec macaques de Barbarie et Ifrane sur la route de Fès.
+Cultural immersion: ancient kasbahs, Berber villages~|Immersion culturelle : anciennes kasbahs, villages berbères et médinas de Marrakech et d’Essaouira.
+Natural wonders: the High Atlas, the Sahara Desert and the Atlantic coast.|Merveilles naturelles : le Haut Atlas, le désert du Sahara et la côte atlantique.
+Authentic adventures: camel trekking, oases~|Aventures authentiques : balade à dos de chameau, oasis et une nuit dans un camp de luxe.
+Gastronomic delights: tagines and fresh seafood.|Délices gastronomiques : tajines et fruits de mer frais.
+Cultural immersion: the medinas and landmarks of Marrakech, Fes and Rabat.|Immersion culturelle : les médinas et sites de Marrakech, Fès et Rabat.
+Desert adventure: camel trekking and a night in a luxury Sahara camp.|Aventure dans le désert : balade à dos de chameau et une nuit dans un camp de luxe au Sahara.
+Breathtaking landscapes: the Atlas Mountains, lush valleys and ancient kasbahs.|Paysages à couper le souffle : l’Atlas, des vallées verdoyantes et d’anciennes kasbahs.
+Authentic experiences: meet locals, enjoy Moroccan cuisine~|Expériences authentiques : rencontrez les habitants, savourez la cuisine marocaine et achetez de l’artisanat.
+Embark on an unforgettable 3-day journey from Marrakech to Fes~|Partez pour un voyage inoubliable de 3 jours de Marrakech à Fès, des montagnes escarpées aux dunes dorées : une porte ouverte sur les merveilles culturelles et naturelles du Maroc, avec un patrimoine vivant, des paysages spectaculaires et de l’aventure.
+Embark on a thrilling 3-day journey from Marrakech to the Merzouga~|Partez pour un voyage palpitant de 3 jours de Marrakech au désert de Merzouga, des majestueuses montagnes de l’Atlas aux sables dorés de l’Erg Chebbi : le meilleur de la beauté naturelle et du patrimoine culturel du Maroc.
+Embark on an unforgettable 4-day journey from Marrakech to Fes~|Partez pour un voyage inoubliable de 4 jours de Marrakech à Fès à travers les paysages et trésors culturels les plus spectaculaires du Maroc : l’Atlas, le cœur du Sahara, des vallées pittoresques et des villes historiques.
+Embark on a breathtaking 4-day journey from Marrakech to Merzouga~|Partez pour un voyage à couper le souffle de 4 jours de Marrakech à Merzouga, des hautes montagnes de l’Atlas aux dunes dorées du Sahara et à la vallée du Drâa : aventure, culture et beauté naturelle.
+Embark on an extraordinary 5-day desert tour from Marrakech~|Partez pour un circuit extraordinaire de 5 jours dans le désert depuis Marrakech, entre paysages variés, riche culture marocaine et charme du Sahara : aventure, histoire et beauté naturelle pour une expérience marocaine authentique.
+Embark on a mesmerizing 7-day journey from Marrakech to the Sahara~|Partez pour un voyage fascinant de 7 jours de Marrakech au Sahara, mêlant paysages, culture et traditions du Maroc à travers l’Atlas, d’anciennes kasbahs, des oasis verdoyantes et les dunes dorées. Idéal pour une expérience immersive.
+Embark on an unforgettable 8-day journey through Morocco from Marrakech~|Partez pour un voyage inoubliable de 8 jours à travers le Maroc depuis Marrakech : l’Atlas, d’anciennes kasbahs, les dunes dorées du Sahara et la côte atlantique, une expérience essentielle de la culture, de l’histoire et de la nature du Maroc.
+Embark on a 10-day Morocco Grand Tour from Marrakech~|Partez pour un grand tour du Maroc de 10 jours depuis Marrakech, à la découverte des sites emblématiques du pays, de ses paysages impressionnants et de ses trésors culturels, des médinas animées au paisible désert du Sahara.
+This tour showcases Berber hospitality, UNESCO sites~|Ce circuit met en valeur l’hospitalité berbère, les sites UNESCO et les plus beaux paysages du Maroc, avec balade à dos de chameau et hébergement de luxe dans le désert.
+A 3-day journey that combines Morocco’s mountains, kasbahs~|Un voyage de 3 jours qui réunit les montagnes, les kasbahs et le Sahara du Maroc, avec balade à dos de chameau et une nuit dans un camp de luxe.
+A 4-day route that crosses the High Atlas, the Sahara and the Middle Atlas~|Un itinéraire de 4 jours qui traverse le Haut Atlas, le Sahara et le Moyen Atlas pour finir à Fès, avec balade à dos de chameau et rencontres avec les macaques de Barbarie.
+This 4-day Marrakech to Merzouga tour promises~|Ce circuit de 4 jours de Marrakech à Merzouga promet un mélange d’aventure, de culture et de souvenirs inoubliables, des anciennes kasbahs au paisible Sahara.
+This 5-day desert tour is a great way to explore~|Ce circuit désert de 5 jours est une excellente façon de découvrir la beauté et la culture du Maroc, de l’Atlas au Sahara, à dos de chameau, en visitant des kasbahs et en dormant sous les étoiles.
+This 7-day Sahara tour is a perfect blend~|Ce circuit de 7 jours dans le Sahara est un mélange parfait d’aventure, de culture et de beauté naturelle : cols de montagne, anciennes kasbahs et une nuit dans le désert.
+This 8-day essential tour offers a perfect balance~|Ce circuit essentiel de 8 jours offre un équilibre parfait entre aventure, culture et détente, du désert à la côte.
+This 10-day Grand Tour is a perfect blend~|Ce grand tour de 10 jours est un mélange parfait d’histoire, de culture et d’aventure, le meilleur du Maroc en un seul voyage.
+3 Days from Marrakech to Fes Morocco Desert Tour|Circuit désert de 3 jours de Marrakech à Fès
+3 Days Tour from Marrakech to Merzouga Desert|Circuit de 3 jours de Marrakech au désert de Merzouga
+4 Days from Marrakech to Fes via Desert|4 jours de Marrakech à Fès par le désert
+4 Days Tour from Marrakech to Merzouga Desert|Circuit de 4 jours de Marrakech au désert de Merzouga
+5 Days Morocco Desert Tour from Marrakech|Circuit désert de 5 jours au Maroc depuis Marrakech
+7 Days from Marrakech Morocco Sahara Desert Tour|7 jours depuis Marrakech : circuit dans le Sahara marocain
+8 Days Essential Morocco Tour from Marrakech|Circuit essentiel du Maroc de 8 jours depuis Marrakech
+10 Days Morocco Grand Tour from Marrakech|Grand tour du Maroc de 10 jours depuis Marrakech
+3 Days Desert Tour Fes to Marrakech|Circuit désert de 3 jours de Fès à Marrakech
+3 Days Morocco Sahara Desert Tour from Fes|Circuit de 3 jours dans le Sahara marocain depuis Fès
+4 Days Morocco Desert Tour from Fes to Marrakech|Circuit désert de 4 jours de Fès à Marrakech
+5 Days from Fes to Marrakech Morocco Desert Tour|5 jours de Fès à Marrakech : circuit désert au Maroc
+7 Days Tour in Morocco from Fes|Circuit de 7 jours au Maroc depuis Fès
+7 Days in Morocco from Casablanca Desert Tours|7 jours au Maroc depuis Casablanca : circuits dans le désert
+9 Days Private Morocco Tour from Casablanca|Circuit privé de 9 jours au Maroc depuis Casablanca
+10 Days Morocco Tour from Casablanca|Circuit de 10 jours au Maroc depuis Casablanca
+12 Days Morocco Desert Tour from Casablanca|Circuit désert de 12 jours au Maroc depuis Casablanca
+6 Days in Morocco Tour from Tangier|Circuit de 6 jours au Maroc depuis Tanger
+7 Days Morocco Desert Tour from Tangier|Circuit désert de 7 jours au Maroc depuis Tanger
+9 Days Morocco Desert Tour from Tangier|Circuit désert de 9 jours au Maroc depuis Tanger
+10 Days Holiday in Morocco from Tangier|10 jours de vacances au Maroc depuis Tanger
+12 Days Absolute Morocco Tour from Tangier|Circuit absolu du Maroc de 12 jours depuis Tanger
+Day Trip from Marrakech to Essaouira|Excursion d’une journée de Marrakech à Essaouira
+Day Trip from Marrakech to Ouarzazate and Ait Ben Haddou|Excursion d’une journée de Marrakech à Ouarzazate et Aït Ben Haddou
+Day Trip to Ouzoud Falls from Marrakech|Excursion d’une journée aux cascades d’Ouzoud depuis Marrakech
+Ourika Valley Day Trip from Marrakech|Excursion d’une journée dans la vallée de l’Ourika depuis Marrakech
+Camel Trekking in Merzouga|Randonnée à dos de chameau à Merzouga
+Overnight Camel Trek|Trek de nuit à dos de chameau
+Camel Ride for Sunrise|Balade en chameau au lever du soleil
+Camel Ride for Sunset|Balade en chameau au coucher du soleil
+4x4 Desert Tour|Excursion en 4x4 dans le désert
+ATV Quad Biking Adventure|Aventure en quad
+Buggy Driving Experience|Expérience de conduite en buggy
+Horseback Riding Tour|Balade à cheval
+Sandboarding in Erg Chebbi|Sandboard dans l’Erg Chebbi
+Visit to Dayet Srij Lake|Visite du lac Dayet Srij
+Berber Culture & Traditions|Culture et traditions berbères
+Moroccan Cooking Class|Cours de cuisine marocaine
+Unforgettable|Inoubliable
+Early bird|Lève-tôt
+Romantic|Romantique
+Fun|Amusant
+Relax|Détente
+Foodie|Gourmand
+Private transportation in a comfortable, air-conditioned vehicle.|Transport privé en véhicule confortable et climatisé.
+Private transportation in an air-conditioned vehicle.|Transport privé en véhicule climatisé.
+Professional English-speaking guide and driver.|Guide et chauffeur professionnels parlant anglais.
+Professional, English-speaking guide and driver.|Guide et chauffeur professionnels parlant anglais.
+Professional English-speaking driver/guide.|Chauffeur-guide professionnel parlant anglais.
+Experienced English-speaking driver/guide.|Chauffeur-guide expérimenté parlant anglais.
+Accommodation in riads, hotels and a luxury desert camp.|Hébergement en riads, hôtels et camp de luxe dans le désert.
+Accommodation in handpicked riads and hotels.|Hébergement dans des riads et hôtels sélectionnés.
+Daily breakfast and select dinners.|Petit-déjeuner quotidien et certains dîners.
+Guided city tours in Fes and Marrakech.|Visites guidées de Fès et de Marrakech.
+Guided tours in Fes and other cities.|Visites guidées à Fès et dans d’autres villes.
+Camel trekking experience in the Sahara.|Balade à dos de chameau dans le Sahara.
+Entrance fees to historical sites.|Entrées aux sites historiques.
+Comfortable private transportation with an experienced driver/guide.|Transport privé confortable avec un chauffeur-guide expérimenté.
+Accommodation in handpicked riads, hotels and a luxury desert camp.|Hébergement dans des riads, hôtels et un camp de luxe dans le désert, sélectionnés.
+Daily breakfasts and dinners.|Petits-déjeuners et dîners quotidiens.
+Camel trek in the Sahara Desert.|Balade à dos de chameau dans le désert du Sahara.
+Guided tours in Fes and Marrakech.|Visites guidées à Fès et à Marrakech.
+4×4 desert excursion in Merzouga.|Excursion en 4×4 dans le désert de Merzouga.
+Camel trekking in Erg Chebbi.|Balade à dos de chameau dans l’Erg Chebbi.
+Overnight stays in a luxury desert camp and traditional riads/guesthouses.|Nuits dans un camp de luxe dans le désert et dans des riads/maisons d’hôtes traditionnels.
+Breakfast and dinner throughout the tour.|Petit-déjeuner et dîner pendant tout le circuit.
+Hotel pick-up and drop-off in Marrakech.|Prise en charge et retour à l’hôtel à Marrakech.
+Round-trip transportation in a comfortable, air-conditioned vehicle.|Transport aller-retour en véhicule confortable et climatisé.
+Round-trip transportation in an air-conditioned vehicle.|Transport aller-retour en véhicule climatisé.
+Entrance fees to attractions.|Entrées aux attractions.
+Lunch and beverages.|Déjeuner et boissons.
+Personal expenses or souvenirs.|Dépenses personnelles ou souvenirs.
+Experienced English-speaking driver/guide who shares insights about the valley.|Chauffeur-guide expérimenté parlant anglais qui partage ses connaissances sur la vallée.
+Meals and drinks|Repas et boissons
+Entrance fees|Entrées
+Personal expenses|Dépenses personnelles
+Lunches and drinks|Déjeuners et boissons
+Entrance fees to sites|Entrées aux sites
+Tips for guides and drivers|Pourboires pour les guides et chauffeurs
+Tour finder|Trouveur de circuits
+Find your tour in 3 steps|Trouvez votre circuit en 3 étapes
+Explore Morocco by map|Explorez le Maroc sur la carte
+See activities →|Voir les activités →
+Get a quote →|Devis →
+Private tour|Circuit privé
+Secure payments|Paiements sécurisés
+Day Trips|Excursions d’une journée
+Day trips from Marrakech|Excursions d’une journée depuis Marrakech
+No overnight stay|Sans nuit sur place
+1 DAY|1 JOUR
+Hotel|Hôtel
+Pick-up|Prise en charge
+Departure from Marrakech|Départ de Marrakech
+Return to Marrakech|Retour à Marrakech
+← Back to day trips|← Retour aux excursions
+Day|Jour
+Dates, interests and number of travellers.|Dates, centres d’intérêt et nombre de voyageurs.
+Private tours, desert activities~|Circuits privés, activités dans le désert et voyages sur mesure partout au Maroc, avec des guides locaux qui parlent votre langue.
+100% private tours|Circuits 100 % privés
+Home|Accueil
+About Us|À propos
+Activities|Activités
+Custom Tours|Sur mesure
+Contact Us|Contact
+Morocco Tours|Circuits au Maroc
+Morocco tours|Circuits au Maroc
+Tours from Marrakech|Circuits depuis Marrakech
+Tours from Fes|Circuits depuis Fès
+Tours from Casablanca|Circuits depuis Casablanca
+Tours from Tangier|Circuits depuis Tanger
+All tours from Marrakech →|Tous les circuits depuis Marrakech →
+All tours from Fes →|Tous les circuits depuis Fès →
+All tours from Casablanca →|Tous les circuits depuis Casablanca →
+All tours from Tangier →|Tous les circuits depuis Tanger →
+From Marrakech|Départ de Marrakech
+From Fes|Départ de Fès
+From Casablanca|Départ de Casablanca
+From Tangier|Départ de Tanger
+Marrakech Tours|Circuits depuis Marrakech
+Fes Tours|Circuits depuis Fès
+Casablanca Tours|Circuits depuis Casablanca
+Tangier Tours|Circuits depuis Tanger
+Fes|Fès
+Tangier|Tanger
+Morocco|Maroc
+Morocco, designed around you|Le Maroc, conçu autour de vous
+Planning Morocco shouldn't take weeks|Organiser le Maroc ne devrait pas prendre des semaines
+Skip the endless tabs~|Fini les onglets sans fin et les avis contradictoires. Dites-nous vos dates et ce que vous aimez, et notre équipe locale construit votre voyage.
+Years in tourism|Années dans le tourisme
+years|ans
+guides|guides
+own vehicles|véhicules propres
+How it works|Comment ça marche
+Tell us|Dites-nous
+We design|Nous concevons
+You travel|Vous voyagez
+You just travel|Vous n’avez qu’à voyager
+Tell us your idea|Dites-nous votre idée
+Dates, interests and budget.|Dates, centres d’intérêt et budget.
+We design your route|Nous concevons votre itinéraire
+You receive a proposal with itinerary~|Vous recevez une proposition avec itinéraire, transport et guide.
+An itinerary made for you.|Un itinéraire conçu pour vous.
+We handle everything.|Nous nous occupons de tout.
+We handle the logistics from start to finish.|Nous gérons la logistique du début à la fin.
+Handpicked routes|Itinéraires sélectionnés
+Pick your departure city|Choisissez votre ville de départ
+Tap a city to see its tours.|Touchez une ville pour voir ses circuits.
+Private tours with local guides.~|Circuits privés avec des guides locaux. Dites-nous votre projet et nous répondons sur WhatsApp.
+View details →|Voir les détails →
+All tours →|Tous les circuits →
+SEE ALL TOURS →|VOIR TOUS LES CIRCUITS →
+MOROCCO PRIVATE TOURS 2026 / 2027|CIRCUITS PRIVÉS AU MAROC 2026 / 2027
+BEST SELLER|MEILLEUR VENDEUR
+Destinations we love|Destinations que nous aimons
+Private catalog|Catalogue privé
+Merzouga activities|Activités à Merzouga
+Desert Experience|Expérience dans le désert
+Most popular|Le plus populaire
+Ride the golden dunes|Chevauchez les dunes dorées
+Camel Trekking|Randonnée à dos de chameau
+Glide over the dunes of Erg~|Glissez sur les dunes de l’Erg Chebbi à dos de chameau pendant que le soleil du Sahara embrase le ciel.
+Adrenaline|Adrénaline
+Conquer the Erg Chebbi|Conquérez l’Erg Chebbi
+4x4 Desert Safari|Safari 4x4 dans le désert
+Tear across sweeping dunes~|Traversez de vastes dunes en 4x4 puissant. Parcourez des crêtes spectaculaires, des oasis cachées et des villages nomades.
+Magic night|Nuit magique
+Under the Sahara sky|Sous le ciel du Sahara
+Stargazing Night|Nuit d’observation des étoiles
+Dinner, Berber music and~|Dîner, musique berbère et un ciel plein d’étoiles, loin de toute lumière.
+Book now →|Réserver →
+All activities →|Toutes les activités →
+Activities & Adventures|Activités et aventures
+All the experiences you can add~|Toutes les expériences que vous pouvez ajouter à votre voyage au Maroc.
+Read more →|En savoir plus →
+More activities|Autres activités
+← Back to activities|← Retour aux activités
+← Back to tours|← Retour aux circuits
+← Back to home|← Retour à l’accueil
+Travellers say|Les voyageurs disent
+Reviews|Avis
+Read our travellers’ reviews~|Lisez les avis de nos voyageurs et partagez le vôtre.
+See us on Tripadvisor →|Retrouvez-nous sur Tripadvisor →
+Write a review|Écrire un avis
+Paste a real Tripadvisor review here.|Collez ici un vrai avis Tripadvisor.
+Special Offers for Content Creators & Influencers|Offres spéciales pour les créateurs de contenu et influenceurs
+Are you a travel content creator?~|Vous êtes créateur de contenu voyage ? Nous offrons une réduction exclusive sur nos circuits aux influenceurs, YouTubeurs et blogueurs voyage.
+15% OFF for Content Creators|15 % de réduction pour les créateurs de contenu
+Contact us for creator rates|Contactez-nous pour les tarifs créateurs
+Why Choose Us?|Pourquoi nous choisir ?
+Experienced local team|Équipe locale expérimentée
+Our guides and drivers know~|Nos guides et chauffeurs connaissent l’histoire du Maroc, les traditions berbères et les coutumes locales, pour que vous viviez la véritable essence du pays.
+Personal service|Service personnalisé
+Every guest is treated like family.~|Chaque voyageur est traité comme un membre de la famille. Votre confort, votre satisfaction et votre bonheur passent avant tout, du début à la fin.
+Desert expertise|Expertise du désert
+Sunsets and sunrises on the Erg~|Couchers et levers de soleil sur les dunes de l’Erg Chebbi, nuits sous les étoiles avec musique berbère, randonnées en chameau et aventures en 4x4.
+Fair prices|Prix justes
+Competitive prices without~|Des prix compétitifs sans compromis sur la qualité, pour un excellent rapport qualité-prix.
+Fast, easy booking 24/7|Réservation rapide et facile 24h/24
+Message us on WhatsApp any time~|Écrivez-nous sur WhatsApp à tout moment et notre équipe vous répond rapidement pour organiser votre voyage.
+Who We Are|Qui sommes-nous
+Who we are|Qui sommes-nous
+With more than 5 years of experience~|Avec plus de 5 ans d’expérience, nous associons connaissance culturelle et service professionnel. Vous voyagez dans une voiture touristique confortable ou un 4x4, conduits par des chauffeurs compétents et sympathiques.
+Our carefully designed tours~|Nos circuits, conçus avec soin, mettent en valeur les lieux les plus emblématiques du Maroc, mêlant beauté naturelle et riche patrimoine culturel pour créer des souvenirs inoubliables.
+Book Your Private Morocco Tour Today|Réservez dès aujourd’hui votre circuit privé au Maroc
+Ready to start your adventure?~|Prêt à commencer votre aventure ? Que ce soit les souks de Marrakech, une nuit dans le désert ou les villes impériales, nos circuits privés vous offrent confort, luxe et attention personnalisée. Laissez-nous concevoir le voyage parfait pour vous.
+Private tours|Circuits privés
+100% private|100 % privé
+Free proposal|Proposition gratuite
+CONTACT US →|NOUS CONTACTER →
+Ready for your Moroccan adventure?|Prêt pour votre aventure marocaine ?
+Tell us your ideas and we reply~|Dites-nous vos idées et nous répondons avec une proposition personnalisée.
+Chat on WhatsApp →|Écrivez-nous sur WhatsApp →
+Chat with us on WhatsApp →|Écrivez-nous sur WhatsApp →
+Planning your trip?|Vous préparez votre voyage ?
+Chat with us on WhatsApp, we reply fast.|Écrivez-nous sur WhatsApp, nous répondons vite.
+Call|Appeler
+Email|E-mail
+Custom tour|Circuit sur mesure
+Top|Haut
+Contact Info|Coordonnées
+Links|Liens
+Popular Tours|Circuits populaires
+Open 24/7|Ouvert 24h/24 et 7j/7
+Contact us|Contactez-nous
+Get in touch|Contactez-nous
+No-obligation booking|Réservation sans engagement
+All rights reserved|Tous droits réservés
+Moroccan Gateways is a local team~|Moroccan Gateways est une équipe locale avec plus de 5 ans d’expérience dans le tourisme. Nous concevons des circuits privés, du transport, des guides et des activités dans tout le Maroc, des villes impériales au Sahara, pour que vous découvriez sa culture, son histoire et ses paysages à votre rythme.
+A local team that designs Morocco around you.|Une équipe locale qui conçoit le Maroc autour de vous.
+Our story|Notre histoire
+We are a Moroccan team of travel~|Nous sommes une équipe marocaine de professionnels du voyage, de guides locaux et de chauffeurs qui connaissent ces routes et ces villes depuis toujours. Nous connaissons les ruelles de Fès comme les dunes de Merzouga et nous vous emmenons là où la plupart des visiteurs ne vont pas.
+Our services|Nos services
+Tailor-made tours|Circuits sur mesure
+Tell us your interests, dates~|Dites-nous vos centres d’intérêt, vos dates et votre budget et nous construisons l’itinéraire autour de vous.
+Private tours|Circuits privés
+Just your group, a dedicated~|Uniquement votre groupe, un guide dédié et la liberté d’aller à votre rythme.
+Sahara adventures|Aventures au Sahara
+Camel treks, 4x4 tours~|Randonnées en chameau, circuits en 4x4 et nuits en camp dans le désert, au milieu des dunes de l’Erg Chebbi.
+Cultural & heritage tours|Circuits culturels et patrimoine
+Medinas, kasbahs and UNESCO~|Médinas, kasbahs et sites UNESCO comme Fès, Volubilis et Aït Benhaddou.
+Adventure & fun|Aventure et plaisir
+Quad, buggy and horseback rides~|Balades en quad, en buggy et à cheval, sandboard et nuits d’étoiles dans le désert.
+Why choose Moroccan Gateways?|Pourquoi choisir Moroccan Gateways ?
+Local expertise:~|<b>Expertise locale :</b> nous sommes une équipe marocaine et vous vivez des expériences authentiques, hors des sentiers battus.
+Guides in your language:~|<b>Des guides dans votre langue :</b> anglais, espagnol et français.
+Comfort and safety:~|<b>Confort et sécurité :</b> nos propres véhicules, une voiture touristique confortable et un 4x4, avec des chauffeurs expérimentés.
+Personal service:~|<b>Service personnalisé :</b> chaque voyage est adapté à vos centres d’intérêt, votre rythme et votre temps.
+Popular destinations|Destinations populaires
+Sahara activities|Activités au Sahara
+Design my trip →|Concevoir mon voyage →
+Ready to start? Contact us~|Prêt à commencer ? Contactez-nous pour des recommandations, des itinéraires ou toute question.
+Moroccan Gateways: your gateway~|Moroccan Gateways : votre porte d’entrée au Maroc, conçue autour de vous.
+Chat with us on WhatsApp →|Écrivez-nous sur WhatsApp →
+Overview|Aperçu
+Tour Highlights|Points forts
+Includes|Inclus
+Excludes|Non inclus
+Itinerary|Itinéraire
+Gallery|Galerie
+Why choose this tour?|Pourquoi choisir ce circuit ?
+Map of the tour|Carte du circuit
+Get a quote on WhatsApp →|Demander un devis sur WhatsApp →
+Book on WhatsApp →|Réserver sur WhatsApp →
+Days|Jours
+Nights|Nuits
+Private|Privé
+Open in Google Maps →|Ouvrir dans Google Maps →
+More options|Plus d’options
+(round trip)|(aller-retour)
+approximate route|itinéraire approximatif
+Your Morocco, your way|Votre Maroc, à votre façon
+Private trips|Voyages privés
+Private trips designed from scratch~|Voyages privés conçus de A à Z par notre équipe locale, selon vos dates, votre rythme et vos envies.
+Start planning|Commencer
+Desert & Kasbahs|Désert et kasbahs
+Imperial Cities|Villes impériales
+Atlas & Coast|Atlas et côte
+Grand Tour|Grand tour
+Ideas to inspire you|Idées pour vous inspirer
+Sample routes we can adapt to you.|Exemples d’itinéraires que nous adaptons à vous.
+Use this idea|Utiliser cette idée
+Tell us about your trip|Parlez-nous de votre voyage
+Tell us what you dream of~|Dites-nous ce dont vous rêvez et notre équipe locale le réalisera.
+Full name|Nom complet
+WhatsApp (optional)|WhatsApp (facultatif)
+Starting from|Départ de
+Dates|Dates
+Travellers|Voyageurs
+Trip length|Durée du voyage
+Comfort level|Niveau de confort
+Luxury|Luxe
+Not sure yet|Pas encore sûr
+Describe your dream trip|Décrivez votre voyage de rêve
+The more detail, the better the proposal.|Plus il y a de détails, meilleure sera la proposition.
+Send via WhatsApp|Envoyer via WhatsApp
+Send by email|Envoyer par e-mail
+No obligation. We reply with~|Sans engagement. Nous répondons avec une proposition personnalisée.
+Let's plan your trip|Planifions votre voyage
+Write to us on WhatsApp or with this form~|Écrivez-nous sur WhatsApp ou avec ce formulaire et nous vous envoyons une proposition.
+WhatsApp support|Assistance WhatsApp
+We reply as soon as we can.|Nous répondons dès que possible.
+Hours|Horaires
+Every day, 9:00 to 21:00|Tous les jours, de 9 h à 21 h
+Send us your enquiry|Envoyez-nous votre demande
+Name|Nom
+I'm interested in|Je suis intéressé par
+Travel dates|Dates de voyage
+Message|Message
+Other|Autre
+Frequently asked questions|Questions fréquentes
+Are the tours private?|Les circuits sont-ils privés ?
+Yes, we organize private trips~|Oui, nous organisons des voyages privés pour votre groupe, avec votre propre chauffeur et guide.
+Which languages do the guides speak?|Quelles langues parlent les guides ?
+English, Spanish and French.|Anglais, espagnol et français.
+Can I customize my route?|Puis-je personnaliser mon itinéraire ?
+Of course. Tell us your dates~|Bien sûr. Dites-nous vos dates et vos centres d’intérêt et nous concevons un itinéraire pour vous.
+How do I book?|Comment réserver ?
+Guide languages|Langues des guides
+Phone / WhatsApp|Téléphone / WhatsApp
+Travelling from:|Départ de :
+Design my trip|Concevoir mon voyage
+Tailor-made|Sur mesure
+Custom tours|Circuits sur mesure
+Where we take you|Où nous vous emmenons`.split("\n").forEach(function(l){var i=l.indexOf("|");if(i>0)FR.push([l.slice(0,i),l.slice(i+1)])});
+function frL(t){for(var i=0;i<FR.length;i++){var k=FR[i][0];if(k.slice(-1)=="~"?t.indexOf(k.slice(0,-1))==0:t==k)return FR[i][1]}return null}
+function tr(e){if(cur=="fr"&&e.dataset.fr)return e.dataset.fr;if(cur=="es")return e.dataset.es;if(cur!="fr")return e.dataset.en;
+  var t=e.dataset.en.replace(/<[^>]+>/g,"").replace(/&amp;/g,"&").replace(/\s+/g," ").trim(),m;
+  var r=frL(t);if(r)return r;if(m=t.match(/^Day (\d+): (.+)$/)){r=frL(m[2]);if(r)return "Jour "+m[1]+" : "+r}
+  if(m=t.match(/^(\d+) DAYS$/))return m[1]+" JOURS";
+  if(m=t.match(/^(\d+) Days • (\d+) Nights • 2–12 people$/))return m[1]+" jours • "+m[2]+" nuits • 2–12 personnes";
+  if(m=t.match(/^(\d+) private tours$/))return m[1]+" circuits privés";
+  if(m=t.match(/^(\d+) Days • (\d+) Nights • From (.+)$/))return m[1]+" jours • "+m[2]+" nuits • Départ de "+({Fes:"Fès",Tangier:"Tanger"}[m[3]]||m[3]);
+  if(t=="1 Day • From Marrakech")return "1 jour • Départ de Marrakech";
+  return e.dataset.en}
+MC2.essaouira=[36,269,"Essaouira","r"];MC2.ouzoud=[189,241,"Ouzoud Falls","r"];MC2.ourika=[142,283,"Ourika Valley","r"];
+GQ.essaouira="Essaouira";GQ.ouzoud="Ouzoud Falls";GQ.ourika="Ourika Valley";
+var DI=["Private transportation in an air-conditioned vehicle.|Transporte privado en vehículo con aire acondicionado.","Professional English-speaking driver/guide.|Conductor/guía profesional de habla inglesa.","Hotel pick-up and drop-off in Marrakech.|Recogida y regreso al hotel en Marrakech."],
+DX=["Lunches and drinks|Almuerzos y bebidas","Entrance fees to sites|Entradas a los sitios","Tips for guides and drivers|Propinas para guías y conductores"],
+RM="Return to Marrakech|Regreso a Marrakech",DM="Departure from Marrakech|Salida de Marrakech";
+var DTS=[
+{t:"Day Trip from Marrakech to Essaouira|Excursión de un día de Marrakech a Essaouira",k:"essaouira",c:"#1b3f7a,#6fb1e0",m:["marrakech","essaouira","marrakech"],g:0,inc:DI,exc:DX,
+o:"Escape the bustle of Marrakech for the coastal town of Essaouira, a UNESCO World Heritage Site known for its history, architecture and culture: a perfect blend of relaxation, exploration and scenic beauty.|Escapa del bullicio de Marrakech a la ciudad costera de Essaouira, Patrimonio de la Humanidad de la UNESCO, conocida por su historia, su arquitectura y su cultura: una mezcla perfecta de relax, exploración y paisajes.",
+h:["Cultural immersion: the blend of Moroccan and Portuguese influences in Essaouira’s architecture.|Inmersión cultural: la mezcla de influencias marroquíes y portuguesas en la arquitectura de Essaouira.","Stunning views of the ocean from the ramparts of the Skala.|Vistas impresionantes del océano desde las murallas de la Skala.","Authentic experiences: meet locals, shop for souvenirs and enjoy freshly caught seafood.|Experiencias auténticas: conoce a la gente local, compra recuerdos y disfruta de marisco recién pescado.","A relaxing, tranquil coastal atmosphere away from Marrakech’s fast pace.|Un ambiente costero tranquilo y relajante, lejos del ritmo de Marrakech."],
+days:[[DM,["Early morning pick-up from your hotel or riad, then a comfortable drive through the countryside. Spot Argan trees, often climbed by goats, and stop at a women’s argan oil cooperative to learn the traditional production methods.|Recogida temprano en tu hotel o riad y viaje cómodo por el campo. Verás argán trepados por cabras y pararás en una cooperativa de mujeres de aceite de argán para conocer su producción tradicional."]],
+["Arrival in Essaouira|Llegada a Essaouira",["Explore the medina (UNESCO), with lively souks of handicrafts, jewelry and art; the Skala de la Kasbah, a sea bastion with views of the Atlantic; and the port, where fishermen bring in the daily catch.|Explora la medina (UNESCO), con zocos de artesanía, joyas y arte; la Skala de la Kasbah, un bastión sobre el mar con vistas al Atlántico; y el puerto, donde los pescadores traen la captura del día."]],
+["Fresh seafood by the sea|Marisco fresco junto al mar",["Lunch at a seaside restaurant: grilled sardines, lobster and calamari, or a traditional fish tajine.|Almuerzo en un restaurante frente al mar: sardinas a la parrilla, langosta y calamares, o un tajín de pescado tradicional."]],
+["Leisurely exploration|Tiempo libre",["Free time to relax on Essaouira Beach, visit local art galleries or stroll through Moulay Hassan Square, surrounded by cafes and shops.|Tiempo libre para relajarte en la playa de Essaouira, visitar galerías de arte locales o pasear por la plaza Moulay Hassan, rodeada de cafés y tiendas."]],
+[RM,["As the sun sets, drive back to Marrakech, arriving by late evening.|Al atardecer, regreso a Marrakech, adonde llegas a última hora de la tarde."]]],
+why:"Essaouira is a picturesque Atlantic town with a charming whitewashed medina with blue doors, pristine beaches, Portuguese-built fortifications and a creative, laid-back vibe: a delightful contrast to Marrakech.|Essaouira es una pintoresca ciudad atlántica con una encantadora medina encalada de puertas azules, playas vírgenes, fortificaciones construidas por los portugueses y un ambiente creativo y relajado: un delicioso contraste con Marrakech."},
+{t:"Day Trip from Marrakech to Ouarzazate and Ait Ben Haddou|Excursión de un día de Marrakech a Uarzazate y Ait Ben Haddou",k:"ait",c:"#7a2e1a,#e8a13a",m:["marrakech","aitbenhaddou","ouarzazate","marrakech"],g:0,
+inc:["Round-trip transportation in a comfortable, air-conditioned vehicle.|Transporte de ida y vuelta en vehículo cómodo con aire acondicionado.",DI[1],DI[2]],exc:["Entrance fees to attractions.|Entradas a las atracciones.","Lunch and beverages.|Almuerzo y bebidas.","Personal expenses or souvenirs.|Gastos personales o recuerdos."],
+o:"An unforgettable full-day excursion where history, culture and stunning landscapes come together, perfect for exploring Morocco’s heritage and the beauty of the High Atlas Mountains.|Una excursión inolvidable de día completo donde se unen historia, cultura y paisajes impresionantes, perfecta para descubrir el patrimonio de Marruecos y la belleza del Alto Atlas.",
+h:["The dramatic beauty of the High Atlas Mountains.|La belleza del Alto Atlas.","Ait Ben Haddou, a UNESCO World Heritage Site.|Ait Ben Haddou, Patrimonio de la Humanidad de la UNESCO.","Ouarzazate, the “Hollywood of Africa”.|Uarzazate, la “Hollywood de África”.","The history and architecture of the Taourirt Kasbah.|La historia y la arquitectura de la Kasbah de Taourirt.","Traditional Moroccan cuisine with views over the desert.|Cocina marroquí tradicional con vistas al desierto."],
+days:[[DM,["Early pick-up, then a scenic drive over the Tizi n’Tichka Pass, the highest mountain pass in North Africa: rugged peaks, terraced fields, Berber villages and panoramic photo stops, with insights from your driver/guide.|Recogida temprano y viaje panorámico por el puerto de Tizi n’Tichka, el más alto del norte de África: picos escarpados, campos en terrazas, pueblos bereberes y paradas para fotos, con las explicaciones de tu conductor/guía."]],
+["Visit Ait Ben Haddou|Visita a Ait Ben Haddou",["Wander through the narrow streets of this fortified village (ksar), a former trading post on the caravan route to the Sahara, and see locations from films such as The Mummy, Kingdom of Heaven and Lawrence of Arabia. Then enjoy lunch with views of the ksar: tagine, couscous and fresh bread.|Pasea por las callejuelas de este ksar, antiguo puesto comercial en la ruta de las caravanas al Sahara, y descubre escenarios de películas como La Momia, El reino de los cielos y Lawrence de Arabia. Después, almuerzo con vistas al ksar: tajín, cuscús y pan recién hecho."]],
+["Discover Ouarzazate|Descubre Uarzazate",["Visit the Taourirt Kasbah, a former residence of the Glaoui family, the Atlas Film Studios, where films like Gladiator and Babel were shot, and the local souks for rugs and crafts.|Visita la Kasbah de Taourirt, antigua residencia de la familia Glaoui, los Estudios Atlas, donde se rodaron películas como Gladiator y Babel, y los zocos locales de alfombras y artesanía."]],
+[RM,["Drive back watching the sunset over the Atlas Mountains, arriving by late evening.|Regreso a Marrakech viendo el atardecer sobre el Atlas, con llegada a última hora de la tarde."]]],
+why:"Ouarzazate, the “Gateway to the Sahara”, and Ait Ben Haddou offer ancient kasbahs and Berber architecture, filming locations for Gladiator and Game of Thrones, dramatic Atlas and desert scenery, and a window into Morocco’s history.|Uarzazate, la “Puerta del Sahara”, y Ait Ben Haddou ofrecen antiguas kasbahs y arquitectura bereber, escenarios de rodaje de Gladiator y Juego de Tronos, paisajes del Atlas y del desierto y una ventana a la historia de Marruecos."},
+{t:"Day Trip to Ouzoud Falls from Marrakech|Excursión de un día a las cascadas de Ouzoud desde Marrakech",k:"ouzoud",c:"#1f6f6b,#9bd0c8",m:["marrakech","ouzoud","marrakech"],g:0,
+inc:["Round-trip transportation in a comfortable, air-conditioned vehicle.|Transporte de ida y vuelta en vehículo cómodo con aire acondicionado.",DI[1],DI[2]],exc:DX,
+o:"A day trip to Ouzoud Falls, a natural wonder in the heart of the Atlas Mountains known for its cascading waterfalls, lush greenery and serene ambiance: a blend of scenic beauty, cultural discovery and outdoor exploration.|Una excursión a las cascadas de Ouzoud, una maravilla natural en el corazón del Atlas conocida por sus cascadas, su vegetación y su ambiente sereno: una mezcla de belleza paisajística, descubrimiento cultural y aire libre.",
+h:["The majestic Ouzoud Falls, North Africa’s tallest waterfall.|Las majestuosas cascadas de Ouzoud, la más alta del norte de África.","Meet friendly Barbary macaques in their natural environment.|Conoce a los simpáticos macacos de Berbería en su entorno natural.","A traditional Moroccan lunch with spectacular views of the falls.|Un almuerzo marroquí tradicional con vistas espectaculares a las cascadas.","A refreshing boat ride for an up-close view of the cascades.|Un paseo en barca para ver las cascadas de cerca.","The charm of rural Morocco, far from urban noise.|El encanto del Marruecos rural, lejos del ruido urbano."],
+days:[[DM,["Early pick-up and a scenic 3-hour drive through the Atlas Mountains, past Berber villages, terraced fields and olive groves, with a refreshment stop.|Recogida temprano y viaje panorámico de 3 horas por el Atlas, entre pueblos bereberes, campos en terrazas y olivares, con una parada para refrescarte."]],
+["Exploring Ouzoud Falls|Explorando las cascadas de Ouzoud",["Choose easy to moderate hiking trails to the base of the falls, take a short boat ride to feel the mist up close, and spot playful Barbary macaques (bring snacks for them).|Elige senderos fáciles o moderados hasta la base de las cascadas, haz un breve paseo en barca para sentir la bruma de cerca y observa a los macacos de Berbería (lleva algo de comida para ellos)."]],
+["Dine with a view|Comer con vistas",["Lunch at a restaurant overlooking the falls: tagine, couscous and fresh mint tea.|Almuerzo en un restaurante con vistas a las cascadas: tajín, cuscús y té de menta fresco."]],
+["Relaxation and exploration|Relax y exploración",["Free time to photograph the falls from different viewpoints, browse the stalls of handmade crafts and enjoy the tranquil atmosphere.|Tiempo libre para fotografiar las cascadas desde distintos miradores, ver los puestos de artesanía y disfrutar de la tranquilidad."]],
+[RM,["Drive back as the sun sets over the Atlas Mountains, arriving in the evening.|Regreso con el atardecer sobre el Atlas, con llegada a Marrakech por la tarde-noche."]]],
+why:"Ouzoud Falls plunge 110 metres into a pristine gorge among olive trees, with wildlife encounters, authentic Berber villages and a peaceful atmosphere, perfect for nature lovers and photographers.|Las cascadas de Ouzoud caen 110 metros en un desfiladero virgen entre olivos, con encuentros con fauna, auténticos pueblos bereberes y un ambiente tranquilo, perfectas para amantes de la naturaleza y de la fotografía."},
+{t:"Ourika Valley Day Trip from Marrakech|Excursión de un día al valle de Ourika desde Marrakech",k:"ourika",c:"#2563a8,#e8a13a",m:["marrakech","ourika","marrakech"],g:0,
+inc:["Round-trip transportation in an air-conditioned vehicle.|Transporte de ida y vuelta en vehículo con aire acondicionado.","Experienced English-speaking driver/guide who shares insights about the valley.|Conductor/guía experimentado de habla inglesa que comparte datos sobre el valle.",DI[2]],exc:["Meals and drinks|Comidas y bebidas","Entrance fees|Entradas","Personal expenses|Gastos personales"],
+o:"A day trip to the Ourika Valley is a chance to escape the city and enjoy Morocco’s rural heart: lush greenery, mountain views and authentic Berber culture, just a short drive from Marrakech.|Una excursión al valle de Ourika es una oportunidad para escapar de la ciudad y disfrutar del Marruecos rural: vegetación, vistas de montaña y auténtica cultura bereber, a poca distancia de Marrakech.",
+h:["The famous Ourika Waterfalls.|Las famosas cascadas de Ourika.","Berber villages: traditional culture and way of life.|Pueblos bereberes: cultura y forma de vida tradicionales.","A scenic drive with views of the High Atlas Mountains.|Un viaje panorámico con vistas al Alto Atlas.","Traditional cuisine: tagine and couscous.|Cocina tradicional: tajín y cuscús.","A peaceful day in the mountains.|Un día tranquilo en la montaña."],
+days:[[DM,["Hotel pick-up and a drive into the High Atlas with photo stops at viewpoints and passing traditional villages, where the greenery and fragrant herbs contrast with the arid land around Marrakech.|Recogida en el hotel y viaje al Alto Atlas con paradas para fotos en miradores y paso por pueblos tradicionales, donde la vegetación y las hierbas aromáticas contrastan con las tierras áridas de Marrakech."]],
+["Visit the Ourika Waterfalls|Visita a las cascadas de Ourika",["Hike up to the falls (a fairly easy but rocky path) for the cool mist and a talk from your guide on the falls and local Berber life. Or enjoy the views from a café at the base with fresh mint tea.|Sube a pie hasta las cascadas (un sendero bastante fácil pero rocoso) para sentir la bruma fresca y escuchar a tu guía sobre las cascadas y la vida bereber local. O disfruta de las vistas desde un café al pie con té de menta fresco."]],
+["Lunch in a Berber restaurant|Almuerzo en un restaurante bereber",["Enjoy tagine, couscous and mint tea in a small, family-owned restaurant, often with views of the valley.|Disfruta de tajín, cuscús y té de menta en un pequeño restaurante familiar, a menudo con vistas al valle."]],
+["Local markets and villages|Mercados y pueblos locales",["Walk through Berber markets and villages, shop for pottery, jewelry and woven rugs, and meet the locals, known for their hospitality.|Pasea por mercados y pueblos bereberes, compra cerámica, joyas y alfombras tejidas y conoce a la gente local, famosa por su hospitalidad."]],
+[RM,["Drive back through the mountain roads, arriving in the late afternoon or early evening.|Regreso por las carreteras de montaña, con llegada a última hora de la tarde."]]],
+why:"The Ourika Valley is a natural oasis in the High Atlas, with lush greenery, terraced fields, waterfalls, hospitable Berber villages and trails for hiking and photography: a peaceful break from Marrakech.|El valle de Ourika es un oasis natural en el Alto Atlas, con vegetación, campos en terrazas, cascadas, pueblos bereberes hospitalarios y senderos para caminar y hacer fotos: un respiro tranquilo de Marrakech."}
+];
+document.getElementById("dmenu").innerHTML=DTS.map(function(d,i){var t=d.t.split("|");return '<a href="#trip-'+i+'" data-es="'+t[1]+'">'+t[0]+'</a>'}).join("");
+document.getElementById("dtg").innerHTML=DTS.map(function(d,i){var t=d.t.split("|");return '<a class="bs" href="#trip-'+i+'"><div class="bsp" style="background:linear-gradient(160deg,'+d.c+')">'+sc(d.k)+'<span class="bsd" data-es="1 DÍA">1 DAY</span></div><div class="bst"><small data-es="Desde Marrakech">From Marrakech</small><h3 data-es="'+t[1]+'">'+t[0]+'</h3></div></a>'}).join("");
+if(typeof IO!="undefined"&&IO){document.querySelectorAll("#dtg .bs").forEach(function(e,i){e.classList.add("rv3");e.style.transitionDelay=(i%2)*90+"ms";IO.observe(e)})}
+function showTrip(i){var d=DTS[i];if(!d)return false;var t=d.t.split("|"),f=[["1","Day","Día"],["Hotel","Pick-up","Recogida"],["100%","Private","Privado"],["EN·ES·FR","Guides","Guías"]];
+  var h=document.getElementById("aph");h.style.background="linear-gradient(160deg,"+d.c+")";
+  h.innerHTML='<a href="#daytrips" data-es="← Volver a las excursiones">← Back to day trips</a>'+sc(d.k)+'<h1 data-es="'+t[1]+'">'+t[0]+'</h1><p data-es="1 día • Desde Marrakech">1 Day • From Marrakech</p><div class="facts">'+f.map(function(a){return '<div class="fc3"><b>'+a[0]+'</b><span data-es="'+a[2]+'">'+a[1]+'</span></div>'}).join("")+'</div>';
+  var msg=encodeURIComponent("Hello Moroccan Gateways, I'd like details and a quote for: "+t[0]);
+  document.getElementById("apb").innerHTML='<div class="abox">'+tdBody(d)+'<a class="book" href="https://wa.me/212651725529?text='+msg+'" data-es="Pedir presupuesto por WhatsApp →">Get a quote on WhatsApp →</a></div>';
+  setBar(t[0],msg);applyLang(document.getElementById("activity-page"));fx(document.getElementById("activity-page"));return true}
+MC2.agdz=[202,313,"Agdz","l"];MC2.zagora=[233,334,"Zagora","r"];MC2.taroudant=[81,326,"Taroudant","r"];MC2.alnif=[266,291,"Alnif","r"];MC2.ifrane=[270,158,"Ifrane","r"];MN.alnif=1;MN.ifrane=1;
+GQ.agdz="Agdz";GQ.zagora="Zagora";GQ.taroudant="Taroudant";GQ.alnif="Alnif";GQ.ifrane="Ifrane";
+var SR="Sunrise over the Erg Chebbi dunes, breakfast at the camp and back to Merzouga by camel or 4×4.|Amanecer sobre las dunas del Erg Chebbi, desayuno en el campamento y regreso a Merzouga en camello o 4×4.";
+BK.mA=["Marrakech to Dades Valley via Ait Benhaddou and Ouarzazate|De Marrakech al valle del Dadès por Ait Benhaddou y Uarzazate",["Leave Marrakech early and cross the High Atlas via the Tizi n’Tichka Pass, the highest road pass in Morocco, with views of valleys, terraced fields and Berber villages.|Sal temprano de Marrakech y cruza el Alto Atlas por el puerto de Tizi n’Tichka, el más alto de las carreteras de Marruecos, con vistas a valles, campos en terrazas y pueblos bereberes.","Visit Ait Benhaddou, the UNESCO fortified village seen in films like Gladiator and Game of Thrones, then Ouarzazate, the “Hollywood of Morocco”, and the Taourirt Kasbah.|Visita Ait Benhaddou, el pueblo fortificado UNESCO que sale en películas como Gladiator y Juego de Tronos, y luego Uarzazate, la “Hollywood de Marruecos”, y la Kasbah de Taourirt.","Continue through the Valley of Roses to the Dades Valley, with its rock formations and kasbahs. Dinner and overnight in a riad or hotel.|Continúa por el Valle de las Rosas hasta el valle del Dadès, con sus formaciones rocosas y kasbahs. Cena y noche en un riad u hotel."]];
+BK.mB=["Dades Valley to Merzouga via Todra Gorge|Del valle del Dadès a Merzouga por la garganta del Todra",["Visit the Todra Gorge, a canyon with cliffs up to 300 metres high, and walk along the river.|Visita la garganta del Todra, un cañón con paredes de hasta 300 metros, y pasea junto al río.","Drive through Berber villages and palm groves, with stops in Tinjdad and Erfoud, known for its fossil workshops, and reach Merzouga, the gateway to the Erg Chebbi dunes.|Conduce por pueblos bereberes y palmerales, con paradas en Tinjdad y Erfoud, famosa por sus talleres de fósiles, hasta Merzouga, la puerta de las dunas del Erg Chebbi.","In the late afternoon, trek by camel across the dunes at sunset to a luxury desert camp: traditional dinner, live Berber music and stargazing. Overnight in a tent.|Al final de la tarde, paseo en camello por las dunas al atardecer hasta un campamento de lujo: cena tradicional, música bereber en directo y estrellas. Noche en una tienda."]];
+BK.mF3=["Merzouga to Fes via Ziz Valley and Cedar Forests|De Merzouga a Fez por el valle del Ziz y los bosques de cedros",[SR,"Drive through the Ziz Valley and its palm groves, have lunch in Midelt, the “Apple Capital of Morocco”, and cross the Middle Atlas via the cedar forests of Azrou, home to Barbary macaques.|Conduce por el valle del Ziz y sus palmerales, almuerza en Midelt, la “capital de la manzana de Marruecos”, y cruza el Atlas Medio por los bosques de cedros de Azrou, hogar de macacos de Berbería.","Arrive in Fes in the evening, where the tour ends.|Llegada a Fez por la tarde, donde termina el tour."]];
+BK.mM3=["Merzouga to Marrakech via Ouarzazate|De Merzouga a Marrakech por Uarzazate",[SR,"Retrace your route through southern Morocco, with photo stops over the desert, oases and mountains, and arrive in Marrakech in the late afternoon or early evening.|Vuelve por el sur de Marruecos, con paradas para fotos en el desierto, los oasis y las montañas, y llega a Marrakech al final de la tarde."]];
+BK.mC4F=["Merzouga to Midelt via Ziz Valley|De Merzouga a Midelt por el valle del Ziz",[SR,"Drive through the Ziz Valley, a ribbon of palm groves and villages, then cross the Middle Atlas to Midelt, known for its apple orchards. Dinner and overnight in a guesthouse.|Conduce por el valle del Ziz, una franja de palmerales y pueblos, y cruza el Atlas Medio hasta Midelt, conocida por sus manzanos. Cena y noche en una casa de huéspedes."]];
+BK.mD4F=["Midelt to Fes|De Midelt a Fez",["Visit Azrou, with its cedar forests and friendly Barbary macaques, and Ifrane, the “Switzerland of Morocco”, with its European-style architecture. Arrive in Fes in the late afternoon, where the tour ends.|Visita Azrou, con sus bosques de cedros y sus simpáticos macacos de Berbería, e Ifrane, la “Suiza de Marruecos”, de arquitectura europea. Llegada a Fez al final de la tarde, donde termina el tour."]];
+BK.mC4M=["Merzouga to Agdz via Alnif|De Merzouga a Agdz por Alnif",[SR,"Cross the Saghro Mountains and Alnif, known for its fossils, to Agdz, at the start of the Draa Valley, with its palm groves and kasbahs. Dinner and overnight in a guesthouse.|Cruza las montañas del Saghro y Alnif, conocida por sus fósiles, hasta Agdz, al inicio del valle del Draa, con sus palmerales y kasbahs. Cena y noche en una casa de huéspedes."]];
+BK.mD4M=["Agdz to Marrakech via Ouarzazate|De Agdz a Marrakech por Uarzazate",["Drive through the Draa Valley, with date palms, mud-brick villages and the Kasbah Tamnougalt.|Conduce por el valle del Draa, con palmeras datileras, pueblos de adobe y la Kasbah de Tamnougalt.","Return through Ouarzazate (lunch) and over the High Atlas to Marrakech, arriving in the late afternoon.|Regreso por Uarzazate (almuerzo) y el Alto Atlas hasta Marrakech, con llegada al final de la tarde."]];
+BK.mD45=["Agdz to Ouarzazate via the Draa Valley|De Agdz a Uarzazate por el valle del Draa",["Drive through the Draa Valley and stop at the Kasbah Tamnougalt. In Ouarzazate, visit any site you missed, such as the Cinema Museum, and have lunch at a local café.|Conduce por el valle del Draa y para en la Kasbah de Tamnougalt. En Uarzazate, visita lo que te hayas perdido, como el Museo del Cine, y almuerza en un café local."]];
+BK.mD5=["Ouarzazate to Marrakech|De Uarzazate a Marrakech",["Retrace your route across the High Atlas, with a last photo stop at the Tizi n’Tichka Pass, and arrive in Marrakech in the late afternoon.|Vuelve por el Alto Atlas, con una última parada para fotos en el puerto de Tizi n’Tichka, y llega a Marrakech al final de la tarde."]];
+BK.mA7=["Marrakech Arrival and Exploration|Llegada a Marrakech y exploración",["Welcome to Marrakech, the “Red City”. In the afternoon, explore the medina (UNESCO): souks full of textiles, spices and crafts, and Jemaa el-Fnaa square with its performers and food stalls. Overnight in a traditional riad.|Bienvenido a Marrakech, la “Ciudad Roja”. Por la tarde, explora la medina (UNESCO): zocos llenos de tejidos, especias y artesanía, y la plaza Jemaa el-Fnaa con sus artistas y puestos de comida. Noche en un riad tradicional."]];
+BK.mB7=["Marrakech to Dades Valley via Ait Benhaddou|De Marrakech al valle del Dadès por Ait Benhaddou",["Cross the High Atlas via the Tizi n’Tichka Pass, visit Ait Benhaddou, the UNESCO ksar and film location, pass through Ouarzazate and arrive in the Dades Valley for dinner and a night in a riad among red rock formations.|Cruza el Alto Atlas por el puerto de Tizi n’Tichka, visita Ait Benhaddou, el ksar UNESCO y escenario de rodajes, pasa por Uarzazate y llega al valle del Dadès para cenar y dormir en un riad entre formaciones rocosas rojas."]];
+BK.mE=["Merzouga Desert Exploration|Exploración del desierto de Merzouga",["Watch the sunrise over the dunes, then visit a nomadic Berber village and Khamlia, famous for its Gnawa music. Back at the camp for dinner and stargazing.|Contempla el amanecer sobre las dunas y visita una aldea bereber nómada y Khamlia, famosa por su música gnawa. Vuelta al campamento para cenar y ver las estrellas."]];
+BK.mZ=["Merzouga to Zagora via Alnif|De Merzouga a Zagora por Alnif",["Cross the Saghro Mountains and Alnif, known for its fossils, to Zagora, the “Gateway to the Desert” on the old route to Timbuktu, and see the famous Timbuktu sign. Overnight in a guesthouse.|Cruza las montañas del Saghro y Alnif, conocida por sus fósiles, hasta Zagora, la “Puerta del Desierto” en la antigua ruta a Tombuctú, y ve el famoso cartel de Tombuctú. Noche en una casa de huéspedes."]];
+BK.mZO=["Zagora to Ouarzazate via the Draa Valley|De Zagora a Uarzazate por el valle del Draa",["Drive through the Draa Valley, one of Morocco’s largest palm groves, with Berber villages and kasbahs, to Ouarzazate, where you can revisit the Taourirt Kasbah or the Atlas Film Studios. Dinner and overnight in a riad.|Conduce por el valle del Draa, uno de los mayores palmerales de Marruecos, con pueblos bereberes y kasbahs, hasta Uarzazate, donde puedes volver a la Kasbah de Taourirt o a los Estudios Atlas. Cena y noche en un riad."]];
+BK.mD7=["Ouarzazate to Marrakech|De Uarzazate a Marrakech",["Retrace your route across the High Atlas with photo stops and enjoy a farewell dinner at a traditional restaurant in Marrakech.|Vuelve por el Alto Atlas con paradas para fotos y disfruta de una cena de despedida en un restaurante tradicional de Marrakech."]];
+BK.mA8=["Arrival in Marrakech|Llegada a Marrakech",["Meet your guide and transfer to your hotel or riad. In the evening, explore Jemaa el-Fnaa, alive with storytellers, musicians and food vendors, the perfect introduction to Morocco. Overnight in a traditional riad.|Conoce a tu guía y traslado a tu hotel o riad. Por la tarde, explora Jemaa el-Fnaa, llena de cuentacuentos, músicos y puestos de comida, la introducción perfecta a Marruecos. Noche en un riad tradicional."]];
+BK.mO8=["Marrakech to Ouarzazate via Ait Benhaddou|De Marrakech a Uarzazate por Ait Benhaddou",["Cross the High Atlas via the Tizi n’Tichka Pass and visit Ait Benhaddou, a UNESCO ksar of earthen architecture and film location. Overnight in a riad in Ouarzazate, the “Hollywood of Africa”.|Cruza el Alto Atlas por el puerto de Tizi n’Tichka y visita Ait Benhaddou, un ksar UNESCO de arquitectura de adobe y escenario de rodajes. Noche en un riad en Uarzazate, la “Hollywood de África”."]];
+BK.mQ=["Ouarzazate to Dades Valley|De Uarzazate al valle del Dadès",["Visit the Taourirt Kasbah, then drive through the Valley of Roses, famous for its rose gardens and rosewater, to the Dades Valley, with striking rock formations. Overnight in a riad overlooking the valley.|Visita la Kasbah de Taourirt y conduce por el Valle de las Rosas, famoso por sus rosales y su agua de rosas, hasta el valle del Dadès, con llamativas formaciones rocosas. Noche en un riad con vistas al valle."]];
+BK.mT=["Zagora to Taroudant via the Draa Valley|De Zagora a Taroudant por el valle del Draa",["Drive through the Draa Valley, Morocco’s largest palm grove, to Taroudant, the “Grandmother of Marrakech”, with its ancient walls and souks of handicrafts. Overnight in a riad.|Conduce por el valle del Draa, el mayor palmeral de Marruecos, hasta Taroudant, la “abuela de Marrakech”, con sus antiguas murallas y zocos de artesanía. Noche en un riad."]];
+BK.mEs=["Taroudant to Essaouira|De Taroudant a Essaouira",["Drive to the coastal town of Essaouira: the medina (UNESCO) with whitewashed buildings and blue doors, the fishing port, fresh seafood and the sunset over the Atlantic. Overnight in a seaside riad.|Viaje a la ciudad costera de Essaouira: la medina (UNESCO) con edificios encalados y puertas azules, el puerto pesquero, marisco fresco y el atardecer sobre el Atlántico. Noche en un riad junto al mar."]];
+BK.mR8=["Essaouira to Marrakech|De Essaouira a Marrakech",["Return to Marrakech through argan tree groves, with a stop at a women’s cooperative to learn how argan oil is made. Farewell dinner at a traditional restaurant.|Regreso a Marrakech entre argantes, con parada en una cooperativa de mujeres para conocer cómo se hace el aceite de argán. Cena de despedida en un restaurante tradicional."]];
+BK.mM2=["Explore Marrakech|Explora Marrakech",["Guided tour: the Bahia Palace, the Saadian Tombs, the Koutoubia Mosque and the Majorelle Garden, plus time in the souks for crafts, textiles and spices.|Visita guiada: el Palacio Bahía, las Tumbas Saadíes, la mezquita Koutoubia y el Jardín Majorelle, más tiempo en los zocos para artesanía, tejidos y especias."]];
+BK.mO10=["Marrakech to Ait Benhaddou via the Atlas Mountains|De Marrakech a Ait Benhaddou por el Atlas",["Cross the Tizi n’Tichka Pass, visit Ait Benhaddou and continue to Ouarzazate, the “Gateway to the Desert”, for the night in a traditional riad.|Cruza el puerto de Tizi n’Tichka, visita Ait Benhaddou y sigue a Uarzazate, la “Puerta del Desierto”, para pasar la noche en un riad tradicional."]];
+BK.mQ10=["Ouarzazate to Dades Valley|De Uarzazate al valle del Dadès",["Visit the Taourirt Kasbah, drive through the Skoura Oasis and the Valley of Roses, where you can see rosewater production, and arrive at the Dades Gorges.|Visita la Kasbah de Taourirt, conduce por el oasis de Skoura y el Valle de las Rosas, donde puedes ver la producción de agua de rosas, y llega a las gargantas del Dadès."]];
+BK.mFe=["Midelt to Fes|De Midelt a Fez",["Cross the Middle Atlas via cedar forests and Ifrane, the “Switzerland of Morocco”, and arrive in Fes, Morocco’s cultural and spiritual capital.|Cruza el Atlas Medio por bosques de cedros e Ifrane, la “Suiza de Marruecos”, y llega a Fez, capital cultural y espiritual de Marruecos."]];
+BK.mFR=["Fes to Rabat via Meknes|De Fez a Rabat por Mequinez",["Stop in Meknes, with the Bab Mansour Gate and the Moulay Ismail Mausoleum, then continue to Rabat: the Hassan Tower, the Royal Palace and the Kasbah of the Udayas. Overnight in a boutique riad in the medina.|Parada en Mequinez, con la puerta Bab Mansour y el Mausoleo de Mulay Ismail, y sigue a Rabat: la Torre Hassan, el Palacio Real y la Kasbah de los Udaya. Noche en un riad boutique en la medina."]];
+BK.mRM=["Rabat to Marrakech|De Rabat a Marrakech",["Return to Marrakech with free time for last-minute shopping in the souks, and a traditional farewell dinner.|Regreso a Marrakech con tiempo libre para las últimas compras en los zocos, y una cena de despedida tradicional."]];
+BK.mBd=["Dades Valley to Merzouga Desert|Del valle del Dadès al desierto de Merzouga",BK.mB[1]];
+BK.mB3=BK.mBd;BK.mC5=["Merzouga to Agdz via Alnif and the Draa Valley|De Merzouga a Agdz por Alnif y el valle del Draa",BK.mC4M[1]];
+BK.mMi=["Merzouga to Midelt|De Merzouga a Midelt",BK.mC4F[1]];BK.mFt=["Explore Fes|Explora Fez",BK.cFt[1]];
+var HM1=["Stunning landscapes: the High Atlas, the Sahara Desert and the Todra Gorge.|Paisajes impresionantes: el Alto Atlas, el desierto del Sahara y la garganta del Todra.","Cultural landmarks: Ait Benhaddou, Ouarzazate and the Dades Valley.|Lugares culturales: Ait Benhaddou, Uarzazate y el valle del Dadès.","Unique experiences: camel trekking, a night in a luxury desert camp and sunrise over the dunes.|Experiencias únicas: paseo en camello, una noche en un campamento de lujo y el amanecer sobre las dunas.","Authentic Morocco: Berber villages, kasbahs and local hospitality.|Marruecos auténtico: pueblos bereberes, kasbahs y hospitalidad local."],
+HM2=HM1.slice(0,3).concat(["Ziz Valley, the Azrou cedar forests with Barbary macaques and Ifrane on the way to Fes.|Valle del Ziz, bosques de cedros de Azrou con macacos de Berbería e Ifrane de camino a Fez."]),
+HM8=["Cultural immersion: ancient kasbahs, Berber villages and the medinas of Marrakech and Essaouira.|Inmersión cultural: antiguas kasbahs, pueblos bereberes y las medinas de Marrakech y Essaouira.","Natural wonders: the High Atlas, the Sahara Desert and the Atlantic coast.|Maravillas naturales: el Alto Atlas, el desierto del Sahara y la costa atlántica.","Authentic adventures: camel trekking, oases and a night in a luxury desert camp.|Aventuras auténticas: paseo en camello, oasis y una noche en un campamento de lujo.","Gastronomic delights: tagines and fresh seafood.|Delicias gastronómicas: tajines y marisco fresco."],
+HM10=["Cultural immersion: the medinas and landmarks of Marrakech, Fes and Rabat.|Inmersión cultural: las medinas y los lugares emblemáticos de Marrakech, Fez y Rabat.","Desert adventure: camel trekking and a night in a luxury Sahara camp.|Aventura en el desierto: paseo en camello y una noche en un campamento de lujo en el Sahara.","Breathtaking landscapes: the Atlas Mountains, lush valleys and ancient kasbahs.|Paisajes impresionantes: el Atlas, valles verdes y antiguas kasbahs.","Authentic experiences: meet locals, enjoy Moroccan cuisine and shop for crafts.|Experiencias auténticas: conoce a la gente local, disfruta de la cocina marroquí y compra artesanía."];
+var RA=["marrakech","aitbenhaddou","ouarzazate","dades","todra","merzouga"];
+TD["0-0"]=mk("Embark on an unforgettable 3-day journey from Marrakech to Fes, from rugged mountains to golden dunes: a gateway to Morocco’s cultural and natural wonders, with vibrant heritage, spectacular landscapes and adventure.|Emprende un viaje inolvidable de 3 días de Marrakech a Fez, de montañas escarpadas a dunas doradas: una puerta a las maravillas culturales y naturales de Marruecos, con patrimonio vibrante, paisajes espectaculares y aventura.",["mA","mB","mF3"],"This tour showcases Berber hospitality, UNESCO sites and Morocco’s most stunning landscapes, with camel trekking and luxury desert accommodation.|Este tour combina hospitalidad bereber, sitios UNESCO y los paisajes más impresionantes de Marruecos, con paseo en camello y alojamiento de lujo en el desierto.",RA.concat(["midelt","ifrane","fes"]),HM2);
+TD["0-1"]=mk("Embark on a thrilling 3-day journey from Marrakech to the Merzouga Desert, from the majestic Atlas Mountains to the golden sands of Erg Chebbi: the best of Morocco’s natural beauty and cultural heritage.|Emprende un emocionante viaje de 3 días de Marrakech al desierto de Merzouga, de las majestuosas montañas del Atlas a las arenas doradas del Erg Chebbi: lo mejor de la belleza natural y el patrimonio cultural de Marruecos.",["mA","mB","mM3"],"A 3-day journey that combines Morocco’s mountains, kasbahs and the Sahara, with camel trekking and a night in a luxury desert camp.|Un viaje de 3 días que une las montañas, las kasbahs y el Sahara de Marruecos, con paseo en camello y una noche en un campamento de lujo.",RA.concat(["ouarzazate","marrakech"]),HM1);
+TD["0-2"]=mk("Embark on an unforgettable 4-day journey from Marrakech to Fes through Morocco’s most spectacular landscapes and cultural treasures: the Atlas Mountains, the heart of the Sahara, picturesque valleys and historic towns.|Emprende un viaje inolvidable de 4 días de Marrakech a Fez por los paisajes y tesoros culturales más espectaculares de Marruecos: el Atlas, el corazón del Sahara, valles pintorescos y ciudades históricas.",["mA","mB","mC4F","mD4F"],"A 4-day route that crosses the High Atlas, the Sahara and the Middle Atlas to end in Fes, with camel trekking and encounters with Barbary macaques.|Una ruta de 4 días que cruza el Alto Atlas, el Sahara y el Atlas Medio hasta terminar en Fez, con paseo en camello y encuentros con macacos de Berbería.",RA.concat(["midelt","ifrane","fes"]),HM2);
+TD["0-3"]=mk("Embark on a breathtaking 4-day journey from Marrakech to Merzouga, from the towering Atlas Mountains to the golden dunes of the Sahara and the Draa Valley: adventure, culture and natural beauty.|Emprende un viaje impresionante de 4 días de Marrakech a Merzouga, de las altas montañas del Atlas a las dunas doradas del Sahara y el valle del Draa: aventura, cultura y belleza natural.",["mA","mB","mC4M","mD4M"],"This 4-day Marrakech to Merzouga tour promises a blend of adventure, culture and unforgettable memories, from ancient kasbahs to the serene Sahara.|Este tour de 4 días de Marrakech a Merzouga promete una mezcla de aventura, cultura y recuerdos inolvidables, de antiguas kasbahs al sereno Sahara.",RA.concat(["alnif","agdz","ouarzazate","marrakech"]),HM1);
+TD["0-4"]=mk("Embark on an extraordinary 5-day desert tour from Marrakech through diverse landscapes, rich Moroccan culture and the allure of the Sahara: adventure, history and natural beauty for an authentic Moroccan experience.|Emprende un extraordinario tour de 5 días por el desierto desde Marrakech, entre paisajes diversos, la rica cultura marroquí y el encanto del Sahara: aventura, historia y belleza natural para una experiencia marroquí auténtica.",["mA","mB","mC5","mD45","mD5"],"This 5-day desert tour is a great way to explore Morocco’s beauty and culture, from the Atlas Mountains to the Sahara, riding camels, visiting kasbahs and sleeping under the stars.|Este tour de 5 días por el desierto es una gran forma de descubrir la belleza y la cultura de Marruecos, del Atlas al Sahara, a lomos de camello, visitando kasbahs y durmiendo bajo las estrellas.",RA.concat(["alnif","agdz","ouarzazate","marrakech"]),HM1);
+TD["0-5"]=mk("Embark on a mesmerizing 7-day journey from Marrakech to the Sahara, blending Morocco’s landscapes, culture and traditions across the Atlas, ancient kasbahs, lush oases and the golden dunes. Ideal for an immersive experience.|Emprende un fascinante viaje de 7 días de Marrakech al Sahara que une paisajes, cultura y tradiciones de Marruecos a través del Atlas, antiguas kasbahs, oasis y las dunas doradas. Ideal para una experiencia inmersiva.",["mA7","mB7","mB3","mE","mZ","mZO","mD7"],"This 7-day Sahara tour is a perfect blend of adventure, culture and natural beauty: mountain passes, ancient kasbahs and a night in the desert.|Este tour de 7 días por el Sahara es una mezcla perfecta de aventura, cultura y belleza natural: puertos de montaña, antiguas kasbahs y una noche en el desierto.",RA.concat(["alnif","zagora","agdz","ouarzazate","marrakech"]),HM1);
+TD["0-6"]=mk("Embark on an unforgettable 8-day journey through Morocco from Marrakech: the Atlas Mountains, ancient kasbahs, the golden dunes of the Sahara and the Atlantic coast, an essential experience of Morocco’s culture, history and nature.|Emprende un viaje inolvidable de 8 días por Marruecos desde Marrakech: el Atlas, antiguas kasbahs, las dunas doradas del Sahara y la costa atlántica, una experiencia esencial de la cultura, la historia y la naturaleza de Marruecos.",["mA8","mO8","mQ","mBd","mZ","mT","mEs","mR8"],"This 8-day essential tour offers a perfect balance of adventure, culture and relaxation, from the desert to the coast.|Este tour esencial de 8 días ofrece un equilibrio perfecto entre aventura, cultura y relax, del desierto a la costa.",RA.concat(["alnif","zagora","taroudant","essaouira","marrakech"]),HM8);
+TD["0-7"]=mk("Embark on a 10-day Morocco Grand Tour from Marrakech through the country’s iconic landmarks, stunning landscapes and cultural treasures, from bustling medinas to the serene Sahara Desert.|Emprende un Gran Tour de Marruecos de 10 días desde Marrakech por los lugares emblemáticos del país, paisajes impresionantes y tesoros culturales, de las medinas bulliciosas al sereno desierto del Sahara.",["mA8","mM2","mO10","mQ10","mBd","mMi","mFe","mFt","mFR","mRM"],"This 10-day Grand Tour is a perfect blend of history, culture and adventure, the best of Morocco in one journey.|Este Gran Tour de 10 días es una mezcla perfecta de historia, cultura y aventura, lo mejor de Marruecos en un solo viaje.",RA.concat(["midelt","ifrane","fes","meknes","rabat","marrakech"]),HM10);
+BK.fA=["Fes to Merzouga via Ifrane, Midelt and Ziz Valley|De Fez a Merzouga por Ifrane, Midelt y el valle del Ziz",["Leave Fes early and drive through the Middle Atlas, with stops in Ifrane, the “Switzerland of Morocco”, and the cedar forests of Azrou, home to playful Barbary macaques.|Sal temprano de Fez y conduce por el Atlas Medio, con paradas en Ifrane, la “Suiza de Marruecos”, y los bosques de cedros de Azrou, hogar de macacos de Berbería.","Have lunch in Midelt, the “Apple Capital”, then descend through the Ziz Valley, a palm oasis with traditional kasbahs and a panoramic viewpoint.|Almuerzo en Midelt, la “capital de la manzana”, y descenso por el valle del Ziz, un oasis de palmeras con kasbahs tradicionales y un mirador panorámico.","In Merzouga, the gateway to the Sahara, trek by camel across the Erg Chebbi dunes at sunset to a luxury desert camp: Moroccan dinner under the stars, campfire and Berber music. Overnight in a tent.|En Merzouga, la puerta del Sahara, paseo en camello por las dunas del Erg Chebbi al atardecer hasta un campamento de lujo: cena marroquí bajo las estrellas, fogata y música bereber. Noche en una tienda."]];
+BK.fA1=["Fes to Merzouga via Ifrane, Cedar Forests and Ziz Valley|De Fez a Merzouga por Ifrane, los bosques de cedros y el valle del Ziz",BK.fA[1]];
+BK.fA2=["Fes to Merzouga via Ifrane, Azrou and Ziz Valley|De Fez a Merzouga por Ifrane, Azrou y el valle del Ziz",BK.fA[1]];
+BK.fB=["Merzouga to Dades Valley via Rissani and Todra Gorge|De Merzouga al valle del Dadès por Rissani y la garganta del Todra",[SR,"Visit Rissani, a historic trading hub with a lively market, and try local specialties such as medfouna (Berber pizza).|Visita Rissani, un histórico centro comercial con un mercado animado, y prueba especialidades locales como la medfouna (pizza bereber).","Continue to the Todra Gorge, with cliffs over 300 metres high, and walk along the riverbed.|Continúa a la garganta del Todra, con paredes de más de 300 metros, y pasea junto al río.","End the day in the Dades Valley, the “Valley of a Thousand Kasbahs”, with rock formations such as the “Monkey Fingers”. Dinner and overnight in a riad or guesthouse overlooking the valley.|Termina el día en el valle del Dadès, el “valle de las mil kasbahs”, con formaciones rocosas como los “dedos de mono”. Cena y noche en un riad o casa de huéspedes con vistas al valle."]];
+BK.fC3=["Dades Valley to Marrakech via Ouarzazate and Ait Benhaddou|Del valle del Dadès a Marrakech por Uarzazate y Ait Benhaddou",["Journey through the High Atlas to Ouarzazate, the “Hollywood of Morocco”, and visit the Kasbah Taourirt.|Viaje por el Alto Atlas hasta Uarzazate, la “Hollywood de Marruecos”, y visita de la Kasbah de Taourirt.","Visit Ait Benhaddou, the fortified village seen in Game of Thrones and Gladiator, and stroll through its mud-brick streets.|Visita Ait Benhaddou, el pueblo fortificado que sale en Juego de Tronos y Gladiator, y pasea por sus calles de adobe.","Cross the Tizi n’Tichka Pass, the highest road pass in Morocco, and arrive in Marrakech in the late afternoon.|Cruza el puerto de Tizi n’Tichka, el más alto de las carreteras de Marruecos, y llega a Marrakech al final de la tarde."]];
+BK.fFes=["Dades Valley to Fes via the High Atlas Mountains|Del valle del Dadès a Fez por el Alto Atlas",["Return to Fes through the High Atlas, with dramatic landscapes, rugged peaks and mountain villages, and several photo stops where your guide shares hidden gems and stories.|Regreso a Fez por el Alto Atlas, con paisajes espectaculares, picos escarpados y pueblos de montaña, y varias paradas para fotos en las que tu guía comparte rincones ocultos e historias.","Arrive in Fes in the late afternoon, where the tour ends.|Llegada a Fez al final de la tarde, donde termina el tour."]];
+BK.fD=["Dades Valley to Ouarzazate via Skoura and Ait Benhaddou|Del valle del Dadès a Uarzazate por Skoura y Ait Benhaddou",["Drive through the Skoura Oasis, with palm groves and kasbahs, and visit the Kasbah Amridil, a well-preserved fortress.|Conduce por el oasis de Skoura, con palmerales y kasbahs, y visita la Kasbah Amridil, una fortaleza bien conservada.","Visit Ait Benhaddou, the UNESCO fortified village and film location, then reach Ouarzazate, the “Hollywood of Africa”, and tour the Kasbah Taourirt. Overnight in Ouarzazate.|Visita Ait Benhaddou, el pueblo fortificado UNESCO y escenario de rodajes, y llega a Uarzazate, la “Hollywood de África”, para visitar la Kasbah de Taourirt. Noche en Uarzazate."]];
+BK.fE=["Ouarzazate to Marrakech via the High Atlas Mountains|De Uarzazate a Marrakech por el Alto Atlas",["Cross the Tizi n’Tichka Pass, with views of winding roads, rugged peaks and Berber villages, and arrive in Marrakech in the late afternoon, with time to explore its medina and souks.|Cruza el puerto de Tizi n’Tichka, con vistas a carreteras sinuosas, picos escarpados y pueblos bereberes, y llega a Marrakech al final de la tarde, con tiempo para explorar su medina y sus zocos."]];
+BK.fF=["Fes to Midelt via Ifrane and Cedar Forests|De Fez a Midelt por Ifrane y los bosques de cedros",["Head south through the Middle Atlas, stopping in Ifrane, the “Switzerland of Morocco”, and the Azrou cedar forests, where you can meet Barbary macaques.|Rumbo al sur por el Atlas Medio, con paradas en Ifrane, la “Suiza de Marruecos”, y en los bosques de cedros de Azrou, donde puedes conocer a los macacos de Berbería.","Lunch in Midelt, between the Middle and High Atlas. Dinner and overnight in a hotel or guesthouse.|Almuerzo en Midelt, entre el Atlas Medio y el Alto Atlas. Cena y noche en un hotel o casa de huéspedes."]];
+BK.fG=["Midelt to Merzouga via Ziz Valley and Erfoud|De Midelt a Merzouga por el valle del Ziz y Erfoud",["Drive through the Ziz Valley, a vast oasis of date palms and mud-brick villages, and pass Erfoud, known for its fossil workshops.|Conduce por el valle del Ziz, un vasto oasis de palmeras datileras y pueblos de adobe, y pasa por Erfoud, conocida por sus talleres de fósiles.","In Merzouga, trek by camel across the Erg Chebbi dunes at sunset to a luxury desert camp with private tents, Moroccan dinner and live Berber music.|En Merzouga, paseo en camello por las dunas del Erg Chebbi al atardecer hasta un campamento de lujo con tiendas privadas, cena marroquí y música bereber en directo."]];
+BK.fH=["Arrival in Fes|Llegada a Fez",["Welcome to Fes, one of Morocco’s most treasured imperial cities. You are greeted and transferred to your riad or hotel in the medina, then relax or explore at your own pace.|Bienvenido a Fez, una de las ciudades imperiales más queridas de Marruecos. Te reciben y te llevan a tu riad u hotel en la medina, y luego descansas o exploras a tu ritmo."]];
+BK.fI=["Fes to Merzouga via Ifrane and Ziz Valley|De Fez a Merzouga por Ifrane y el valle del Ziz",["Travel through the Middle Atlas with stops in Ifrane and the Azrou cedar forest, where you meet Barbary macaques, then pass the palm groves of the Ziz Valley to Merzouga.|Viaja por el Atlas Medio con paradas en Ifrane y en el bosque de cedros de Azrou, donde conoces a los macacos de Berbería, y pasa por los palmerales del valle del Ziz hasta Merzouga.","In the evening, trek by camel into the Erg Chebbi dunes, watch the sunset and reach a luxury desert camp for a Moroccan dinner under the stars.|Por la tarde, paseo en camello por las dunas del Erg Chebbi, contempla el atardecer y llega a un campamento de lujo para una cena marroquí bajo las estrellas."]];
+BK.fJ=["Merzouga to Dades Valley via Todra Gorge|De Merzouga al valle del Dadès por la garganta del Todra",[SR,"Visit the Todra Gorge, with its towering cliffs, and walk along the riverbed. Continue to the Dades Valley, the “Valley of a Thousand Kasbahs”, for dinner and overnight in a guesthouse or riad.|Visita la garganta del Todra, con sus paredes enormes, y pasea junto al río. Continúa al valle del Dadès, el “valle de las mil kasbahs”, para cenar y dormir en una casa de huéspedes o riad."]];
+BK.fK=["Dades Valley to Marrakech via Ait Benhaddou|Del valle del Dadès a Marrakech por Ait Benhaddou",["Visit Ait Benhaddou, the UNESCO ksar with its mud-brick architecture, then cross the High Atlas via the Tizi n’Tichka Pass with views of peaks, terraced fields and Berber villages. Arrive in Marrakech in the evening.|Visita Ait Benhaddou, el ksar UNESCO de arquitectura de adobe, y cruza el Alto Atlas por el puerto de Tizi n’Tichka, con vistas a picos, campos en terrazas y pueblos bereberes. Llegada a Marrakech por la tarde."]];
+BK.fL=["Full-Day Exploration of Marrakech|Día completo en Marrakech",["Discover the Red City: Jemaa el-Fnaa, the Koutoubia Mosque, the Bahia Palace and the Majorelle Garden.|Descubre la Ciudad Roja: Jemaa el-Fnaa, la mezquita Koutoubia, el Palacio Bahía y el Jardín Majorelle.","Evening: Moroccan dinner at a local restaurant.|Noche: cena marroquí en un restaurante local."]];
+BK.fM=["Marrakech to Casablanca|De Marrakech a Casablanca",["Depart Marrakech for Casablanca, Morocco’s largest city. Depending on your departure time, visit the Hassan II Mosque and the Corniche before your transfer to the airport.|Sal de Marrakech hacia Casablanca, la ciudad más grande de Marruecos. Según tu hora de salida, visita la Mezquita Hassan II y la Corniche antes del traslado al aeropuerto."]];
+var HF0=["Camel trekking across the golden dunes of Erg Chebbi.|Paseo en camello por las dunas doradas del Erg Chebbi.","A night under the stars in a luxury desert camp.|Una noche bajo las estrellas en un campamento de lujo en el desierto.","Todra Gorge and the Dades Valley, dotted with kasbahs and rock formations.|La garganta del Todra y el valle del Dadès, con kasbahs y formaciones rocosas.","Ait Benhaddou, Morocco’s most iconic kasbah.|Ait Benhaddou, la kasbah más emblemática de Marruecos.","Scenic drives through the High Atlas Mountains.|Rutas panorámicas por el Alto Atlas."],
+HF1=["Ifrane, Morocco’s alpine gem, and the cedar forests with Barbary macaques.|Ifrane, la joya alpina de Marruecos, y los bosques de cedros con macacos de Berbería.","The Ziz Valley, one of Morocco’s most scenic palm groves.|El valle del Ziz, uno de los palmerales más bellos de Marruecos."].concat(HF0.slice(0,3)),
+HF4=["Explore the imperial cities of Fes and Marrakech.|Explora las ciudades imperiales de Fez y Marrakech.","The natural beauty of the Middle Atlas and the Ziz Valley.|La belleza natural del Atlas Medio y el valle del Ziz.","A camel trek and overnight stay in a luxury desert camp.|Un paseo en camello y una noche en un campamento de lujo en el desierto.","Iconic landmarks: Ait Benhaddou and Todra Gorge.|Lugares emblemáticos: Ait Benhaddou y la garganta del Todra.","Morocco’s rich history, culture and landscapes.|La rica historia, cultura y paisajes de Marruecos."],
+IF=["Private transportation in a comfortable, air-conditioned vehicle.|Transporte privado en vehículo cómodo con aire acondicionado.","Experienced English-speaking driver/guide.|Conductor/guía experimentado de habla inglesa.","Camel trekking in Erg Chebbi.|Paseo en camello en el Erg Chebbi.","Overnight accommodation in a luxury desert camp and traditional riads or guesthouses.|Alojamiento en un campamento de lujo en el desierto y en riads o casas de huéspedes tradicionales.","Breakfast and dinner throughout the tour.|Desayuno y cena durante todo el tour."],
+RF=["fes","ifrane","midelt","merzouga","todra","dades"];
+TD["1-0"]=mk2("Experience the ultimate Moroccan adventure with a 3-day desert tour from Fes to Marrakech, exploring the Sahara, mountain landscapes and authentic Berber villages: a perfect way to discover Morocco’s hidden gems.|Vive la aventura marroquí definitiva con un tour de 3 días por el desierto de Fez a Marrakech, explorando el Sahara, paisajes de montaña y auténticos pueblos bereberes: la mejor forma de descubrir los tesoros ocultos de Marruecos.",["fA","fB","fC3"],"Ideal for travelers seeking adventure, culture and natural beauty, from the Atlas Mountains to the Sahara, with lasting memories and a deeper appreciation of Morocco’s wonders.|Ideal para quienes buscan aventura, cultura y belleza natural, del Atlas al Sahara, con recuerdos duraderos y una mayor apreciación de las maravillas de Marruecos.",RF.concat(["ouarzazate","aitbenhaddou","marrakech"]),HF0,IF);
+TD["1-1"]=mk2("Embark on a breathtaking 3-day journey from Fes into the heart of Morocco’s Sahara Desert, with sand dunes, traditional Berber culture and awe-inspiring landscapes: perfect for adventure and a deeper connection with Morocco’s nature and heritage.|Emprende un viaje impresionante de 3 días desde Fez al corazón del Sahara marroquí, con dunas, cultura bereber tradicional y paisajes asombrosos: perfecto para la aventura y una conexión más profunda con la naturaleza y el patrimonio de Marruecos.",["fA1","fB","fFes"],"A balance of adventure, cultural immersion and natural beauty: camel trekking, desert sunsets and rural landscapes.|Un equilibrio de aventura, inmersión cultural y belleza natural: paseo en camello, atardeceres en el desierto y paisajes rurales.",RF.concat(["fes"]),HF1,IF);
+TD["1-2"]=mk2("Embark on an unforgettable 4-day desert tour from Fes to Marrakech across the Atlas Mountains, the Sahara and the cultural richness of southern Morocco, packed with natural wonders, landmarks and authentic experiences.|Emprende un tour inolvidable de 4 días por el desierto de Fez a Marrakech por el Atlas, el Sahara y la riqueza cultural del sur de Marruecos, repleto de maravillas naturales, monumentos y experiencias auténticas.",["fA2","fB","fD","fE"],"A blend of adventure, culture and natural beauty, from the Sahara to historic kasbahs and the High Atlas.|Una mezcla de aventura, cultura y belleza natural, del Sahara a las kasbahs históricas y el Alto Atlas.",RF.concat(["aitbenhaddou","ouarzazate","marrakech"]),HF0,IF);
+TD["1-3"]=mk2("Embark on a mesmerizing 5-day desert tour from Fes to Marrakech through Morocco’s landscapes, ancient kasbahs and the majestic Sahara: a perfect blend of adventure, culture and scenery.|Emprende un fascinante tour de 5 días por el desierto de Fez a Marrakech por los paisajes de Marruecos, antiguas kasbahs y el majestuoso Sahara: una mezcla perfecta de aventura, cultura y paisajes.",["fF","fG","fB","fD","fE"],"Ideal for a mix of adventure, culture and natural beauty, from the Sahara to the High Atlas, with a deeper connection to Morocco’s heritage.|Ideal para combinar aventura, cultura y belleza natural, del Sahara al Alto Atlas, con una conexión más profunda con el patrimonio de Marruecos.",RF.concat(["aitbenhaddou","ouarzazate","marrakech"]),HF0,IF);
+TD["1-4"]=mk2("Discover the diverse beauty and rich culture of Morocco on a 7-day tour from Fes through historic cities, dramatic landscapes and the Sahara, from ancient medinas to camel treks across golden dunes.|Descubre la belleza diversa y la rica cultura de Marruecos en un tour de 7 días desde Fez por ciudades históricas, paisajes espectaculares y el Sahara, de antiguas medinas a paseos en camello por dunas doradas.",["fH","cFt","fI","fJ","fK","fL","fM"],"An immersive experience of Morocco’s cultural heritage and natural beauty, from bustling medinas to the calm of the desert, balancing adventure and relaxation.|Una experiencia inmersiva del patrimonio cultural y la belleza natural de Marruecos, de medinas bulliciosas a la calma del desierto, con equilibrio entre aventura y relax.",RF.concat(["aitbenhaddou","marrakech","casablanca"]),HF4,IF);
+BK.fA=["Fes to Merzouga via Ifrane, Midelt and Ziz Valley|De Fez a Merzouga por Ifrane, Midelt y el valle del Ziz",["Leave Fes early and drive through the Middle Atlas: Ifrane, the “Switzerland of Morocco”, and the cedar forests of Azrou, home to playful Barbary macaques.|Sal temprano de Fez y conduce por el Atlas Medio: Ifrane, la “Suiza de Marruecos”, y los bosques de cedros de Azrou, hogar de macacos de Berbería.","Have lunch in Midelt, the “Apple Capital”, and descend through the Ziz Valley, an oasis of palm trees and kasbahs, with a panoramic stop.|Almuerza en Midelt, la “capital de la manzana”, y desciende por el valle del Ziz, un oasis de palmeras y kasbahs, con una parada panorámica.","In Merzouga, the gateway to the Sahara, trek by camel across the Erg Chebbi dunes at sunset to a luxury desert camp: Moroccan dinner under the stars, Berber music and stories by the campfire.|En Merzouga, la puerta del Sahara, paseo en camello por las dunas del Erg Chebbi al atardecer hasta un campamento de lujo: cena marroquí bajo las estrellas, música bereber e historias junto al fuego."]];
+BK.fA5=["Fes to Midelt via Ifrane and Cedar Forests|De Fez a Midelt por Ifrane y los bosques de cedros",[BK.fA[1][0],"Arrive in Midelt, between the Middle and High Atlas, for a traditional lunch, then dinner and overnight in a hotel or guesthouse.|Llegada a Midelt, entre el Atlas Medio y el Alto Atlas, para un almuerzo tradicional, y luego cena y noche en un hotel o casa de huéspedes."]];
+BK.fB5=["Midelt to Merzouga via Ziz Valley and Erfoud|De Midelt a Merzouga por el valle del Ziz y Erfoud",["Drive through the Ziz Valley, an oasis of date palms and mud-brick villages, and Erfoud, known for its fossil workshops.|Conduce por el valle del Ziz, un oasis de palmeras datileras y pueblos de adobe, y Erfoud, conocida por sus talleres de fósiles.",BK.fA[1][2]]];
+BK.fC=["Merzouga to Dades Valley via Rissani and Todra Gorge|De Merzouga al valle del Dadès por Rissani y la garganta del Todra",[SR,"Visit Rissani, a historic trading hub with a lively souk (try the medfouna, the “Berber pizza”).|Visita Rissani, un histórico centro comercial con un zoco animado (prueba la medfouna, la “pizza bereber”).","Continue to the Todra Gorge, with cliffs over 300 metres high, and walk along the riverbed. End in the Dades Valley, the “Valley of a Thousand Kasbahs”, with rock formations such as the “Monkey Fingers”. Overnight in a riad or guesthouse.|Continúa a la garganta del Todra, con paredes de más de 300 metros, y pasea junto al río. Termina en el valle del Dadès, el “valle de las Mil Kasbahs”, con formaciones rocosas como los “Dedos de mono”. Noche en un riad o casa de huéspedes."]];
+BK.fD3F=["Dades Valley to Fes via the High Atlas Mountains|Del valle del Dadès a Fez por el Alto Atlas",["Begin your return to Fes through the High Atlas, with dramatic landscapes, rugged peaks and mountain villages, and several photo stops where your guide shares stories about the region.|Comienza el regreso a Fez por el Alto Atlas, con paisajes espectaculares, picos escarpados y pueblos de montaña, y varias paradas para fotos en las que tu guía cuenta historias de la región.","Arrive in Fes in the late afternoon, where the adventure ends.|Llegada a Fez al final de la tarde, donde termina la aventura."]];
+BK.fD3M=["Dades Valley to Marrakech via Ouarzazate and Ait Benhaddou|Del valle del Dadès a Marrakech por Uarzazate y Ait Benhaddou",["Cross the High Atlas to Ouarzazate, the “Hollywood of Morocco”, and visit the Taourirt Kasbah, then Ait Benhaddou, a UNESCO fortified village seen in Game of Thrones and Gladiator.|Cruza el Alto Atlas hasta Uarzazate, la “Hollywood de Marruecos”, y visita la Kasbah de Taourirt, y luego Ait Benhaddou, un pueblo fortificado UNESCO que sale en Juego de Tronos y Gladiator.","Cross the Tizi n’Tichka Pass, the highest road pass in Morocco, and arrive in Marrakech in the late afternoon.|Cruza el puerto de Tizi n’Tichka, el más alto de las carreteras de Marruecos, y llega a Marrakech al final de la tarde."]];
+BK.fD4=["Dades Valley to Ouarzazate via Skoura and Ait Benhaddou|Del valle del Dadès a Uarzazate por Skoura y Ait Benhaddou",["Drive through the Skoura Oasis, with its palm groves and kasbahs, and visit Kasbah Amridil. Then Ait Benhaddou, the UNESCO fortified village, and arrive in Ouarzazate to tour the Taourirt Kasbah. Overnight in Ouarzazate.|Conduce por el oasis de Skoura, con sus palmerales y kasbahs, y visita la Kasbah de Amridil. Luego Ait Benhaddou, el pueblo fortificado UNESCO, y llegada a Uarzazate para visitar la Kasbah de Taourirt. Noche en Uarzazate."]];
+BK.fD4b=["Ouarzazate to Marrakech via the High Atlas Mountains|De Uarzazate a Marrakech por el Alto Atlas",["Cross the Tizi n’Tichka Pass, with views of winding roads, rugged peaks and Berber villages, and arrive in Marrakech in the late afternoon.|Cruza el puerto de Tizi n’Tichka, con vistas a carreteras sinuosas, picos escarpados y pueblos bereberes, y llega a Marrakech al final de la tarde."]];
+BK.f7a=["Arrival in Fes|Llegada a Fez",["Welcome to Fes, one of Morocco’s treasured imperial cities. You are transferred to your riad or hotel in the medina and can relax or explore at your own pace.|Bienvenido a Fez, una de las ciudades imperiales más preciadas de Marruecos. Traslado a tu riad u hotel en la medina, y tiempo para descansar o explorar a tu ritmo."]];
+BK.f7c=["Fes to Merzouga via Ifrane and Ziz Valley|De Fez a Merzouga por Ifrane y el valle del Ziz",BK.fA[1]];
+BK.f7d=["Merzouga to Dades Valley via Todra Gorge|De Merzouga al valle del Dadès por la garganta del Todra",[SR,"Travel through the Todra Gorge, with its towering cliffs, and walk along the riverbed; continue to the Dades Valley, the “Valley of a Thousand Kasbahs”, for dinner and a night in a guesthouse or riad.|Viaja por la garganta del Todra, con sus enormes paredes, y pasea junto al río; continúa al valle del Dadès, el “valle de las Mil Kasbahs”, para cenar y dormir en una casa de huéspedes o un riad."]];
+BK.f7e=["Dades Valley to Marrakech via Ait Benhaddou|Del valle del Dadès a Marrakech por Ait Benhaddou",["Visit Ait Benhaddou, the UNESCO ksar, then cross the High Atlas via the Tizi n’Tichka Pass, with views of rugged peaks and Berber villages, and arrive in Marrakech in the evening.|Visita Ait Benhaddou, el ksar UNESCO, y cruza el Alto Atlas por el puerto de Tizi n’Tichka, con vistas a picos escarpados y pueblos bereberes, y llega a Marrakech por la tarde."]];
+BK.f7f=["Full-Day Exploration of Marrakech|Día completo en Marrakech",["Discover Marrakech: Jemaa el-Fnaa, the Koutoubia Mosque, the Bahia Palace and the Majorelle Garden. In the evening, dinner at a local restaurant.|Descubre Marrakech: Jemaa el-Fnaa, la mezquita Koutoubia, el Palacio Bahía y el Jardín Majorelle. Por la noche, cena en un restaurante local."]];
+BK.f7g=["Marrakech to Casablanca|De Marrakech a Casablanca",["Travel to Casablanca, Morocco’s largest city, and, depending on your departure time, visit the Hassan II Mosque and the Corniche. Your journey ends with the transfer to the airport.|Viaje a Casablanca, la ciudad más grande de Marruecos, y, según tu hora de salida, visita la Mezquita Hassan II y la Corniche. Tu viaje termina con el traslado al aeropuerto."]];
+var HF=["Camel trekking in Erg Chebbi: the magic of the Sahara on camelback across the dunes.|Paseo en camello en el Erg Chebbi: la magia del Sahara a lomos de camello entre las dunas.","Luxury desert camp: a night under the stars in a traditional yet comfortable camp.|Campamento de lujo: una noche bajo las estrellas en un campamento tradicional y cómodo.","Todra Gorge: sheer cliffs and a peaceful walk through the canyon.|Garganta del Todra: acantilados verticales y un paseo tranquilo por el cañón.","Dades Valley: a scenic valley dotted with kasbahs and unique rock formations.|Valle del Dadès: un valle pintoresco con kasbahs y formaciones rocosas únicas.","Middle Atlas: Ifrane, the Azrou cedar forests and Barbary macaques.|Atlas Medio: Ifrane, los bosques de cedros de Azrou y los macacos de Berbería."],
+HFm=HF.slice(0,4).concat(["Ait Benhaddou and the High Atlas: Morocco’s most iconic kasbah and a scenic mountain drive.|Ait Benhaddou y el Alto Atlas: la kasbah más emblemática de Marruecos y un viaje panorámico de montaña."]),
+H7F=["Explore the imperial cities of Fes and Marrakech.|Explora las ciudades imperiales de Fez y Marrakech.","The natural beauty of the Middle Atlas and the Ziz Valley.|La belleza natural del Atlas Medio y del valle del Ziz.","A camel trek and overnight stay in a luxury desert camp in the Sahara.|Paseo en camello y noche en un campamento de lujo en el Sahara.","Iconic landmarks such as Ait Benhaddou and Todra Gorge.|Lugares emblemáticos como Ait Benhaddou y la garganta del Todra.","Morocco’s rich history, culture and landscapes.|La rica historia, cultura y paisajes de Marruecos."],
+IF=["Private transportation in an air-conditioned vehicle.|Transporte privado en vehículo con aire acondicionado.","Experienced English-speaking driver/guide.|Conductor/guía experimentado de habla inglesa.","Camel trekking in Erg Chebbi.|Paseo en camello en el Erg Chebbi.","Overnight stays in a luxury desert camp and traditional riads/guesthouses.|Noches en un campamento de lujo en el desierto y en riads/casas de huéspedes tradicionales.","Breakfast and dinner throughout the tour.|Desayuno y cena durante todo el tour."],
+RF=["fes","ifrane","midelt","merzouga","todra","dades"];
+TD["1-0"]=mk2("Experience the ultimate Moroccan adventure on a 3-day desert tour from Fes to Marrakech through the vast Sahara, mountain landscapes and authentic Berber villages: unforgettable culture and natural beauty.|Vive la aventura marroquí definitiva en un tour de 3 días por el desierto de Fez a Marrakech, por el vasto Sahara, paisajes de montaña y auténticos pueblos bereberes: cultura y belleza natural inolvidables.",["fA","fC","fD3M"],"This 3-day tour is ideal for a blend of adventure, culture and natural beauty, from the Atlas Mountains to the Sahara.|Este tour de 3 días es ideal para combinar aventura, cultura y belleza natural, del Atlas al Sahara.",RF.concat(["ouarzazate","aitbenhaddou","marrakech"]),HFm,IF);
+TD["1-1"]=mk2("Embark on a breathtaking 3-day journey from Fes into the heart of the Sahara: sand dunes, Berber culture and awe-inspiring landscapes, perfect for adventure and a deeper connection with Morocco’s nature and heritage.|Emprende un impresionante viaje de 3 días desde Fez al corazón del Sahara: dunas, cultura bereber y paisajes asombrosos, perfecto para la aventura y una conexión más profunda con la naturaleza y el patrimonio de Marruecos.",["fA","fC","fD3F"],"This 3-day Sahara tour balances adventure, cultural immersion and natural beauty: camel trekking, desert sunsets and rural landscapes.|Este tour de 3 días por el Sahara equilibra aventura, inmersión cultural y belleza natural: paseo en camello, atardeceres en el desierto y paisajes rurales.",RF.concat(["fes"]),HF,IF);
+TD["1-2"]=mk2("Embark on an unforgettable 4-day desert tour from Fes to Marrakech through the Atlas Mountains, the Sahara and the cultural richness of southern Morocco: natural wonders, historic landmarks and authentic experiences.|Emprende un inolvidable tour de 4 días por el desierto de Fez a Marrakech por el Atlas, el Sahara y la riqueza cultural del sur de Marruecos: maravillas naturales, lugares históricos y experiencias auténticas.",["fA","fC","fD4","fD4b"],"The 4-day tour offers adventure, culture and natural beauty, from the Sahara to historic kasbahs and the High Atlas.|El tour de 4 días ofrece aventura, cultura y belleza natural, del Sahara a históricas kasbahs y el Alto Atlas.",RF.concat(["aitbenhaddou","ouarzazate","marrakech"]),HFm,IF);
+TD["1-3"]=mk2("Embark on a mesmerizing 5-day desert tour from Fes to Marrakech through Morocco’s captivating landscapes, ancient kasbahs and the majestic Sahara: adventure, culture and breathtaking scenery.|Emprende un fascinante tour de 5 días por el desierto de Fez a Marrakech por los paisajes cautivadores de Marruecos, antiguas kasbahs y el majestuoso Sahara: aventura, cultura y paisajes impresionantes.",["fA5","fB5","fC","fD4","fD4b"],"This 5-day tour mixes adventure, culture and natural beauty, from the Sahara to the High Atlas, for a deeper connection with Morocco’s heritage.|Este tour de 5 días une aventura, cultura y belleza natural, del Sahara al Alto Atlas, para conectar más con el patrimonio de Marruecos.",RF.concat(["aitbenhaddou","ouarzazate","marrakech"]),HFm,IF);
+TD["1-4"]=mk2("Discover the beauty and culture of Morocco on a 7-day tour from Fes through historic cities, dramatic landscapes and the Sahara, from ancient medinas to camel treks across golden dunes.|Descubre la belleza y la cultura de Marruecos en un tour de 7 días desde Fez por ciudades históricas, paisajes espectaculares y el Sahara, de antiguas medinas a paseos en camello por dunas doradas.",["f7a","cFt","f7c","f7d","f7e","f7f","f7g"],"This 7-day tour shows the best of Morocco’s cultural heritage and natural beauty, from bustling medinas to the tranquility of the desert.|Este tour de 7 días muestra lo mejor del patrimonio cultural y la belleza natural de Marruecos, de las medinas bulliciosas a la tranquilidad del desierto.",RF.concat(["aitbenhaddou","marrakech","casablanca"]),H7F,IF);
+(function(){
+var FS={d:-1,c:-1,t:-1},FD=[[3,4],[5,7],[8,10],[11,12]];
+function opts(id,list,key){document.getElementById(id).innerHTML=list.map(function(o,i){var q=o.split("|");return '<button type="button" data-k="'+key+'" data-i="'+i+'" data-es="'+q[1]+'">'+q[0]+'</button>'}).join("")}
+opts("fq1",["3–4 days|3–4 días","5–7 days|5–7 días","8–10 days|8–10 días","11–12 days|11–12 días"],"d");
+opts("fq2",["Marrakech|Marrakech","Fes|Fez","Casablanca|Casablanca","Tangier|Tánger","Anywhere|Cualquiera"],"c");
+opts("fq3",["Desert & camel|Desierto y camello","Cities & culture|Ciudades y cultura","Both|Ambos"],"t");
+function res(){var any=FS.d>=0||FS.c>=0||FS.t>=0,o=[],h;
+  if(any)C.forEach(function(c,ci){c[5].forEach(function(t,ti){var d=FS.d<0||(t[0]>=FD[FS.d][0]&&t[0]<=FD[FS.d][1]),ct=FS.c<0||FS.c==4||FS.c==ci,ty=FS.t<0||FS.t==2||(FS.t==0?t[3]=="d":t[3]!="d");if(d&&ct&&ty)o.push([ci,ti,t,c])})});
+  o.sort(function(a,b){return a[2][0]-b[2][0]});
+  if(!any)h='<p data-es="Elige tus opciones y te mostramos los tours que encajan.">Pick your options and we show the tours that fit.</p>';
+  else if(!o.length)h='<p data-es="Sin coincidencia exacta. Cuéntanos tu idea y la diseñamos para ti.">No exact match. Tell us your idea and we design it for you.</p><a class="book" href="#custom-page" data-es="Diseña mi viaje →">Design my trip →</a>';
+  else h='<div class="tfn" data-es="Tus resultados">Your matches</div>'+o.slice(0,6).map(function(r){return '<a class="tfr" href="#tour-'+r[0]+'-'+r[1]+'"><b data-es="'+r[2][0]+' días">'+r[2][0]+' days</b><span data-es="'+r[2][2]+'">'+r[2][1]+'</span><small data-es="Desde '+r[3][2]+'">From '+r[3][1]+'</small></a>'}).join("");
+  var e=document.getElementById("tres");e.innerHTML=h;applyLang(e)}
+document.getElementById("tfind").addEventListener("click",function(e){var b=e.target.closest("button[data-k]");if(!b)return;FS[b.dataset.k]=+b.dataset.i;b.parentNode.querySelectorAll("button").forEach(function(x){x.classList.toggle("on",x==b)});res()});
+res();
+var LH="M234 34L260 30L262 44L300 52L328 63L378 68L400 70V400H5L16 385L37 368L44 330L36 269L62 225L100 173L142 154L182 130L191 118L217 66Z";
+function pin(x,y,l,i){return '<g class="pin" data-i="'+i+'" transform="translate('+x+' '+y+')"><circle class="pl" r="8" fill="#ffd166"/><path d="M0 0C-6-9-9-13-9-17a9 9 0 1 1 18 0c0 4-3 8-9 17z" fill="#e8702f" stroke="#fff" stroke-width="1.500"/><circle cy="-17" r="3.500" fill="#fff"/><text y="15" text-anchor="middle">'+l+'</text></g>'}
+var pins=["marrakech","fes","casablanca","tangier"].map(function(k,i){var c=MC2[k];return pin(c[0],c[1],c[2],i)}).join("")+pin(325,291,"Merzouga","m");
+document.getElementById("hmap").innerHTML='<svg viewBox="0 0 400 400"><rect width="400" height="400" fill="#123f66"/><path d="'+LH+'" fill="#b08a55"/><path d="M240 40Q290 50 330 70L320 90Q270 85 245 70Z" fill="#2f5a2a" opacity=".4"/><path d="M230 120Q270 130 300 190L280 215Q250 170 225 150Z" fill="#2f5a2a" opacity=".35"/><path d="M150 250Q230 215 330 245L350 300L200 320Q150 300 130 275Z" fill="#000" opacity=".14"/><path d="M400 235L358 262L350 300L197 400" fill="none" stroke="#fff" stroke-opacity=".55" stroke-dasharray="4 3"/><text class="b" x="190" y="215" text-anchor="middle">MOROCCO</text>'+pins+'</svg>';
+document.getElementById("hmap").addEventListener("click",function(e){var p=e.target.closest(".pin");if(!p)return;
+  document.querySelectorAll("#hmap .pin").forEach(function(x){x.classList.toggle("sel",x==p)});var i=p.dataset.i,h;
+  if(i=="m")h='<h3 data-es="Actividades en Merzouga">Merzouga activities</h3><p data-es="Camello, 4x4, quad, sandboard y noches de estrellas.">Camel, 4x4, quad, sandboarding and stargazing nights.</p><a class="book" href="#activities-page" data-es="Ver actividades →">See activities →</a>';
+  else{var c=C[+i];h='<h3 data-es="Tours desde '+c[2]+'">Tours from '+c[1]+'</h3><ul>'+c[5].slice(0,3).map(function(t,ti){return '<li><a href="#tour-'+i+'-'+ti+'" data-es="'+t[2]+'">'+t[1]+'</a></li>'}).join("")+'</ul><a class="book" href="#city-'+i+'" data-es="Todos los tours desde '+c[2]+' →">All tours from '+c[1]+' →</a>'}
+  var f=document.getElementById("hinfo");f.innerHTML=h;applyLang(f)});
+var bb=document.getElementById("bkbar");
+window.setBar=function(t,msg){document.getElementById("bkt").textContent=t;document.getElementById("bkl").href="https://wa.me/212651725529?text="+msg;bb.hidden=false};
+addEventListener("hashchange",function(){if(location.hash.indexOf("#tour-")!==0&&location.hash.indexOf("#trip-")!==0)bb.hidden=true});
+})();
+for(var q in TD)TD[q].k=q;
+var SRF="Lever du soleil sur les dunes de l’Erg Chebbi, petit-déjeuner au camp et retour à Merzouga à dos de chameau ou en 4×4.";
+var FRB={
+mA:["De Marrakech à la vallée du Dadès par Aït Benhaddou et Ouarzazate",["Quittez Marrakech tôt et traversez le Haut Atlas par le col du Tizi n’Tichka, le plus haut col routier du Maroc, avec des vues sur des vallées, des champs en terrasses et des villages berbères.","Visitez Aït Benhaddou, le village fortifié classé à l’UNESCO vu dans des films comme Gladiator et Game of Thrones, puis Ouarzazate, l’« Hollywood du Maroc », et la kasbah de Taourirt.","Poursuivez par la vallée des Roses jusqu’à la vallée du Dadès, avec ses formations rocheuses et ses kasbahs. Dîner et nuit dans un riad ou un hôtel."]],
+mB:["De la vallée du Dadès à Merzouga par les gorges du Todra",["Visitez les gorges du Todra, un canyon aux falaises hautes de 300 mètres, et promenez-vous le long de la rivière.","Traversez des villages berbères et des palmeraies, avec des arrêts à Tinjdad et à Erfoud, connue pour ses ateliers de fossiles, jusqu’à Merzouga, porte des dunes de l’Erg Chebbi.","En fin d’après-midi, partez à dos de chameau à travers les dunes au coucher du soleil jusqu’à un camp de luxe dans le désert : dîner traditionnel, musique berbère en direct et ciel étoilé. Nuit sous la tente."]],
+mF3:["De Merzouga à Fès par la vallée du Ziz et les forêts de cèdres",[SRF,"Traversez la vallée du Ziz et ses palmeraies, déjeunez à Midelt, la « capitale de la pomme du Maroc », et franchissez le Moyen Atlas par les forêts de cèdres d’Azrou, où vivent des macaques de Barbarie.","Arrivée à Fès en soirée, où le circuit se termine."]],
+mM3:["De Merzouga à Marrakech par Ouarzazate",[SRF,"Reprenez votre itinéraire à travers le sud du Maroc, avec des arrêts photo dans le désert, les oasis et les montagnes, et arrivez à Marrakech en fin d’après-midi ou début de soirée."]],
+mC4F:["De Merzouga à Midelt par la vallée du Ziz",[SRF,"Traversez la vallée du Ziz, un ruban de palmeraies et de villages, puis le Moyen Atlas jusqu’à Midelt, connue pour ses vergers de pommiers. Dîner et nuit dans une maison d’hôtes."]],
+mD4F:["De Midelt à Fès",["Visitez Azrou, avec ses forêts de cèdres et ses sympathiques macaques de Barbarie, et Ifrane, la « Suisse du Maroc », à l’architecture européenne. Arrivée à Fès en fin d’après-midi, où le circuit se termine."]],
+mC4M:["De Merzouga à Agdz par Alnif",[SRF,"Traversez les montagnes du Saghro et Alnif, connue pour ses fossiles, jusqu’à Agdz, au début de la vallée du Drâa, avec ses palmeraies et ses kasbahs. Dîner et nuit dans une maison d’hôtes."]],
+mD4M:["D’Agdz à Marrakech par Ouarzazate",["Traversez la vallée du Drâa, avec ses palmiers dattiers, ses villages en pisé et la kasbah de Tamnougalt.","Retour par Ouarzazate (déjeuner) et le Haut Atlas jusqu’à Marrakech, avec une arrivée en fin d’après-midi."]],
+mD45:["D’Agdz à Ouarzazate par la vallée du Drâa",["Traversez la vallée du Drâa et arrêtez-vous à la kasbah de Tamnougalt. À Ouarzazate, visitez ce que vous avez manqué, comme le musée du cinéma, et déjeunez dans un café local."]],
+mD5:["De Ouarzazate à Marrakech",["Reprenez votre route à travers le Haut Atlas, avec un dernier arrêt photo au col du Tizi n’Tichka, et arrivez à Marrakech en fin d’après-midi."]],
+mA7:["Arrivée à Marrakech et découverte",["Bienvenue à Marrakech, la « ville rouge ». L’après-midi, explorez la médina (UNESCO) : souks remplis de textiles, d’épices et d’artisanat, et la place Jemaa el-Fna avec ses artistes et ses stands de nourriture. Nuit dans un riad traditionnel."]],
+mB7:["De Marrakech à la vallée du Dadès par Aït Benhaddou",["Franchissez le Haut Atlas par le col du Tizi n’Tichka, visitez Aït Benhaddou, le ksar classé à l’UNESCO et lieu de tournage, passez par Ouarzazate et arrivez dans la vallée du Dadès pour dîner et passer la nuit dans un riad au milieu des formations rocheuses rouges."]],
+mE:["Découverte du désert de Merzouga",["Admirez le lever du soleil sur les dunes, puis visitez un village berbère nomade et Khamlia, célèbre pour sa musique gnawa. Retour au camp pour le dîner et l’observation des étoiles."]],
+mZ:["De Merzouga à Zagora par Alnif",["Traversez les montagnes du Saghro et Alnif, connue pour ses fossiles, jusqu’à Zagora, la « porte du désert » sur l’ancienne route de Tombouctou, et voyez le célèbre panneau de Tombouctou. Nuit dans une maison d’hôtes."]],
+mZO:["De Zagora à Ouarzazate par la vallée du Drâa",["Traversez la vallée du Drâa, l’une des plus grandes palmeraies du Maroc, avec ses villages berbères et ses kasbahs, jusqu’à Ouarzazate, où vous pouvez revoir la kasbah de Taourirt ou les studios Atlas. Dîner et nuit dans un riad."]],
+mD7:["De Ouarzazate à Marrakech",["Reprenez votre route à travers le Haut Atlas avec des arrêts photo et profitez d’un dîner d’adieu dans un restaurant traditionnel de Marrakech."]],
+mA8:["Arrivée à Marrakech",["Retrouvez votre guide et transfert à votre hôtel ou riad. Le soir, explorez Jemaa el-Fna, pleine de conteurs, de musiciens et de vendeurs de nourriture, l’introduction parfaite au Maroc. Nuit dans un riad traditionnel."]],
+mO8:["De Marrakech à Ouarzazate par Aït Benhaddou",["Franchissez le Haut Atlas par le col du Tizi n’Tichka et visitez Aït Benhaddou, un ksar classé à l’UNESCO à l’architecture en terre et lieu de tournage. Nuit dans un riad à Ouarzazate, l’« Hollywood de l’Afrique »."]],
+mQ:["De Ouarzazate à la vallée du Dadès",["Visitez la kasbah de Taourirt, puis traversez la vallée des Roses, célèbre pour ses rosiers et son eau de rose, jusqu’à la vallée du Dadès, aux formations rocheuses saisissantes. Nuit dans un riad avec vue sur la vallée."]],
+mT:["De Zagora à Taroudant par la vallée du Drâa",["Traversez la vallée du Drâa, la plus grande palmeraie du Maroc, jusqu’à Taroudant, la « grand-mère de Marrakech », avec ses anciens remparts et ses souks d’artisanat. Nuit dans un riad."]],
+mEs:["De Taroudant à Essaouira",["Route vers la ville côtière d’Essaouira : la médina (UNESCO) aux bâtiments blanchis et aux portes bleues, le port de pêche, les fruits de mer frais et le coucher de soleil sur l’Atlantique. Nuit dans un riad en bord de mer."]],
+mR8:["D’Essaouira à Marrakech",["Retour à Marrakech à travers les arganeraies, avec un arrêt dans une coopérative de femmes pour découvrir la fabrication de l’huile d’argan. Dîner d’adieu dans un restaurant traditionnel."]],
+mM2:["Découverte de Marrakech",["Visite guidée : le palais de la Bahia, les tombeaux saadiens, la mosquée Koutoubia et le jardin Majorelle, plus du temps dans les souks pour l’artisanat, les textiles et les épices."]],
+mO10:["De Marrakech à Aït Benhaddou par l’Atlas",["Franchissez le col du Tizi n’Tichka, visitez Aït Benhaddou et poursuivez jusqu’à Ouarzazate, la « porte du désert », pour la nuit dans un riad traditionnel."]],
+mQ10:["De Ouarzazate à la vallée du Dadès",["Visitez la kasbah de Taourirt, traversez l’oasis de Skoura et la vallée des Roses, où vous pouvez voir la production d’eau de rose, et arrivez aux gorges du Dadès."]],
+mFe:["De Midelt à Fès",["Traversez le Moyen Atlas par les forêts de cèdres et Ifrane, la « Suisse du Maroc », et arrivez à Fès, capitale culturelle et spirituelle du Maroc."]],
+mFR:["De Fès à Rabat par Meknès",["Arrêt à Meknès, avec la porte Bab Mansour et le mausolée de Moulay Ismaïl, puis route vers Rabat : la tour Hassan, le palais royal et la kasbah des Oudayas. Nuit dans un riad boutique de la médina."]],
+mRM:["De Rabat à Marrakech",["Retour à Marrakech avec du temps libre pour les derniers achats dans les souks, et un dîner d’adieu traditionnel."]],
+cFt:["Journée complète à Fès",["Explorez Fès el-Bali, la médina classée à l’UNESCO et l’une des plus grandes zones piétonnes du monde : l’université Al Quaraouiyine, les tanneries Chouara et la médersa Bou Inania.","Savourez la cuisine traditionnelle et découvrez les souks et le savoir-faire des artisans."]]};
+FRB.mBd=["De la vallée du Dadès au désert de Merzouga",FRB.mB[1]];FRB.mB3=FRB.mBd;
+FRB.mC5=["De Merzouga à Agdz par Alnif et la vallée du Drâa",FRB.mC4M[1]];FRB.mMi=["De Merzouga à Midelt",FRB.mC4F[1]];FRB.mFt=["Explorer Fès",FRB.cFt[1]];
+var FRT={
+"0-0":{o:"Partez pour un voyage inoubliable de 3 jours de Marrakech à Fès, des montagnes escarpées aux dunes dorées : une porte ouverte sur les merveilles culturelles et naturelles du Maroc, avec un patrimoine vivant, des paysages spectaculaires et de l’aventure.",w:"Ce circuit allie hospitalité berbère, sites UNESCO et les plus beaux paysages du Maroc, avec une balade à dos de chameau et un hébergement de luxe dans le désert."},
+"0-1":{o:"Partez pour un voyage palpitant de 3 jours de Marrakech au désert de Merzouga, des majestueuses montagnes de l’Atlas aux sables dorés de l’Erg Chebbi : le meilleur de la beauté naturelle et du patrimoine culturel du Maroc.",w:"Un voyage de 3 jours qui réunit les montagnes, les kasbahs et le Sahara, avec une balade à dos de chameau et une nuit dans un camp de luxe dans le désert."},
+"0-2":{o:"Partez pour un voyage inoubliable de 4 jours de Marrakech à Fès à travers les paysages et les trésors culturels les plus spectaculaires du Maroc : l’Atlas, le cœur du Sahara, des vallées pittoresques et des villes historiques.",w:"Un itinéraire de 4 jours qui traverse le Haut Atlas, le Sahara et le Moyen Atlas pour finir à Fès, avec une balade à dos de chameau et la rencontre des macaques de Barbarie."},
+"0-3":{o:"Partez pour un voyage à couper le souffle de 4 jours de Marrakech à Merzouga, des hautes montagnes de l’Atlas aux dunes dorées du Sahara et à la vallée du Drâa : aventure, culture et beauté naturelle.",w:"Ce circuit de 4 jours de Marrakech à Merzouga promet un mélange d’aventure, de culture et de souvenirs inoubliables, des anciennes kasbahs au Sahara serein."},
+"0-4":{o:"Partez pour un extraordinaire circuit désert de 5 jours depuis Marrakech à travers des paysages variés, la riche culture marocaine et l’attrait du Sahara : aventure, histoire et beauté naturelle pour une expérience marocaine authentique.",w:"Ce circuit désert de 5 jours est une belle façon de découvrir la beauté et la culture du Maroc, de l’Atlas au Sahara, à dos de chameau, entre kasbahs et nuits sous les étoiles."},
+"0-5":{o:"Partez pour un envoûtant voyage de 7 jours de Marrakech au Sahara, mêlant paysages, culture et traditions du Maroc à travers l’Atlas, d’anciennes kasbahs, des oasis verdoyantes et les dunes dorées. Idéal pour une expérience immersive.",w:"Ce circuit de 7 jours dans le Sahara est un mélange parfait d’aventure, de culture et de beauté naturelle : cols de montagne, anciennes kasbahs et une nuit dans le désert."},
+"0-6":{o:"Partez pour un voyage inoubliable de 8 jours à travers le Maroc depuis Marrakech : l’Atlas, d’anciennes kasbahs, les dunes dorées du Sahara et la côte atlantique, une expérience essentielle de la culture, de l’histoire et de la nature du Maroc.",w:"Ce circuit essentiel de 8 jours offre un équilibre parfait entre aventure, culture et détente, du désert à la côte."},
+"0-7":{o:"Partez pour un Grand Tour du Maroc de 10 jours depuis Marrakech à travers les sites emblématiques du pays, des paysages impressionnants et des trésors culturels, des médinas animées au désert serein du Sahara.",w:"Ce Grand Tour de 10 jours est un mélange parfait d’histoire, de culture et d’aventure, le meilleur du Maroc en un seul voyage."}};
+var LND="M234 34L260 30L262 44L300 52L328 63L378 68L400 70V400H5L16 385L37 368L44 330L36 269L62 225L100 173L142 154L182 130L191 118L217 66Z";
+var BE={t7:"chefchaouen",t1:"tangier",ch:"chefchaouen",ch7:"fes",f9:"fes",f10:"fes",f12:"fes",ft:"fes",mz:"merzouga",mz7:"merzouga",dd:"dades",sa:"merzouga",ou:"ouarzazate",mk7:"marrakech",om:"marrakech",mt:"marrakech",mt7:"marrakech",cb:"casablanca",dp:"marrakech",dc:"casablanca",
+cA1:"rabat",cA:"casablanca",cR7:"chefchaouen",cR9:"chefchaouen",cR10:"chefchaouen",cCh3:"fes",cF9:"fes",cF10:"fes",cFt:"fes",cM7:"merzouga",cM9:"merzouga",cS6:"marrakech",cD6:"dades",cSa:"merzouga",cK7:"marrakech",cO:"ouarzazate",cO8:"marrakech",cO9:"marrakech",cMt:"marrakech",cMt7:"marrakech",cEs:"marrakech",cDp9:"marrakech",cDp10:"marrakech",
+mA:"dades",mB:"merzouga",mBd:"merzouga",mB3:"merzouga",mF3:"fes",mM3:"marrakech",mC4F:"midelt",mMi:"midelt",mD4F:"fes",mC4M:"agdz",mC5:"agdz",mD4M:"marrakech",mD45:"ouarzazate",mD5:"marrakech",mA7:"marrakech",mB7:"dades",mE:"merzouga",mZ:"zagora",mZO:"ouarzazate",mD7:"marrakech",mA8:"marrakech",mO8:"ouarzazate",mQ:"dades",mT:"taroudant",mEs:"essaouira",mR8:"marrakech",mM2:"marrakech",mO10:"ouarzazate",mQ10:"dades",mFe:"fes",mFR:"rabat",mRM:"marrakech",mFt:"fes",
+fA:"merzouga",f7c:"merzouga",fA5:"midelt",fB5:"merzouga",fC:"dades",fD3F:"fes",fD3M:"marrakech",fD4:"ouarzazate",fD4b:"marrakech",f7a:"fes",f7d:"dades",f7e:"marrakech",f7f:"marrakech",f7g:"casablanca"};
+TD["3-0"].ends=["chefchaouen","fes","fes","rabat","tangier","tangier"];
+function mini(r,a,b){var pt=function(i,j){var o="";for(var q=i;q<=j;q++)o+=(q==i?"M":"L")+MC2[r[q]][0]+" "+MC2[r[q]][1];return o},e=MC2[r[b]],st=e[0]>260;
+  return '<svg viewBox="0 0 400 400"><rect width="400" height="400" fill="#123f66"/><path d="'+LND+'" fill="#b08a55"/><path d="'+pt(0,r.length-1)+'" fill="none" stroke="#fff" stroke-opacity=".6" stroke-width="3" stroke-dasharray="6 5"/><path d="'+pt(0,a)+'" fill="none" stroke="#ff7a59" stroke-width="4" stroke-linecap="round"/><path d="'+pt(a,b)+'" fill="none" stroke="#ffd166" stroke-width="8" stroke-linecap="round"/><circle cx="'+e[0]+'" cy="'+e[1]+'" r="9" fill="#ffd166" stroke="#fff" stroke-width="3"/><text x="'+(e[0]+(st?-14:14))+'" y="'+(e[1]+7)+'" text-anchor="'+(st?"end":"start")+'">'+e[2]+'</text></svg>'}
+(function(){
+var bc=document.createElement("div");bc.id="bcam";bc.innerHTML='<svg viewBox="0 0 100 75"><g class="bob" fill="#c1502e"><path d="'+CAM+'"/></g></svg>';document.getElementById("bar").appendChild(bc);
+var sk=document.createElement("div");sk.id="sky";document.body.appendChild(sk);
+var SK=[[0,[255,255,255]],[.25,[255,255,255]],[.5,[255,246,225]],[.75,[255,214,185]],[1,[205,210,240]]];
+function sky(){var p=Math.max(0,Math.min(1,scrollY/Math.max(1,document.documentElement.scrollHeight-innerHeight)));
+  for(var i=1;i<SK.length;i++)if(p<=SK[i][0]){var a=SK[i-1],b=SK[i],t=(p-a[0])/(b[0]-a[0]);sk.style.background="rgb("+[0,1,2].map(function(k){return Math.round(a[1][k]+(b[1][k]-a[1][k])*t)}).join(",")+")";break}}
+addEventListener("scroll",sky,{passive:true});addEventListener("resize",sky);sky();
+var f=document.querySelector("footer.ft"),st="";for(var q=0;q<26;q++)st+='<i style="left:'+Math.random()*100+'%;top:'+Math.random()*100+'%;animation-delay:-'+Math.random()*4+'s"></i>';
+if(f)f.insertAdjacentHTML("afterbegin",'<div class="stars" style="bottom:auto;height:70%">'+st+'</div>');
+if(!matchMedia("(prefers-reduced-motion:reduce)").matches){var CL=["#f5c36b","#e8a13a","#d98a2b","#fff0c8","#c1502e"];
+  function spark(x,y,c,s2,a,r){var d=document.createElement("i");d.className="spk";d.style.cssText="left:"+x+"px;top:"+y+"px;width:"+s2+"px;height:"+s2+"px;background:"+c;document.body.appendChild(d);
+    d.animate([{transform:"translate(0,0) scale(1)",opacity:1},{transform:"translate("+Math.cos(a)*r+"px,"+(Math.sin(a)*r+18)+"px) scale(.2)",opacity:0}],{duration:600+Math.random()*300,easing:"cubic-bezier(.2,.7,.3,1)"}).onfinish=function(){d.remove()}}
+  document.addEventListener("pointerdown",function(e){if(!e.target.closest||!e.target.closest(".book,.bkb,.allbtn,.bsall,.tabtn,.ibtn,.dw,.dt,.rm,.tfq button,.mtabs button,.bkbar a,.lb,.tab"))return;
+    for(var i=0;i<16;i++)spark(e.clientX,e.clientY,CL[i%5],3+Math.random()*4,Math.random()*6.28,30+Math.random()*50)})}
+})();
+(function(){var h=document.getElementById("home");if(h){var b=document.createElement("div");b.className="hbg ph pcam";h.insertBefore(b,h.firstChild)}
+document.querySelectorAll("nav>details").forEach(function(d){d.addEventListener("mouseenter",function(){if(innerWidth>=700)d.open=true});d.addEventListener("mouseleave",function(){if(innerWidth>=700)d.open=false});d.addEventListener("click",function(e){if(innerWidth>=700&&e.target.closest("a"))d.open=false})})})();
+(function(){var T=document.getElementById("tmenu");if(!T)return;var cs=[].slice.call(T.children).filter(function(x){return x.tagName=="DETAILS"});
+cs.forEach(function(c){c.addEventListener("mouseenter",function(){if(innerWidth<700)return;cs.forEach(function(o){if(o!==c)o.open=false});c.open=true})});
+T.parentNode.addEventListener("mouseenter",function(){if(innerWidth>=700&&!cs.some(function(o){return o.open}))cs[0].open=true})})();
+(function(){document.querySelectorAll("nav>details").forEach(function(d){d.addEventListener("mouseenter",function(){d.querySelectorAll("details").forEach(function(x){x.open=false})})});
+document.querySelectorAll("#tmenu>details").forEach(function(c){c.addEventListener("mouseenter",function(){if(innerWidth<900)return;c.parentNode.querySelectorAll("details").forEach(function(x){x.open=(x===c)})});c.addEventListener("mouseleave",function(){if(innerWidth>=900)c.open=false})})})();
+function showTour(k){
+  var m=k.split("-"),c=C[+m[0]],t=c&&c[5][+m[1]];if(!t)return false;
+  var x=dn(t[0]),msg=encodeURIComponent("Hello Moroccan Gateways, I'd like details and a quote for: "+t[1]);
+  var inc=[["Private vehicle with driver","Vehículo privado con conductor"],["Professional guide (EN · ES · FR)","Guía profesional (EN · ES · FR)"],["Accommodation as per the program","Alojamiento según el programa"],["Tailor-made: we adapt the route to you","A medida: adaptamos la ruta a ti"]];
+  document.getElementById("aph").style.background="linear-gradient(160deg,"+c[3]+")";
+  document.getElementById("aph").innerHTML='<a href="#tours" data-es="← Volver a los tours">← Back to tours</a>'+sc(hk(c,t))+'<h1 data-es="'+t[2]+'">'+t[1]+'</h1><p data-es="'+x.es+' • Desde '+c[2]+'">'+x.en+' • From '+c[1]+'</p>'+facts(t[0]);
+  document.getElementById("apb").innerHTML='<div class="abox"><h2 data-es="Resumen">Overview</h2><p data-es="Un tour privado diseñado por nuestro equipo local, con guías que hablan inglés, español y francés. Podemos ajustar el itinerario, el alojamiento y el ritmo a tus fechas y gustos.">A private tour designed by our local team, with guides who speak English, Spanish and French. We can adjust the itinerary, accommodation and pace to your dates and taste.</p><h2 data-es="Incluye">Includes</h2><ul>'+inc.map(function(i){return '<li data-es="'+i[1]+'">'+i[0]+'</li>'}).join("")+'</ul><a class="book" href="https://wa.me/212651725529?text='+msg+'" data-es="Pedir presupuesto por WhatsApp →">Get a quote on WhatsApp →</a></div>';
+  setBar(t[1],msg);var d=TD[k];if(d){var bx=document.querySelector("#apb .abox"),bk=bx.querySelector(".book");bx.innerHTML=tdBody(d);bx.appendChild(bk)}
+  applyLang(document.getElementById("activity-page"));fx(document.getElementById("activity-page"));return true;
+}
+
+
+var A=[
+["camel","Camel Trekking in Merzouga","Paseo en camello en Merzouga","Most popular","Más popular","🐪","#8fb8de,#f0b45a 55%,#c9792b",
+"Glide over the golden dunes of Erg Chebbi on camelback while the Sahara sun paints the sky in fire.","Desliza sobre las dunas doradas del Erg Chebbi en camello mientras el sol del Sahara pinta el cielo de fuego.",
+"A camel trek is the classic Sahara experience. Led by local Berber guides, you ride through the soft dunes of Erg Chebbi at a gentle pace, with plenty of stops for photos.","Un paseo en camello es la experiencia clásica del Sahara. Guiado por bereberes locales, recorres las suaves dunas del Erg Chebbi a ritmo tranquilo, con paradas para fotos.",
+["Local Berber guide","Camels and gear","Tea in the dunes","Photo stops"],["Guía bereber local","Camellos y equipo","Té en las dunas","Paradas para fotos"]],
+["overnight","Overnight Camel Trek","Travesía nocturna en camello","Unforgettable","Inolvidable","⛺","#b9b3d6,#e29a4a 55%,#7a3a1f",
+"Ride into the dunes at sunset, sleep in a desert camp and wake up to the sunrise.","Cabalga hacia las dunas al atardecer, duerme en un campamento y despierta con el amanecer.",
+"Ride at sunset to a private desert camp. Enjoy a traditional dinner, Berber music around the fire and a night under a sky full of stars. Next morning, watch the sunrise from the dunes.","Cabalga al atardecer hasta un campamento privado. Disfruta de una cena tradicional, música bereber junto al fuego y una noche bajo un cielo lleno de estrellas. Por la mañana, contempla el amanecer desde las dunas.",
+["Camel ride in and out","Dinner and breakfast","Camp with bed and blankets","Berber music"],["Paseo en camello de ida y vuelta","Cena y desayuno","Campamento con cama y mantas","Música bereber"]],
+["sunrise","Camel Ride for Sunrise","Paseo en camello al amanecer","Early bird","Madrugador","🌅","#f6c28b,#f08a4b 55%,#b8651f",
+"Watch the desert wake up as the first light turns the dunes to gold.","Ve cómo despierta el desierto cuando la primera luz tiñe las dunas de oro.",
+"Start before dawn and ride to the top of the dunes just in time for the sunrise. A quiet, magical moment, ideal for photography.","Sal antes del alba y llega a lo alto de las dunas justo a tiempo para el amanecer. Un momento mágico y tranquilo, ideal para fotografía.",
+["Pick-up from your hotel","Camel and guide","Mint tea"],["Recogida en tu hotel","Camello y guía","Té de menta"]],
+["sunset","Camel Ride for Sunset","Paseo en camello al atardecer","Romantic","Romántico","🌇","#f3b36b,#d9602a 55%,#6b2a1f",
+"Ride the dunes as the sky turns orange, pink and purple.","Cabalga por las dunas mientras el cielo se vuelve naranja, rosa y morado.",
+"A relaxed late-afternoon ride through the dunes, ending at a viewpoint to enjoy the sunset. Perfect for couples and families.","Un paseo tranquilo al final de la tarde por las dunas, que termina en un mirador para disfrutar de la puesta de sol. Perfecto para parejas y familias.",
+["Camel and guide","Sunset viewpoint","Mint tea"],["Camello y guía","Mirador al atardecer","Té de menta"]],
+["4x4","4x4 Desert Tour","Tour 4x4 por el desierto","Adrenaline","Adrenalina","🚙","#b9b3d6,#e29a4a 55%,#b8651f",
+"Cross sweeping dunes, hidden oases and nomad villages in a powerful 4x4.","Cruza grandes dunas, oasis escondidos y pueblos nómadas en un potente 4x4.",
+"Explore the area around Merzouga with an expert driver: dunes, Khamlia village, nomad camps, the old mining area and more.","Explora los alrededores de Merzouga con un conductor experto: dunas, el pueblo de Khamlia, campamentos nómadas, la antigua zona minera y más.",
+["Private 4x4 with driver","Water on board","Stops at key spots"],["4x4 privado con conductor","Agua a bordo","Paradas en lugares clave"]],
+["quad","ATV Quad Biking Adventure","Aventura en quad","Adrenaline","Adrenalina","🏍️","#e0a96d,#c9792b 55%,#6b3a1f",
+"Feel the speed on a quad bike across the dunes and desert tracks.","Siente la velocidad en quad por las dunas y pistas del desierto.",
+"Ride a quad bike with a guide on a safe route across the desert. No experience needed, we give a short briefing before you start.","Conduce un quad con guía por una ruta segura en el desierto. No hace falta experiencia: damos una breve explicación antes de empezar.",
+["Quad and helmet","Guide","Safety briefing"],["Quad y casco","Guía","Explicación de seguridad"]],
+["buggy","Buggy Driving Experience","Experiencia en buggy","Fun","Diversión","🏎️","#9ec5e8,#e8a13a 55%,#b8651f",
+"Drive your own buggy over the dunes, fun for friends and groups.","Conduce tu propio buggy por las dunas, ideal para amigos y grupos.",
+"Feel the freedom of driving a buggy through the Sahara landscape, with a guide leading the way.","Siente la libertad de conducir un buggy por el paisaje del Sahara, con un guía que abre el camino.",
+["Buggy and helmet","Guide","Safety briefing"],["Buggy y casco","Guía","Explicación de seguridad"]],
+["horse","Horseback Riding Tour","Paseo a caballo","Relax","Relax","🐎","#a8c8e0,#e8b070 55%,#a8602a",
+"Explore the desert edge and palm groves at a calm pace on horseback.","Explora el borde del desierto y los palmerales a caballo y sin prisa.",
+"A relaxing ride for all levels through palm groves and desert tracks, with horses chosen to match your experience.","Un paseo relajante para todos los niveles por palmerales y pistas del desierto, con caballos adaptados a tu experiencia.",
+["Horse and guide","Helmet if requested"],["Caballo y guía","Casco si lo deseas"]],
+["stars","Stargazing Night","Noche de estrellas","Magic night","Noche mágica","🌌","#0b1d3d,#1c3a6b 60%,#3a2a5a",
+"Dinner, Berber music and a sky full of stars far from any light.","Cena, música bereber y un cielo lleno de estrellas lejos de toda luz.",
+"The Sahara has some of the clearest skies on Earth. Enjoy dinner at camp, music and a guided look at the stars.","El Sahara tiene algunos de los cielos más claros del mundo. Disfruta de la cena en el campamento, música y una observación guiada de las estrellas.",
+["Dinner at camp","Guide","Berber music"],["Cena en el campamento","Guía","Música bereber"]],
+["sandboard","Sandboarding in Erg Chebbi","Sandboard en Erg Chebbi","Fun","Diversión","🏂","#bcd4ec,#f0b45a 55%,#c9792b",
+"Slide down the tallest dunes on a board, fun for all ages.","Desliza por las dunas más altas sobre una tabla, divertido para todas las edades.",
+"Climb a big dune and slide down on a sandboard. Boards are provided and your guide shows you the basics.","Sube a una gran duna y baja deslizándote en una tabla. Las tablas están incluidas y tu guía te enseña lo básico.",
+["Sandboard","Guide","Water"],["Tabla de sandboard","Guía","Agua"]],
+["lake","Visit to Dayet Srij Lake","Visita al lago Dayet Srij","Nature","Naturaleza","🦩","#a6d0e6,#e8c070 55%,#9a6a2a",
+"A seasonal lake in the desert, home to flamingos and many birds.","Un lago estacional en el desierto, hogar de flamencos y muchas aves.",
+"When water is present, Dayet Srij is a great place for bird watching and photography near Merzouga.","Cuando hay agua, Dayet Srij es un gran lugar para observar aves y hacer fotos cerca de Merzouga.",
+["Transport","Guide"],["Transporte","Guía"]],
+["culture","Berber Culture &amp; Traditions","Cultura y tradiciones bereberes","Culture","Cultura","🥁","#d9b38c,#b8651f 55%,#5a2a1a",
+"Meet local families, hear Gnawa music and discover nomad life.","Conoce familias locales, escucha música gnawa y descubre la vida nómada.",
+"Visit a local village, share tea with a Berber family and learn about their traditions, crafts and music.","Visita un pueblo local, comparte té con una familia bereber y descubre sus tradiciones, artesanía y música.",
+["Local guide","Tea with a family","Music"],["Guía local","Té con una familia","Música"]],
+["cooking","Moroccan Cooking Class","Clase de cocina marroquí","Foodie","Gastronomía","🍲","#e8c080,#c1502e 55%,#6b2a1f",
+"Learn to cook tagine and other traditional dishes with a local family.","Aprende a cocinar tajín y otros platos tradicionales con una familia local.",
+"Cook and eat a traditional meal. You will prepare a tagine, learn about spices and share the table with your hosts.","Cocina y come un menú tradicional. Prepararás un tajín, aprenderás sobre especias y compartirás la mesa con tus anfitriones.",
+["Ingredients","Cooking with a host","Meal included"],["Ingredientes","Cocina con una anfitriona","Comida incluida"]]
+];
+var ah="";
+A.forEach(function(a){
+  ah+='<article class="apost"><div class="ap" style="background:linear-gradient(160deg,'+a[6]+')">'+sc(ak(a[0]))+'<b data-es="'+a[4]+'">'+a[3]+'</b></div><div class="ab"><h3 data-es="'+a[2]+'">'+a[1]+'</h3><p data-es="'+a[8]+'">'+a[7]+'</p><a class="rm" href="#activity-'+a[0]+'" data-es="Leer más →">Read more →</a></div></article>';
+});
+document.getElementById("activities-list").innerHTML=ah;
+function applyLang(root){
+  root.querySelectorAll("[data-es]").forEach(function(e){if(!e.dataset.en)e.dataset.en=e.innerHTML;e.innerHTML=tr(e)});
+}
+function showActivity(k){
+  var a=A.filter(function(x){return x[0]===k})[0];if(!a)return false;
+  var li=function(arr){return "<ul>"+arr.map(function(x){return "<li>"+x+"</li>"}).join("")+"</ul>"};
+  var li_es=function(arr){return "<ul>"+arr.map(function(x){return "<li>"+x+"</li>"}).join("")+"</ul>"};
+  document.getElementById("aph").style.background="linear-gradient(160deg,"+a[6]+")";
+  document.getElementById("aph").innerHTML='<a href="#activities-page" data-es="← Volver a actividades">← Back to activities</a>'+sc(ak(a[0]))+'<h1 data-es="'+a[2]+'">'+a[1]+'</h1>';
+  var msg=encodeURIComponent("Hello Moroccan Gateways, I'd like to book: "+a[1].replace("&amp;","&"));
+  var rel=A.filter(function(x){return x[0]!==k}).map(function(x){return '<a href="#activity-'+x[0]+'" data-es="'+x[2]+'">'+x[1]+'</a>'}).join("");
+  document.getElementById("apb").innerHTML='<div class="abox"><p data-es="'+a[8]+'">'+a[7]+'</p><p data-es="'+a[10]+'">'+a[9]+'</p><h2 data-es="Incluye">Includes</h2><div data-es="'+li_es(a[12]).replace(/"/g,"&quot;")+'">'+li(a[11])+'</div><a class="book" href="https://wa.me/212651725529?text='+msg+'" data-es="Reservar por WhatsApp →">Book on WhatsApp →</a></div><h2 style="color:inherit;font:800 1.2rem Georgia,serif;margin:26px 0 0" data-es="Otras actividades">More activities</h2><div class="arel">'+rel+'</div>';
+  applyLang(document.getElementById("activity-page"));
+  return true;
+}
+var cur="en",btn=document.getElementById("lang");
+document.querySelectorAll("[data-es]").forEach(function(e){e.dataset.en=e.innerHTML});
+document.querySelectorAll("[data-ph-es]").forEach(function(e){e.dataset.phEn=e.placeholder});
+var LL={en:"EN",es:"ES",fr:"FR"},lm=document.createElement("div");lm.id="lm";lm.hidden=true;lm.innerHTML='<button data-l="en">English</button><button data-l="es">Español</button><button data-l="fr">Français</button>';document.body.appendChild(lm);
+function setLang(l){cur=l;document.documentElement.lang=l;
+  document.querySelectorAll("[data-es]").forEach(function(e){if(!e.dataset.en)e.dataset.en=e.innerHTML;e.innerHTML=tr(e)});
+  document.querySelectorAll("[data-ph-es]").forEach(function(e){e.placeholder=l=="es"?e.dataset.phEs:e.dataset.phEn});
+  btn.textContent=LL[l]+" ▾";lm.hidden=true}
+btn.textContent="EN ▾";
+btn.onclick=function(ev){ev.stopPropagation();var r=btn.getBoundingClientRect();lm.style.top=(r.bottom+6)+"px";lm.style.right=Math.max(8,innerWidth-r.right)+"px";lm.hidden=!lm.hidden};
+lm.querySelectorAll("button").forEach(function(b){b.onclick=function(ev){ev.stopPropagation();setLang(b.dataset.l)}});
+document.addEventListener("click",function(){lm.hidden=true});
+var menu=document.getElementById("menu");
+document.getElementById("burger").onclick=function(){menu.classList.toggle("open")};
+menu.querySelectorAll("a").forEach(function(a){a.onclick=function(){menu.classList.remove("open")}});
+document.getElementById("hf").onsubmit=function(ev){
+  ev.preventDefault();
+  var t="Hello, I'm "+hn.value+" ("+he.value+"). Days: "+hd.value+". Travelling from: "+hs.value;
+  window.open("https://wa.me/212651725529?text="+encodeURIComponent(t),"_blank");
+};
+var io=new IntersectionObserver(function(es){es.forEach(function(x){
+  if(!x.isIntersecting)return;
+  var el=x.target,to=+el.dataset.to,t0=null;
+  function f(t){t0=t0||t;var p=Math.min((t-t0)/1200,1);el.textContent=Math.round(to*p);if(p<1)requestAnimationFrame(f)}
+  requestAnimationFrame(f);io.unobserve(el);
+})});
+document.querySelectorAll("[data-to]").forEach(function(e){io.observe(e)});
+var ro=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){x.target.classList.add("in");ro.unobserve(x.target)}})},{threshold:.12});
+document.querySelectorAll(".tcard,.acard,.step,.card,.pill").forEach(function(e,i){e.classList.add("rv");e.style.transitionDelay=(i%3)*90+"ms";ro.observe(e)});
+document.querySelectorAll(".tcard,.acard").forEach(function(c){
+  c.addEventListener("pointermove",function(e){
+    var r=c.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;
+    c.style.transition="transform .1s";
+    c.style.transform="perspective(700px) rotateY("+x*10+"deg) rotateX("+(-y*10)+"deg)";
+  });
+  c.addEventListener("pointerleave",function(){c.style.transition="";c.style.transform=""});
+});
+for(var k=0;k<16;k++){
+  var p=document.createElement("span"),s=3+Math.random()*5;
+  p.className="dust";
+  p.style.cssText="left:"+Math.random()*100+"%;width:"+s+"px;height:"+s+"px;animation-duration:"+(6+Math.random()*8)+"s;animation-delay:-"+Math.random()*10+"s";
+  document.getElementById("home").appendChild(p);
+}
+var hb=document.querySelector(".hbox"),bar=document.getElementById("bar");
+window.addEventListener("scroll",function(){
+  var h=document.documentElement,y=window.scrollY;
+  bar.style.width=(y/(h.scrollHeight-h.clientHeight)*100)+"%";
+  hb.style.transform="translateY("+Math.min(y,500)*.18+"px)";
+});
+function ctext(){return "Hello Moroccan Gateways, I'm "+cn.value+(cph.value?" ("+cph.value+")":"")+". Interested in: "+ct.value+". Dates: "+cdt.value+". Travellers: "+cg.value+". "+cm.value}
+document.getElementById("cform").onsubmit=function(ev){ev.preventDefault();window.open("https://wa.me/212651725529?text="+encodeURIComponent(ctext()),"_blank")};
+document.getElementById("cmail").onclick=function(){location.href="mailto:moroccangateways@gmail.com?subject="+encodeURIComponent("Trip enquiry")+"&body="+encodeURIComponent(ctext())};
+document.querySelectorAll(".ci,.faq details").forEach(function(e,i){e.classList.add("rv");e.style.transitionDelay=(i%4)*90+"ms";ro.observe(e)});
+function route(){
+  var h=location.hash,id={"#contact-page":"cpage","#custom-page":"cupage","#activities-page":"activities-page","#about-page":"about-page"}[h];
+  if(h.indexOf("#activity-")===0&&showActivity(h.slice(10)))id="activity-page";
+  if(h.indexOf("#city-")===0&&showCity(h.slice(6)))id="city-page";
+  if(h.indexOf("#trip-")===0&&showTrip(+h.slice(6)))id="activity-page";
+  if(h.indexOf("#tour-")===0&&showTour(h.slice(6)))id="activity-page";
+  document.getElementById("hp").hidden=!!id;
+  ["cpage","cupage","activity-page","activities-page","about-page","city-page"].forEach(function(x){document.getElementById(x).hidden=x!==id});
+  if(id){window.scrollTo(0,0);if(id=="about-page"){var ap=document.getElementById(id);if(!ap.dataset.fx){ap.dataset.fx=1;fx(ap)}}}
+  else if(h.length>1){var t=document.getElementById(h.slice(1));if(t)t.scrollIntoView()}
+}
+window.addEventListener("hashchange",function(){route();par()});
+route();par();
+function tilt(sel){document.querySelectorAll(sel).forEach(function(c){
+  c.addEventListener("pointermove",function(e){var r=c.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;c.style.transition="transform .1s";c.style.transform="perspective(700px) rotateY("+x*12+"deg) rotateX("+(-y*12)+"deg)"});
+  c.addEventListener("pointerleave",function(){c.style.transition="";c.style.transform=""});
+})}
+tilt(".kcard,.kroute");
+document.querySelectorAll(".kcard,.kroute").forEach(function(e,i){e.classList.add("rv");e.style.transitionDelay=(i%3)*90+"ms";ro.observe(e)});
+kstart.onclick=function(){kform.scrollIntoView({behavior:"smooth"})};
+document.querySelectorAll(".kroute button").forEach(function(b){b.onclick=function(){
+  km.value="I'd like something like: "+b.dataset.v+".";
+  kform.scrollIntoView({behavior:"smooth"});km.focus({preventScroll:true});
+}});
+function kdata(){
+  return "Hello Moroccan Gateways, I'd like a custom tour.\nName: "+kn.value+"\nEmail: "+ke.value+(kph.value?"\nWhatsApp: "+kph.value:"")+"\nStarting from: "+kc.value+"\nDates: "+(kdt.value||"Flexible")+"\nTravellers: "+kp.value+"\nLength: "+kl.value+"\nComfort: "+kcf.value+"\nTrip idea: "+km.value;
+}
+kform.onsubmit=function(ev){ev.preventDefault();window.open("https://wa.me/212651725529?text="+encodeURIComponent(kdata()),"_blank")};
+kmail.onclick=function(){location.href="mailto:moroccangateways@gmail.com?subject="+encodeURIComponent("Custom tour request")+"&body="+encodeURIComponent(kdata())};
+
+(function(){var h=document.querySelector("header");if(!h)return;function u(){h.classList.toggle("sc",(window.scrollY||document.documentElement.scrollTop)>40)}addEventListener("scroll",u,{passive:true});u()})();
