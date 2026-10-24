@@ -509,3 +509,16 @@ header #bar{background:rgba(255,255,255,.3)}
 }
 .bk{background:linear-gradient(180deg,rgba(18,8,32,.66),rgba(48,18,8,.58)),url(images/book-group.jpg) 50% 58%/cover no-repeat!important;padding-bottom:110px!important}
 .bk .bks,.bk .stars,.bk .caravan{display:none!important}
+/* blog */
+.bl .apost small{display:block;color:#a0623c;font-weight:700;letter-spacing:.08em;text-transform:uppercase;font-size:.72rem;margin-bottom:6px}
+.bl .apost h3{text-transform:none;font-size:1.35rem}
+.bpc .ap{height:200px;display:block;background-size:cover;background-position:50% 55%}
+.bph{position:relative;overflow:hidden;padding:0!important;background:#2a1306!important}
+.bph .ph{position:absolute;inset:0;opacity:.55}
+.bph .bhi{position:relative;padding:30px 20px 70px}
+.bpost .lead{font-size:1.12rem;color:#6b3a1f;font-weight:600}
+.bpost h2{font:800 1.35rem Georgia,serif}
+.bcta{margin-top:26px;background:#fbf0e4;border-radius:18px;padding:20px;text-align:center}
+.bcta h3{font:800 1.3rem Georgia,serif;margin:0 0 6px}
+.bcta .book{display:inline-block;text-decoration:none}
+.bmore{font:800 1.5rem Georgia,serif;color:#7a2e1a;margin:34px 0 14px!important}
