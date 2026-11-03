@@ -522,3 +522,10 @@ header #bar{background:rgba(255,255,255,.3)}
 .bcta h3{font:800 1.3rem Georgia,serif;margin:0 0 6px}
 .bcta .book{display:inline-block;text-decoration:none}
 .bmore{font:800 1.5rem Georgia,serif;color:#7a2e1a;margin:34px 0 14px!important}
+
+/* brand logo */
+header .logo{display:inline-flex;align-items:center;justify-content:center;gap:10px;text-decoration:none}
+header .logo .lgm{height:46px;width:46px;display:block;filter:drop-shadow(0 0 .7px #fff) drop-shadow(0 0 .7px #fff) drop-shadow(0 1px 4px rgba(120,40,0,.35))}
+@media(max-width:560px){header .logo{gap:7px;font-size:13px}header .logo .lgm{height:40px;width:40px}}
+.fbrand .flg{width:220px;max-width:100%;height:auto;display:block}
+
