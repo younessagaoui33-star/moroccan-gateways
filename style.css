@@ -529,3 +529,9 @@ header .logo .lgm{height:46px;width:46px;display:block;filter:drop-shadow(0 0 .7
 @media(max-width:560px){header .logo{gap:7px;font-size:13px}header .logo .lgm{height:40px;width:40px}}
 .fbrand .flg{width:220px;max-width:100%;height:auto;display:block}
 
+
+/* vivid red-orange header */
+.topc{background:#e63a1b!important}
+header{background:linear-gradient(180deg,#e63a1b,#ea4d1c)!important}
+header.sc{background:rgba(230,58,27,.8)!important}
+header #lang{color:#c52f10!important}
